@@ -1,0 +1,16 @@
+Eric L, Truc D, Gian T
+APCS1 pd4
+HW #57: ...and Keeping It Pointed Up
+2017-01-10
+
+
+1. Build Woo, the start menu
+2. Build individual games to functionality
+	a. Bingo
+	b. Blackjack
+	c. Modified slots
+3. Link the games with the start menu
+4. Modify the difficulties
+5. Build AI
+6. Make the game pretty
+7  Expand number of games
