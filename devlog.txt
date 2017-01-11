@@ -10,7 +10,7 @@ Team Get
 Eric L
 Truc D
 Gian T
-pd <pd#>
+pd <4>
 ---------------------
 Do Ya Feel Lucky? 
 
@@ -30,10 +30,12 @@ Flesh out each category whenever necessary, appropriate.
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - Built the first bot for blackjack! (Eric)
+- Fixed issues with cs1 (Eric/Truc)
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - LOW PRIORITY - If you enter more than one word for the name than it'll error and skip the amount of money being entered (Eric)
+- HIGH PRIORITY - Implementing difficulty into dice (Truc)
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -51,9 +53,10 @@ LESSONS LEARNED
 
 
 
-2016-01-11
+2017-01-11
 --------------------------------------------------------------
 Eric :: Added thread.sleep and accompanying helper function for Woo.java. Built the easy bot for blackjack. 
-Truc :: Finished up dice functionality and connected dice with the driver.
+Truc :: Finished up dice functionality and connected dice with the driver and interface.
+	Set up Slots.
 Gian :: <Thing member did.>
 ==============================================================
