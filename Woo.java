@@ -121,7 +121,7 @@ public class Woo{
 	    System.out.println("Please try again!");
 	    selection();
 	}
-	if (select!= 1) {
+	if (select!= 1 || select != 2) {
 	    System.out.println("Invalid input");
 	    selection();
 	    return;
@@ -133,7 +133,7 @@ public class Woo{
 	}
 	if (select == 2){
 	    bet();
-	    dice game2 = new dice(money,bet);
+	    Dice game2 = new Dice(money,bet);
 	    money+=game2.play();
 	}
 
