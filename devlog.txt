@@ -1,0 +1,58 @@
+ ______   ______   __   __   __       ______   _______     
+/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
+\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__  
+ \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\ 
+  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/ 
+   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
+    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
+==============================================================
+Team Get
+Eric L
+Truc D
+Gian T
+pd <pd#>
+---------------------
+Do Ya Feel Lucky? 
+
+devlog--
+Use keyboard shortcut to jump to end,
+ replicate entry template,
+ modify appropriately.
+
+zone of reflection--
+Flesh out each category whenever necessary, appropriate.
+ Need not be fully filled in until end of project,
+ but best done as you go along.
+
+
+/////////// Zone of Reflection \\\\\\\\\\\
+------------------------------------------
+OBSTACLES OVERCOME
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Built the first bot for blackjack! (Eric)
+
+UNRESOLVED ISSUES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- LOW PRIORITY - If you enter more than one word for the name than it'll error and skip the amount of money being entered (Eric)
+
+COOL STUFF LEARNED
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- try/catch a Thread.sleep(long) allows for text to be printed at a timed manner (Eric)
+
+MID-DEVELOPMENT DESIGN CHANGES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Implemented the new interface "casinorules.java" to streamline connecting games with the driver (Eric) 
+
+LESSONS LEARNED
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- ArrayList is far better than arrays! When in doubt use ArrayList. (Eric)
+||||||||||||||||||||||||||||||||||||||||||
+
+
+
+2016-01-11
+--------------------------------------------------------------
+Eric :: Added thread.sleep and accompanying helper function for Woo.java. Built the easy bot for blackjack. 
+Truc :: Finished up dice functionality and connected dice with the driver.
+Gian :: <Thing member did.>
+==============================================================
