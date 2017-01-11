@@ -59,18 +59,21 @@ public class Dice implements casinorules{
 	check();
 	if (win){
 	    System.out.println("Congrats you won!");
-	    money += bet;
+	    //money += bet;
+	    bet *= 2;
 	}
 	else{
 	    System.out.println("Better luck next time buddy");
-	    money -= bet;
+	    //money -= bet;
+	    bet = 0 - bet;
 	}
-	return money;
+	return bet;
     }
 
     public void go(){
 	start();
 	play();
+    }
 
     public static void main(String[] args){
 	Dice mike = new Dice(800, 40);
