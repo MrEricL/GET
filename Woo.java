@@ -109,15 +109,8 @@ public class Woo{
 	int select=0;
 	System.out.println("You have $" + money);
 	System.out.println("\nWhat game would you like to play?\n1. Blackjacks\n2. Dice");
-	try{
-	    
-	    select= Keyboard.readInt();
-	}
-	catch(Exception e){
-	    System.out.println("Please try again!");
-	    selection();
-	}
-	if (select!= 1 || select != 2) {
+	select= Keyboard.readInt();
+	if (select!= 1 &&  select != 2) {
 	    System.out.println("Invalid input");
 	    selection();
 	    return;
@@ -145,18 +138,19 @@ public class Woo{
 	    }
 	}
 
-	
-
-
-
-
+       
 	//---------------------------------------------------------------------------------------------------------------
 
+    //INSTRUCTIONS
+    public void blackjackinstruct(){
+	System.out.println ("Blackjack is a classic casino card game.");
+	    System.out.println ("Your goal to to get a total of 21");
+	System.out.println ("Suits don't matter and JACK/QUEEN/KING/ACE are all worth 10");
+	    System.out.println ("The game will stop when you don't want to get hit or when your hand is too large");
+    }
 
     
-
-    
-
+	//---------------------------------------------------------------------------------------------------------------
 
     public static void main (String[] args){
 	Woo play = new Woo();

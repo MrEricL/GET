@@ -46,6 +46,7 @@ MID-DEVELOPMENT DESIGN CHANGES
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - ArrayList is far better than arrays! When in doubt use ArrayList. (Eric)
+- For ArrayList don't create it as just ArrayList name, since it'll think each thing is an object. 
 ||||||||||||||||||||||||||||||||||||||||||
 
 

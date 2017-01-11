@@ -312,24 +312,38 @@ public class blackjack implements casinorules {
 
 
     public void closest (ArrayList<Integer> x){
+	ArrayList<Integer> winners = new ArrayList<Integer>();
 	int smallest=100;
-	int index=0;
-	int number=0;
+	ArrayList<Integer>  index= new ArrayList<Integer>();
+	ArrayList<Integer> number= new ArrayList <Integer>();
 	int temp;
 	for (int i=0; i< x.size(); i++){
-	    temp=Math.abs(21-x.get(i));
-	    if (temp < smallest) {
-		smallest=temp;
-		index=i;
-		number=x.get(i);
+	    temp=x.get(i);
+	    if (temp < 0 && temp> 21);
+	    else smallest=temp;   
+	}
+	for (int f=0; f<x.size(); f++){
+	    temp=x.get(f);
+	    if (temp==smallest){
+		index.add(f);
+		number .add(temp);
 	    }
 	}
 
-	System.out.println("The winner is "+ listOfPeeps[index] + ", with a sum of "+ number);
-	if (index==0) win=true;
+	//	System.out.println("The winner is "+ listOfPeeps[index] + ", with a sum of "+ number);
+        if (index.size() ==1){
+	    System.out.println("The winner is "+ listOfPeeps[index.get(0)] + ", with a sum of "+ number.get(0));	    
+	}
+	else{
+	    System.out.println("The winners are ");	    
+	    for (int s=0; s<index.size(); s++){
+		System.out.println( listOfPeeps[index.get(s)] +" with  "+ number.get(s));
+	    }
+	}
+	
+	if (index.get(0)==0) win=true;
 	else{
 	    System.out.println ("You are not a winner. You lost your bet of $"+bet+".");
-
 	}
 
     }
@@ -338,14 +352,13 @@ public class blackjack implements casinorules {
 
 
     // THE BOTS________________________________________________________________
-
+    /*
     //EASY
-    /*    public void ezbot(){
+    public void ezbot(){
 	    if (jackDraw > 0){
 		    jack.add(
-    }
+		    }*/
 
-    */
 
     //MEDIUM
 
