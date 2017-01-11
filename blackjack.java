@@ -340,7 +340,10 @@ public class blackjack implements casinorules {
     // THE BOTS________________________________________________________________
 
     //EASY
-
+    public void ezbot(){
+	    if (jackDraw > 0){
+		    jack.add(
+    }
 
 
 
