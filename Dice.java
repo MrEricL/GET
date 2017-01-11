@@ -55,4 +55,9 @@ public class Dice{
 	return money;
     }
 
+    public static void main(String[] args){
+	Dice mike = new Dice(800, 40);
+	mike.play();
+    }
+
 }
