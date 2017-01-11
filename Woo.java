@@ -112,7 +112,7 @@ public class Woo{
     public void selection(){
 	int select=0;
 	System.out.println("You have $" + money);
-	System.out.println("\nWhat game would you like to play?\n1. Blackjacks");
+	System.out.println("\nWhat game would you like to play?\n1. Blackjacks\n2. Dice");
 	try{
 	    
 	    select= Keyboard.readInt();
@@ -131,7 +131,11 @@ public class Woo{
 	    blackjack game = new blackjack(difficulty, money,bet);
 	    money+=game.play();
 	}
-	
+	if (select == 2){
+	    bet();
+	    dice game2 = new dice(money,bet);
+	    money+=game2.play();
+	}
 
     }
 
