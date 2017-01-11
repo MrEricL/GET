@@ -9,7 +9,7 @@ public class Dice{
     private double money, bet;
     private boolean win = false;
 
-    public Dice(int _money, int _bet){
+    public Dice(double _money, double _bet){
 	for (int index = 0; index < 6; index += 1){
 	    Dice1[index] = Dice[index];
 	    Dice2[index] = Dice[index];
@@ -36,13 +36,23 @@ public class Dice{
 	System.out.println("Welcome to the Dice game!");
 	System.out.print("Guess what dice 1 will roll: ");
 	guess1 = Keyboard.readInt();
+	while  (guess1 > 6 || guess1 < 0) {
+	    System.out.println ("Invalid input, try again!");
+	    System.out.print("Guess what dice 1 will roll: ");
+	    guess1 = Keyboard.readInt();
+	}
 	System.out.print("Guess what dice 2 will roll: ");
 	guess2 = Keyboard.readInt();
+	while  (guess2 > 6 || guess2 < 0) {
+	    System.out.println ("Invalid input, try again!");
+	    System.out.print("Guess what dice 2 will roll: ");
+	    guess2 = Keyboard.readInt();
+	}
 	System.out.println("Rolling..... ");
 	roll();
 	System.out.println("Here are your results : ");
-	System.out.println("/tDice 1 : " + face1);
-	System.out.println("/tDice 2 : " + face2);
+	System.out.println("\tDice 1 : " + face1);
+	System.out.println("\tDice 2 : " + face2);
 	check();
 	if (win){
 	    System.out.println("Congrats you won!");
