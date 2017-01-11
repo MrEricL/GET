@@ -1,6 +1,6 @@
 import cs1.Keyboard;
 
-public class Dice{
+public class Dice implements casinorules{
 
     private final int[] Dice = {1,2,3,4,5,6};
     private int[] Dice1 = new int[6];
@@ -32,7 +32,7 @@ public class Dice{
 	}
     }
 
-    public double play(){
+    public void start(){
 	System.out.println("Welcome to the Dice game!");
 	System.out.print("Guess what dice 1 will roll: ");
 	guess1 = Keyboard.readInt();
@@ -48,6 +48,9 @@ public class Dice{
 	    System.out.print("Guess what dice 2 will roll: ");
 	    guess2 = Keyboard.readInt();
 	}
+    }
+
+    public double play(){
 	System.out.println("Rolling..... ");
 	roll();
 	System.out.println("Here are your results : ");
@@ -65,9 +68,13 @@ public class Dice{
 	return money;
     }
 
+    public void go(){
+	start();
+	play();
+
     public static void main(String[] args){
 	Dice mike = new Dice(800, 40);
-	mike.play();
+	mike.go();
     }
 
 }
