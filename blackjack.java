@@ -5,7 +5,7 @@ import java.lang.*;
 
 
 public class blackjack implements casinorules {
-    public ArrayList<String> deck= new ArrayList<String>(); //want to be 312
+    public ArrayList<String> deck= new ArrayList<String>(); //want to be 312 or 52
     // the bots
     public String[] listOfPeeps= {"you", "Jack", "Lois", "Will", "Robin","Emily"};
     public ArrayList<String> jack= new ArrayList<String>();
@@ -49,7 +49,10 @@ public class blackjack implements casinorules {
     }
     
     public double play(){
-	start();
+	if (difficulty==1) start2();
+	else start();
+	System.out.println(deck);
+	System.out.println(deck.size());
 	deal();
 	go();
 	if (win){
@@ -116,11 +119,67 @@ public class blackjack implements casinorules {
 	}
 
     }
+    //harder
+
+    public void start2(){
+	int x=2;
+	int y=0;
+	while (x < 11){
+	    for (int i=0; i < 4; i++){		
+		if (i%4.0 == 0) deck.add(y+i,""+x+"♦");
+		if (i%4.0==1) deck.add(y+i,""+x+"♣");
+		if (i%4.0==2) deck.add(y+i,""+x+"♥");
+		if (i%4.0==3) deck.add( y+i, ""+x+"♠");
+	    }
+	    x+=1;
+	    y+=4;
+	}
+	while (x<15){
+	    if (x==11){
+		for (int i=0; i < 4; i++){
+		    if (i%4.0 == 0) deck.add(y+i,"JACK♦");
+		    if (i%4.0==1) deck.add(y+i,"JACK♣");
+		    if (i%4.0==2) deck.add(y+i,"JACK♥");
+		    if (i%4.0==3) deck.add( y+i, "JACK♠");
+		}	
+	    }
+	    if (x==12){
+		for (int i=0; i < 4; i++){
+		    if (i%4.0 == 0) deck.add(y+i,"QUEEN♦");
+		    if (i%4.0==1) deck.add(y+i,"QUEEN♣");
+		    if (i%4.0==2) deck.add(y+i,"QUEEN♥");
+		    if (i%4.0==3) deck.add( y+i, "QUEEN♠");
+		}	
+	    }
+	    if (x==13){
+		for (int i=0; i < 4; i++){
+		    if (i%4.0 == 0) deck.add(y+i,"KING♦");
+		    if (i%4.0==1) deck.add(y+i,"KING♣");
+		    if (i%4.0==2) deck.add(y+i,"KING♥");
+		    if (i%4.0==3) deck.add( y+i, "KING♠");
+		}	
+	    }	    
+
+	    if (x==14){
+		for (int i=0; i < 4; i++){
+		    if (i%4.0 == 0) deck.add(y+i,"ACE♦");
+		    if (i%4.0==1) deck.add(y+i,"ACE♣");
+		    if (i%4.0==2) deck.add(y+i,"ACE♥");
+		    if (i%4.0==3) deck.add( y+i, "ACE♠");
+		}	
+	    }
+	    x+=1;
+	    y+=4;
+	}
+    }
+
+
+
     //deals all the cards out for each player
 
     public void deal(){
 	int x=0;
-	int cardsize = 311;
+	int cardsize = deck.size();
 	//for the players
 	for (int i=0; i < 2; i++){
 	    x=(int)(Math.random()*cardsize);
@@ -266,6 +325,7 @@ public class blackjack implements casinorules {
 	    if (!botdone){
 
 		if (difficulty==1) ezbot();
+		if (difficulty==2) medbot();
 		if (difficulty==3)hardbot();
 
 	    }
@@ -414,7 +474,90 @@ public class blackjack implements casinorules {
     }
 
     //MEDIUM
+    public void medbot(){
+	int deckAvg=(int)check(deck)/deck.size();
+	int total=0;
+	ArrayList<Boolean>  bol = new ArrayList<Boolean>(); 	
+	ArrayList<String> hand = new ArrayList <String>();
 
+	//jack
+	for (int i=0; i < jack.size(); i++){
+	    if (i!=1) hand.add(jack.get(i));
+	}
+        total= check(hand);
+	if (jack.size() < 4 || total<19){
+	    if (total+(deckAvg*2) <= 21){
+		System.out.print("Jack decided to get hit " );
+		editPrint(jack);
+	    }
+	    bol.add(false);
+	}
+	else bol.add(true);
+	hand.clear();
+	//lois
+	for (int i=0; i < lois.size(); i++){
+	    if (i!=1) hand.add(lois.get(i));
+	}
+        total= check(hand);
+	if (lois.size() < 4 || total<19){
+	    if (total+(deckAvg*2) <= 21){
+		System.out.print("Lois decided to get hit " );
+		editPrint(lois);
+	    }
+	    bol.add(false);
+	}
+	else bol.add(true);
+	hand.clear();
+	//will
+	for (int i=0; i < will.size(); i++){
+	    if (i!=1) hand.add(will.get(i));
+	}
+        total= check(hand);
+	if (will.size() < 4 || total<19){
+	    if (total+(deckAvg*2) <= 21){
+		System.out.print("Will decided to get hit " );
+		editPrint(will);
+	    }
+	    bol.add(false);
+	}
+	else bol.add(true);
+	hand.clear();
+	//robin
+	for (int i=0; i < robin.size(); i++){
+	    if (i!=1) hand.add(robin.get(i));
+	}
+        total= check(hand);
+	if (robin.size() < 4 || total<19){
+	    if (total+(deckAvg*2) <= 21){
+		System.out.print("Robin decided to get hit " );		
+		editPrint(robin);
+	    }
+	    bol.add(false);
+	}
+	else bol.add(true);
+	//emily
+	for (int i=0; i < emily.size(); i++){
+	    if (i!=1) hand.add(emily.get(i));
+	}
+        total= check(hand);
+	if (emily.size() < 4 || total<19){
+	    if (total+(deckAvg*2) <= 21){
+		System.out.print("Emily decided to get hit " );
+		editPrint(emily);
+	    }
+	    bol.add(false);
+	}
+	else bol.add(true);
+	hand.clear();
+	//checker
+	    for (int j=0; j< bol.size(); j++){
+		if (!bol.get(j)){		    
+		    return;
+		}
+	    }
+	    botdone=true;
+	
+    }
 
 
     //HARD
