@@ -20,7 +20,9 @@ public class Woo{
 	while (money>0 || money >= 1000000){
 	    selection();
 	}
-	System.out.println("Your game has ended");
+	System.out.println("You have lost your life savings. " +
+			   "You can no longer afford treatment.\n " +
+			   "Your game has ended");
 	
     }
 

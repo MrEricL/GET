@@ -51,6 +51,12 @@ public class Dice implements casinorules{
     }
 
     public double play(){
+	start();
+	go();
+	return bet;
+    }
+
+    public void go(){
 	System.out.println("Rolling..... ");
 	roll();
 	System.out.println("Here are your results : ");
@@ -67,12 +73,7 @@ public class Dice implements casinorules{
 	    //money -= bet;
 	    bet = 0 - bet;
 	}
-	return bet;
-    }
 
-    public void go(){
-	start();
-	play();
     }
 
     public static void main(String[] args){
