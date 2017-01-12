@@ -112,7 +112,8 @@ public class Woo{
 	int blackjackPlay=0; //adds the instructions
 	int dicePlay=0;
 	System.out.println("You have $" + money);
-	System.out.println("\nWhat game would you like to play?\n1. Blackjacks\n2. Dice");
+	System.out.println("\nWhat game would you like to play?\n1. Blackjacks\n2. Dice" +
+			   "\n3. Slots");
 	select= Keyboard.readInt();
 	if (select==1){
 	    if (blackjackPlay==0){
@@ -133,6 +134,11 @@ public class Woo{
 	    bet();
 	    Dice game2 = new Dice(difficulty,money,bet);
 	    money += game2.play();
+	}
+	if (select == 3){
+	    bet();
+	    Slots game3 = new Slots(difficulty, money, bet);
+	    money += game3.play();
 	}
         else{
 	    System.out.println("Invalid input");
