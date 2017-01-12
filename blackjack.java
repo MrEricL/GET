@@ -266,6 +266,7 @@ public class blackjack implements casinorules {
 	    if (!botdone){
 
 		if (difficulty==1) ezbot();
+		if (difficulty==2) medbot();
 		if (difficulty==3)hardbot();
 
 	    }
@@ -418,7 +419,7 @@ public class blackjack implements casinorules {
 	int deckAvg=(int)check(deck)/deck.size();
 	int total=0;
 	ArrayList<Boolean>  bol = new ArrayList<Boolean>(); 	
-	ArrayList<Integer> hand = new ArrayList <Integer>();
+	ArrayList<String> hand = new ArrayList <String>();
 
 	//jack
 	for (int i=0; i < jack.size(); i++){
@@ -426,7 +427,10 @@ public class blackjack implements casinorules {
 	}
         total= check(hand);
 	if (jack.size() < 4 || total<19){
-	    if (total+(deckAvg*2) <= 21) editPrint(jack);
+	    if (total+(deckAvg*2) <= 21){
+		System.out.print("Jack decided to get hit " );
+		editPrint(jack);
+	    }
 	    bol.add(false);
 	}
 	else bol.add(true);
@@ -437,7 +441,10 @@ public class blackjack implements casinorules {
 	}
         total= check(hand);
 	if (lois.size() < 4 || total<19){
-	    if (total+(deckAvg*2) <= 21) editPrint(lois);
+	    if (total+(deckAvg*2) <= 21){
+		System.out.print("Lois decided to get hit " );
+		editPrint(lois);
+	    }
 	    bol.add(false);
 	}
 	else bol.add(true);
@@ -448,7 +455,10 @@ public class blackjack implements casinorules {
 	}
         total= check(hand);
 	if (will.size() < 4 || total<19){
-	    if (total+(deckAvg*2) <= 21) editPrint(will);
+	    if (total+(deckAvg*2) <= 21){
+		System.out.print("Will decided to get hit " );
+		editPrint(will);
+	    }
 	    bol.add(false);
 	}
 	else bol.add(true);
@@ -459,7 +469,10 @@ public class blackjack implements casinorules {
 	}
         total= check(hand);
 	if (robin.size() < 4 || total<19){
-	    if (total+(deckAvg*2) <= 21) editPrint(robin);
+	    if (total+(deckAvg*2) <= 21){
+		System.out.print("Robin decided to get hit " );		
+		editPrint(robin);
+	    }
 	    bol.add(false);
 	}
 	else bol.add(true);
@@ -469,7 +482,10 @@ public class blackjack implements casinorules {
 	}
         total= check(hand);
 	if (emily.size() < 4 || total<19){
-	    if (total+(deckAvg*2) <= 21) editPrint(emily);
+	    if (total+(deckAvg*2) <= 21){
+		System.out.print("Emily decided to get hit " );
+		editPrint(emily);
+	    }
 	    bol.add(false);
 	}
 	else bol.add(true);
