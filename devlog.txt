@@ -25,6 +25,7 @@ UNRESOLVED ISSUES
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - Implemented the new interface "casinorules.java" to streamline connecting games with the driver. (Eric) 
+- Instead of poker which would take too long to perfect, I am coding war first. (Eric)
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -64,6 +65,7 @@ Eric :: Completed the medium bot for blackjack.
 	Added the ability to change your difficulty mid-game.	
 	Fixed blackjack for easy mode.
 	Completely finished blackjack. 
+	Added war.java and completed 60% of it, needs to finish bots and difficulty and what happens during war.
 Truc :: 
 Gian ::
 ==============================================================
