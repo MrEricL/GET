@@ -1,5 +1,7 @@
+import java.util.ArrayList;
 import cs1.Keyboard;
-public class war implments casinorules{
+
+public class war implements casinorules{
 
     public ArrayList<String> deck= new ArrayList<String>();   
     //background stuff
@@ -23,6 +25,8 @@ public class war implments casinorules{
 
     public double  play(){
 	start();
+	if (difficulty==1) startez();
+	else starthard();
 	go();
 	return winnings;	
     }
@@ -96,11 +100,9 @@ public class war implments casinorules{
 	    x+=1;
 	    y+=4;
 	}
-
-
     }
 
-    public starthard(){
+    public void starthard(){
 	int x=2;
 	int y=0;
 
@@ -140,7 +142,6 @@ public class war implments casinorules{
 		    if (i%4.0==3) deck.add( y+i, "KING♠");
 		}	
 	    }	    
-
 	    if (x==14){
 		for (int i=0; i < 24; i++){
 		    if (i%4.0 == 0) deck.add(y+i,"ACE♦");
@@ -153,16 +154,17 @@ public class war implments casinorules{
 	    y+=24;
 	}
     }
-
     //_______________________________________________________________
 
     public void go(){
+	int val;
 	while(turns>0){
-	    if (deal() ==1){
+	    val=deal();
+	    if (val ==1){
 		System.out.println ("You won! You have gained your bet!");
 		winnings+=bet;
 	    }
-	    else if (deal() == -1){
+	    else if (val == -1){
 		System.out.println ("You lost! You have lost your bet!");
 		winnings-=bet;
 	    }
@@ -172,33 +174,33 @@ public class war implments casinorules{
 	    }
 	    turns--;
 	}
-
-
     }
 
-
     public int deal(){
+	System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
 	int x=(int)(Math.random()*deck.size());
 	String a= deck.get(x); //player
-	System.out.println("You're card is " + a);
+	System.out.println("Your card is " + a);
+	deck.remove(x);
 
 	x=(int)(Math.random()*deck.size());
 	String b= deck.get(x);//bot
-	System.out.println("You're card is " + b);
+	System.out.println("Your opponent's card is " + b);
+	deck.remove(x);
 
-	return comparison(a,b);
+	return comp(a,b);
 
     }
 
-    public int comparison(String a, String b){
-	int a1;
-	int b1;
-	int results;
+    public int comp(String a, String b){
+	int a1=0;
+	int b1=0;
+	int result=0;
 
-	tempa= a.substring(0,1);
-	finala=a.substring(0,a.length()-1);
-	tempb=b.substring(0,1);
-	finalb=b.substring(0,b.length()-1);	
+	String tempa= a.substring(0,1);
+	String finala=a.substring(0,a.length()-1);
+	String tempb=b.substring(0,1);
+	String finalb=b.substring(0,b.length()-1);	
 
 	if (tempa.equals("J")) a1+=11;
 	else if (tempa.equals("Q")) a1+=12;
@@ -209,10 +211,10 @@ public class war implments casinorules{
 	    a1+=result;
 	}
 	
-	if (tempa.equals("J")) b1+=11;
-	else if (tempa.equals("Q")) b1+=12;
-	else if (tempa.equals("K")) b1+=13;
-	else if (tempa.equals("A")) b1+=14;
+	if (tempb.equals("J")) b1+=11;
+	else if (tempb.equals("Q")) b1+=12;
+	else if (tempb.equals("K")) b1+=13;
+	else if (tempb.equals("A")) b1+=14;
 	else{
 	    result=Integer.parseInt(finalb);
 	    b1+=result;
@@ -228,7 +230,7 @@ public class war implments casinorules{
     public void prepwar(){
 	int want;
 	System.out.println("The values are equal! What would you like to do?");
-	System.out.println("1.Bet on winning\n2.Bet on tie\n3. Surrender");
+	System.out.println("1.Bet on winning\n2.Bet on tie\n3.Surrender");
 	try{
 	    want=Keyboard.readInt();
 	    if (want==3){
@@ -240,21 +242,111 @@ public class war implments casinorules{
 	}
 	catch(Exception e){
 	    System.out.println("Try again! You can fight or you can run! Nothing else!");
-	    war();
+	    prepwar();
+	    return;
+	}
+    }
+
+    public void war(){
+	int val=deal();
+	int x;
+	String z;
+	for (int y=0; y< 3; y++){
+	    x=(int)(Math.random()*deck.size());
+	    z= deck.get(x);
+	    System.out.println("The dealer has discarded " + z);
+	}
+	if (val==1) {
+	    System.out.println("You have won the war! Your winnings increased by $"+(bet*2));
+	    winnings+=bet*2;}
+	else if (val==-1){
+	    System.out.println("You have lost the war! Your winnings decrease by $"+(bet*2));
+	    winnings-=bet*2;
+	}	
+	else prepwar(2);
+    }
+    public void tiewar(){
+	int val=deal();
+	int x;
+	String z;
+	for (int y=0; y< 3; y++){
+	    x=(int)(Math.random()*deck.size());
+	    z= deck.get(x);
+	    System.out.println("The dealer has discarded " + z);
+	}
+	if (val==0){
+	    System.out.println("You have won the war! Your winnings increased by $"+(bet*10));
+	    winnings+=bet*10;
+	}
+	else{
+	    System.out.println("You have lost the war! Your winnings decrease by $"+(bet*10));
+	    winnings-=bet*10;
+	}
+    }
+
+    
+
+    public void prepwar(int increase){
+	int want;
+	System.out.println("The values are equal! What would you like to do?");
+	System.out.println("1.Bet on winning\n2.Bet on tie\n3. Surrender");
+	try{
+	    want=Keyboard.readInt();
+	    if (want==3){
+		System.out.println( "You have surrendered! You lost $" +(bet*increase)/(2));
+		winnings-=bet/2;
+	    }
+	    else if (want==1) war(increase);
+	    else tiewar(increase);
+	}
+	catch(Exception e){
+	    System.out.println("Try again! You can fight or you can run! Nothing else!");
+	    prepwar(increase);
 	    return;
 	}
 
     }
+    public void war(int increase){
+	int val=deal();
+	int x;
+	String z;
+	for (int y=0; y< 3; y++){
+	    x=(int)(Math.random()*deck.size());
+	    z= deck.get(x);
+	    System.out.println("The dealer has discarded " + z);
+	}
+	if (val==1) {
+	    System.out.println("You have won the war! Your winnings increased by $"+(bet*2));
+	    winnings+=bet*2*increase;}
+	else if (val==-1){
+	    System.out.println("You have lost the war! Your winnings decrease by $"+(bet*2));
+	    winnings-=bet*2*increase;
+	}	
+	else prepwar(increase*2);
+    }
 
 
+    public void tiewar(int increase){
+	int val=deal();
+	int x;
+	String z;
+	for (int y=0; y< 3; y++){
+	    x=(int)(Math.random()*deck.size());
+	    z= deck.get(x);
+	    System.out.println("The dealer has discarded " + z);
+	}
+	if (val==0){
+	    System.out.println("You have won the war! Your winnings increased by $"+(bet*10*increase));
+	    winnings+=bet*10;
+	}
+	else{
+	    System.out.println("You have lost the war! Your winnings decrease by $"+(bet*10*increase));
+	    winnings-=bet*10;
+	}
+    }
+    public static void main(String args[]){
+	war player = new war(1,2,3);
+	player.play();
 
-
-
-
-
-
-
-
-
-
+    }
 }

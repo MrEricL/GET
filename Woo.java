@@ -8,25 +8,24 @@ public class Woo{
     public String name;
     public boolean cont;
 
-    /*    public void editN(String n){
-	name = n;}
-    public void editD(int d){
-    difficulty = d;}*/
+    public int blackjackPlay=0;
+    public int dicePlay=0;
 
     public Woo(){
 	begin();
 	mon();
 	diff();
-	while (money>0 || money >= 1000000){
+	while (money>0 || money <= 1000000){
 	    selection();
 	}
+	if (money<=0) {
 	System.out.println("You have lost your life savings. " +
 			   "You can no longer afford treatment.\n " +
 			   "Your game has ended");
-	
+	}
+	else System.out.println("You win! You won't go sick! \n On your way to the hospital you got hit by a car!\n\n\n\n\n\n\t\t\t~~~ FIN~~~");
     }
-
-    
+ 
     public void begin(){
 	
 	System.out.println ("\nYou are ?");
@@ -128,7 +127,7 @@ public class Woo{
 		System.out.println("The instructions will only appear once so read it carefully");
 		blackjackInstruct();
 	    }
-	    blackjackPlay=100;
+	    blackjackPlay+=1;
 	    bet();
 	    blackjack game = new blackjack(difficulty, money,bet);
 	    money+=game.play();
@@ -138,7 +137,7 @@ public class Woo{
 		System.out.println("The instructions will only appear once so read it carefully");
 	        diceInstruct();
 	    }
-	    dicePlay=100;
+	    dicePlay+=1;
 	    bet();
 	    Dice game2 = new Dice(difficulty,money,bet);
 	    money += game2.play();
