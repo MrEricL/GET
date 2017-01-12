@@ -131,7 +131,7 @@ public class Woo{
 		dicePlay+=1;
 	    }	    
 	    bet();
-	    Dice game2 = new Dice(money,bet);
+	    Dice game2 = new Dice(difficulty,money,bet);
 	    money += game2.play();
 	}
         else{
@@ -204,13 +204,13 @@ public class Woo{
 	System.out.println("The game then ends depending on whether you get it correct or not");
 	System.out.println("If you win, your bet is doubled");	
 	if (difficulty==1){
-	    System.out.println("");
+	    System.out.println("The faces' values range between 1 and 6");
 	}
 	if (difficulty==2){
-	    System.out.println("");
+	    System.out.println("The faces' values range between 1 and 9");
 	}
 	if (difficulty==3){
-	    System.out.println("");
+	    System.out.println("The faces' values range between 1 and 12");
 	}
 	slp(6);
     }
