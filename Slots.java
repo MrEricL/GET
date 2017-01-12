@@ -38,6 +38,7 @@ public class Slots implements casinorules{
 	String retStr = "";
 	for(int index = 0; index < 3; index += 1){
 	    retStr += _objects[index] + "\t";
+	    //System.out.println(_objects[index]);
 	}
 	return retStr;
     }
@@ -93,7 +94,7 @@ public class Slots implements casinorules{
     public void go(){
 	System.out.println("Spinning.....");
 	spin();
-	System.out.println(_objects.toString());
+	System.out.println(this);
 	if (miniWin()){
 	    if (jackpot()){
 		System.out.println("JACKPOT!!!!!!!");
@@ -118,5 +119,6 @@ public class Slots implements casinorules{
     public static void main(String[] args){
 	Slots mike = new Slots();
 	mike.play();
+	//System.out.println(mike.toString());
     }
 }
