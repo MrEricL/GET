@@ -107,18 +107,30 @@ public class Woo{
 
     public void selection(){
 	int select=0;
+	int blackjackPlay=0; //adds the instructions
+	int dicePlay=0;
 	System.out.println("You have $" + money);
 	System.out.println("\nWhat game would you like to play?\n1. Blackjacks\n2. Dice");
 	select= Keyboard.readInt();
 	if (select==1){
+	    if (blackjackPlay==0){
+		System.out.println("The instructions will only appear once so read it carefully");
+		blackjackInstruct();
+		blackjackPlay+=1;
+	    }
 	    bet();
 	    blackjack game = new blackjack(difficulty, money,bet);
 	    money+=game.play();
 	}
 	if (select == 2){
+	    if (dicePlay==0){
+		System.out.println("The instructions will only appear once so read it carefully");
+	        diceInstruct();
+		dicePlay+=1;
+	    }	    
 	    bet();
 	    Dice game2 = new Dice(money,bet);
-	    money+=game2.play();
+	    money += game2.play();
 	}
         else{
 	    System.out.println("Invalid input");
@@ -141,12 +153,64 @@ public class Woo{
        
 	//---------------------------------------------------------------------------------------------------------------
 
+    /*
+      HOW TO WRITE INSTRUCTIONS
+      public void gamenameInstruct(){
+      	System.out.println("");
+	if (difficulty==1){
+	System.out.println("");
+	}
+	if (difficulty==2){
+	System.out.println("");
+	}
+	if (difficulty==3){
+	System.out.println("");
+	}
+	slp(time);
+      }
+
+     */
+
     //INSTRUCTIONS
-    public void blackjackinstruct(){
+    public void blackjackInstruct(){
 	System.out.println ("Blackjack is a classic casino card game.");
 	    System.out.println ("Your goal to to get a total of 21");
 	System.out.println ("Suits don't matter and JACK/QUEEN/KING/ACE are all worth 10");
 	    System.out.println ("The game will stop when you don't want to get hit or when your hand is too large");
+	System.out.println("If you win your prize money depends on the other winners");
+	System.out.println("If only you win you get your bet by six fold more, or if everyone wins, you get your bet amount");	    	
+	    if (difficulty==1){
+		System.out.println ("You are in easy mode: the game will only use one deck");
+		System.out.println ("The bots are extremely simple and will likely fail");
+
+	    }
+	    if (difficulty==2){
+		System.out.println ("You are in medium mode: the game will use six decks");
+		System.out.println ("The bots will use basic logic and calculations to make their choice");		
+	    }
+	    if (difficulty==3){
+		System.out.println ("You are in hard  mode: the game will use six deck");
+		System.out.println ("The bots have seeming omniscience and will likely win");		
+	    }
+	    slp(10);
+    }
+
+    public void diceInstruct(){
+	System.out.println("Dice is a very simple game");
+	System.out.println("Simply guess two values");	
+	System.out.println("Two fair die will be rolled");
+	System.out.println("The game then ends depending on whether you get it correct or not");
+	System.out.println("If you win, your bet is doubled");	
+	if (difficulty==1){
+	    System.out.println("");
+	}
+	if (difficulty==2){
+	    System.out.println("");
+	}
+	if (difficulty==3){
+	    System.out.println("");
+	}
+	slp(6);
     }
 
     
