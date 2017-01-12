@@ -2,7 +2,7 @@
 // Team GET
 // Gian Tricarico, Eric Li, Truc Dao
 
-public class BingoPlayer {
+public class BingoPlayer extends Bingo {
 
     // Variables for overloaded constructor
     private int difficulty;
@@ -23,7 +23,7 @@ public class BingoPlayer {
 	difficulty = diff;
 	money = mon;
 	bet = b;
-	fillCards()
+	fillCards();
     }
 
     // Fills cards with random numbers

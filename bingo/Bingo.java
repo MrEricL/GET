@@ -4,6 +4,8 @@
 
 public class Bingo {
 
+    // Commented out:
+    /*========================
     // Variables for overloaded constructor
     private int difficulty;
     private double money;
@@ -12,6 +14,7 @@ public class Bingo {
     private int[][] p1card;
     private int[][] opp1card;
     private int[][] opp2card;
+    ========================*/
 
     // Letter and number called by the bingo person
     // (not sure what the official name is)
@@ -20,9 +23,7 @@ public class Bingo {
 
     // Overloaded constructor
     public Bingo( diff, mon, b ) {
-	difficulty = diff;
-	money = mon;
-	bet = b;
+	fillCard();
     }
 
     // Fills cards with random numbers
