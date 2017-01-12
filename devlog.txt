@@ -67,5 +67,5 @@ Truc :: Finished up dice functionality and connected dice with the driver and in
 	Set up Slots.
 	Set up dice difficulty levels.
 	
-Gian :: <Thing member did.>
+Gian :: Begin setting up cards for Bingo.
 ==============================================================
