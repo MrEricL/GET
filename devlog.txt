@@ -12,51 +12,60 @@ Truc D
 Gian T
 pd <4>
 ---------------------
-Do Ya Feel Lucky? 
-
-devlog--
-Use keyboard shortcut to jump to end,
- replicate entry template,
- modify appropriately.
-
-zone of reflection--
-Flesh out each category whenever necessary, appropriate.
- Need not be fully filled in until end of project,
- but best done as you go along.
-
+Do Ya Feel Lucky? The Terminal Casino Adventure
 
 /////////// Zone of Reflection \\\\\\\\\\\
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-- Built the first bot for blackjack! (Eric)
+- Built the first bot for blackjack (and make the bot winnier than people)! (Eric)
 - Fixed issues with cs1 (Eric/Truc)
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-- LOW PRIORITY - If you enter more than one word for the name than it'll error and skip the amount of money being entered (Eric)
+- LOW PRIORITY - If you enter more than one word for the name than it'll error and skip the amount of money being entered. Likely needs to be fix by checking the value entered. (Eric)
+- MEDIUM PRIORITY - Implmenting the try/catch statements in the driver since if an invalid input is put in, it'll skip over the option and leave it as null. Tedious work for little results for now. (Eric)
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-- try/catch a Thread.sleep(long) allows for text to be printed at a timed manner (Eric)
+- try/catch a Thread.sleep(long) allows for text to be printed at a timed manner. (Eric)
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-- Implemented the new interface "casinorules.java" to streamline connecting games with the driver (Eric) 
+- Implemented the new interface "casinorules.java" to streamline connecting games with the driver. (Eric) 
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - ArrayList is far better than arrays! When in doubt use ArrayList. (Eric)
-- For ArrayList don't create it as just ArrayList name, since it'll think each thing is an object. 
+- For ArrayList don't create it as just ArrayList name, since it'll think each thing is an object. (Eric)
 ||||||||||||||||||||||||||||||||||||||||||
 
 
+2017-01-13
+--------------------------------------------------------------
+Eric :: 	
+Truc :: 
+Gian ::
+==============================================================
+
+2017-01-12
+--------------------------------------------------------------
+Eric :: 	
+Truc :: 
+Gian ::
+==============================================================
 
 2017-01-11
 --------------------------------------------------------------
-Eric :: Added thread.sleep and accompanying helper function for Woo.java. Built the easy bot for blackjack. 
+Eric :: Added thread.sleep and accompanying helper function for Woo.java. 
+	Added instructions in driver file.
+	Built the both the easy and difficult bot and tested them out. Bots win 90% more games.
+	Recoded technical stuff for blackjack so it's more robust (ie reduce helper functions and increase run time).
+	Recoded the win condition to allow for multiple winners and thus making winnings vary from (6X to 1X the bet).
+	
 Truc :: Finished up dice functionality and connected dice with the driver and interface.
 	Set up Slots.
 	Set up dice difficulty levels.
+	
 Gian :: <Thing member did.>
 ==============================================================
