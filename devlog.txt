@@ -35,7 +35,6 @@ OBSTACLES OVERCOME
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - LOW PRIORITY - If you enter more than one word for the name than it'll error and skip the amount of money being entered (Eric)
-- HIGH PRIORITY - Implementing difficulty into dice (Truc)
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -58,5 +57,6 @@ LESSONS LEARNED
 Eric :: Added thread.sleep and accompanying helper function for Woo.java. Built the easy bot for blackjack. 
 Truc :: Finished up dice functionality and connected dice with the driver and interface.
 	Set up Slots.
+	Set up dice difficulty levels.
 Gian :: <Thing member did.>
 ==============================================================
