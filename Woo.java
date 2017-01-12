@@ -110,11 +110,6 @@ public class Woo{
 	System.out.println("You have $" + money);
 	System.out.println("\nWhat game would you like to play?\n1. Blackjacks\n2. Dice");
 	select= Keyboard.readInt();
-	if (select!= 1 &&  select != 2) {
-	    System.out.println("Invalid input");
-	    selection();
-	    return;
-	}
 	if (select==1){
 	    bet();
 	    blackjack game = new blackjack(difficulty, money,bet);
@@ -124,6 +119,11 @@ public class Woo{
 	    bet();
 	    Dice game2 = new Dice(money,bet);
 	    money+=game2.play();
+	}
+        else{
+	    System.out.println("Invalid input");
+	    selection();
+	    return;
 	}
     }
 	//HELPER FUNCTIONS------------------------------------------------------------------------------
