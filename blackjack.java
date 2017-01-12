@@ -55,6 +55,7 @@ public class blackjack implements casinorules {
 	System.out.println(deck.size());
 	deal();
 	go();
+	printall(); //comment out?
 	if (win){
 	    return (bet*5.0/winnumb);
 	}
@@ -276,7 +277,54 @@ public class blackjack implements casinorules {
 	System.out.println();	
 
     }
+    //print cards final
+    public void printall(){
+	System.out.print ("You have " );
+	for (int i=0; i< player.size(); i++){
+	    System.out.print (player.get(i)+" ");
 
+	}
+	System.out.println();	
+
+	System.out.print ("Jack has " );
+	for (int i=0; i< jack.size(); i++){
+	   System.out.print (jack.get(i)+" ");
+
+	}
+	System.out.println();
+
+	System.out.print ("Lois has " );
+	for (int i=0; i< lois.size(); i++){
+	    System.out.print (lois.get(i)+" ");
+
+	}
+	System.out.println();
+
+	System.out.print ("Will has " );
+	for (int i=0; i< will.size(); i++){
+	    System.out.print (will.get(i)+" ");
+
+	}
+	System.out.println();
+
+	System.out.print ("Robin has " );
+	for (int i=0; i< robin.size(); i++){
+	    System.out.print (robin.get(i)+" ");
+
+	}
+	System.out.println();
+
+	System.out.print ("Emily  has " );
+	for (int i=0; i< emily.size(); i++){
+	    System.out.print (emily.get(i)+" ");
+
+	}
+	System.out.println();	
+
+    }
+
+
+    //
     public void go(){
 	String ans;
 	
@@ -287,7 +335,8 @@ public class blackjack implements casinorules {
 		
 		System.out.println("~~~~~~~~~~~~\n");
 		printcards();
-		System.out.println ("Would you like a hit?\n");
+		System.out.println ("Would you like a hit?");
+		System.out.println("(y/n)\n");
 		//y/n
 		try {
 		    ans= Keyboard.readWord();
@@ -299,19 +348,9 @@ public class blackjack implements casinorules {
 			System.out.println();
 			deck.remove(x);		
 		    }
-
 		    else {
 			playerdone=true;
 			System.out.println(player);
-
-			/* int result;
-			   String x=(player.get(0)).toString();//
-			   System.out.println(x);
-			   x=x.substring(0);
-			   System.out.println(x);		    
-			   result=Integer.parseInt(x.substring(0,1));
-			   System.out.println(result);*/
-
 		    }
 	    
 		}
@@ -319,8 +358,6 @@ public class blackjack implements casinorules {
 		    return;		
 		}			   
 	    }
-
-
 
 	    if (!botdone){
 
@@ -394,7 +431,7 @@ public class blackjack implements casinorules {
 	else{
 	    System.out.println("The winners are ");	    
 	    for (int s=0; s<index.size(); s++){
-		System.out.println( listOfPeeps[index.get(s)] +" with  "+ number.get(s));
+		System.out.println( listOfPeeps[index.get(s)] +" with  "+(21- number.get(s)));
 	    }
 	}
 	
@@ -405,7 +442,7 @@ public class blackjack implements casinorules {
 	else{
 	    System.out.println ("You are not a winner. Your total was "+check(player)+".\nYou lost your bet of $"+bet+".");
 	}
-	    //   System.out.println(winnumb);
+
     }
 
 

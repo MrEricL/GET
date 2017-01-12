@@ -111,34 +111,49 @@ public class Woo{
 	int select=0;
 	int blackjackPlay=0; //adds the instructions
 	int dicePlay=0;
+	int diff;
 	System.out.println("You have $" + money);
 	System.out.println("\nWhat game would you like to play?\n1. Blackjacks\n2. Dice" +
 			   "\n3. Slots");
-	select= Keyboard.readInt();
+	System.out.println("(To change the difficulty enter 100) \n");
+	try{
+	    select= Keyboard.readInt();}
+	catch (Exception e){
+	    System.out.println("Try again\n");
+	    selection();
+	    return;
+	}
 	if (select==1){
-	    if (blackjackPlay==0){
+	    if (blackjackPlay<1){
 		System.out.println("The instructions will only appear once so read it carefully");
 		blackjackInstruct();
-		blackjackPlay+=1;
 	    }
+	    blackjackPlay=100;
 	    bet();
 	    blackjack game = new blackjack(difficulty, money,bet);
 	    money+=game.play();
 	}
-	if (select == 2){
+	else if (select == 2){
 	    if (dicePlay==0){
 		System.out.println("The instructions will only appear once so read it carefully");
 	        diceInstruct();
-		dicePlay+=1;
-	    }	    
+	    }
+	    dicePlay=100;
 	    bet();
 	    Dice game2 = new Dice(difficulty,money,bet);
 	    money += game2.play();
 	}
-	if (select == 3){
+	else if (select == 3){
 	    bet();
 	    Slots game3 = new Slots(difficulty, money, bet);
 	    money += game3.play();
+	}
+	else if (select==100){
+	    diff();
+	    System.out.println("The difficulty is changed");
+	    selection();
+	    return;
+	    
 	}
         else{
 	    System.out.println("Invalid input");
@@ -159,7 +174,7 @@ public class Woo{
 	}
 
        
-	//---------------------------------------------------------------------------------------------------------------
+	//-----------------------------------------------------------------------------------------------------
 
     /*
       HOW TO WRITE INSTRUCTIONS
@@ -200,7 +215,7 @@ public class Woo{
 		System.out.println ("You are in hard  mode: the game will use six deck");
 		System.out.println ("The bots have seeming omniscience and will likely win");		
 	    }
-	    slp(10);
+	    //	    slp(10);
     }
 
     public void diceInstruct(){
@@ -218,7 +233,7 @@ public class Woo{
 	if (difficulty==3){
 	    System.out.println("The faces' values range between 1 and 12");
 	}
-	slp(6);
+	//	slp(6);
     }
 
     
