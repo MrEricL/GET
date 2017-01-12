@@ -49,10 +49,11 @@ public class blackjack implements casinorules {
     }
     
     public double play(){
-	if (difficulty==1) start2();
-	else start();
-	System.out.println(deck);
-	System.out.println(deck.size());
+	//	if (difficulty==1) start2();
+	//	else start();
+	start();
+	//	System.out.println(deck);
+	//	System.out.println(deck.size());
 	deal();
 	go();
 	printall(); //comment out?
@@ -324,13 +325,13 @@ public class blackjack implements casinorules {
     }
 
 
-    //
+    //running aspect
     public void go(){
 	String ans;
 	
 	System.out.println ("\n ~~~ BEGIN ~~~ ");
 
-	while (!playerdone && !botdone){
+	while (!playerdone || !botdone){
 	    if (!playerdone){
 		
 		System.out.println("~~~~~~~~~~~~\n");
@@ -342,7 +343,7 @@ public class blackjack implements casinorules {
 		    ans= Keyboard.readWord();
 		    System.out.println();		
 		    if (ans.equals("y") || ans =="y"){
-			int x= (int)(Math.random()*312-1);
+			int x= (int)(Math.random()*deck.size());
 			player.add(deck.get(x));
 			System.out.println ("You got a " + deck.get(x));
 			System.out.println();

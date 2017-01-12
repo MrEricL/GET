@@ -1,11 +1,4 @@
- ______   ______   __   __   __       ______   _______     
-/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
-\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__  
- \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\ 
-  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/ 
-   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
-    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
-==============================================================
+
 Team Get
 Eric L
 Truc D
@@ -19,14 +12,13 @@ Do Ya Feel Lucky? The Terminal Casino Adventure
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - Built the first bot for blackjack (and make the bot winnier than people)! (Eric)
+- Finished first complete game with all difficulties! (Eric/Truc)
 - Fixed issues with cs1 (Eric/Truc)
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - LOW PRIORITY - If you enter more than one word for the name than it'll error and skip the amount of money being entered. Likely needs to be fix by checking the value entered. (Eric)
 - MEDIUM PRIORITY - Implmenting the try/catch statements in the driver since if an invalid input is put in, it'll skip over the option and leave it as null. Tedious work for little results for now. (Eric)
--HIGH !!!! -FIX WHY BLACKJACK ISN'T TAKING IN RESPONSES
-COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - try/catch a Thread.sleep(long) allows for text to be printed at a timed manner. (Eric)
 
@@ -40,6 +32,14 @@ LESSONS LEARNED
 - For ArrayList don't create it as just ArrayList name, since it'll think each thing is an object. (Eric)
 ||||||||||||||||||||||||||||||||||||||||||
 
+ ______   ______   __   __   __       ______   _______     
+/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
+\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__  
+ \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\ 
+  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/ 
+   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
+    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
+==============================================================
 
 
 2017-01-11
@@ -59,7 +59,11 @@ Gian :: Begin setting up cards for Bingo.
 
 2017-01-12
 --------------------------------------------------------------
-Eric :: 	
+Eric :: Completed the medium bot for blackjack. 
+	Fixed resulting error from driver that would print “invalid input.”
+	Added the ability to change your difficulty mid-game.	
+	Fixed blackjack for easy mode.
+	Completely finished blackjack. 
 Truc :: 
 Gian ::
 ==============================================================
