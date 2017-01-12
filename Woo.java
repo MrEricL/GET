@@ -113,7 +113,7 @@ public class Woo{
 	int diff;
 	System.out.println("You have $" + money);
 	System.out.println("\nWhat game would you like to play?\n1. Blackjacks\n2. Dice" +
-			   "\n3. Slots");
+			   "\n3. Slots\n4. War");
 	System.out.println("(To change the difficulty enter 100) \n");
 	try{
 	    select= Keyboard.readInt();}
@@ -146,6 +146,11 @@ public class Woo{
 	    bet();
 	    Slots game3 = new Slots(difficulty, money, bet);
 	    money += game3.play();
+	}
+	else if (select ==4){
+	    bet();
+	    war game4= new war(difficulty, money, bet);
+	    money+=game4.play();
 	}
 	else if (select==100){
 	    diff();

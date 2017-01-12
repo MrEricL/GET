@@ -28,6 +28,8 @@ public class war implements casinorules{
 	if (difficulty==1) startez();
 	else starthard();
 	go();
+	System.out.println("Total winnings: $"+ winnings);
+	System.out.println("\n\n\n");
 	return winnings;	
     }
     //------------------------------------------------------------
@@ -40,7 +42,7 @@ public class war implements casinorules{
 	try {
 	    times=Keyboard.readInt();
 	    turns=times;
-	    bet=winnings/turns;
+	    bet/=(turns*1.00);
 	}
 	catch(Exception e){
 	    System.out.println("Try again!\n");
@@ -161,11 +163,11 @@ public class war implements casinorules{
 	while(turns>0){
 	    val=deal();
 	    if (val ==1){
-		System.out.println ("You won! You have gained your bet!");
+		System.out.println ("You won! You have gained your bet of $" + bet);
 		winnings+=bet;
 	    }
 	    else if (val == -1){
-		System.out.println ("You lost! You have lost your bet!");
+		System.out.println ("You lost! You have lost your bet of $" + bet);
 		winnings-=bet;
 	    }
 	    else{
@@ -182,12 +184,22 @@ public class war implements casinorules{
 	String a= deck.get(x); //player
 	System.out.println("Your card is " + a);
 	deck.remove(x);
-
-	x=(int)(Math.random()*deck.size());
-	String b= deck.get(x);//bot
-	System.out.println("Your opponent's card is " + b);
-	deck.remove(x);
-
+	
+	if (Math.random()*100 >= 75){
+	    String h=a.substring(0,a.length()-1);
+	    int p = (int)( Math.random()*4);
+	    if (p==0) h+="♥";
+	    else if (p==1) h+="♠";
+	    else if (p==2) h+="♣";
+	    else h+"♦";
+	    String b=h;
+	}
+	else{
+	    x=(int)(Math.random()*deck.size());
+	    String b= deck.get(x);//bot
+	    System.out.println("Your opponent's card is " + b);
+	    deck.remove(x);
+	}
 	return comp(a,b);
 
     }
@@ -201,7 +213,7 @@ public class war implements casinorules{
 	String finala=a.substring(0,a.length()-1);
 	String tempb=b.substring(0,1);
 	String finalb=b.substring(0,b.length()-1);	
-
+	if (Math.random()*100 <= 75){
 	if (tempa.equals("J")) a1+=11;
 	else if (tempa.equals("Q")) a1+=12;
 	else if (tempa.equals("K")) a1+=13;
@@ -223,6 +235,7 @@ public class war implements casinorules{
 	if (a1>b1) return 1;
 	else if (a1<b1) return -1;
 	else return 0;
+
 	
     }
 
@@ -248,7 +261,6 @@ public class war implements casinorules{
     }
 
     public void war(){
-	int val=deal();
 	int x;
 	String z;
 	for (int y=0; y< 3; y++){
@@ -256,6 +268,7 @@ public class war implements casinorules{
 	    z= deck.get(x);
 	    System.out.println("The dealer has discarded " + z);
 	}
+	int val=deal();
 	if (val==1) {
 	    System.out.println("You have won the war! Your winnings increased by $"+(bet*2));
 	    winnings+=bet*2;}
@@ -266,7 +279,7 @@ public class war implements casinorules{
 	else prepwar(2);
     }
     public void tiewar(){
-	int val=deal();
+
 	int x;
 	String z;
 	for (int y=0; y< 3; y++){
@@ -274,6 +287,7 @@ public class war implements casinorules{
 	    z= deck.get(x);
 	    System.out.println("The dealer has discarded " + z);
 	}
+	int val=deal();
 	if (val==0){
 	    System.out.println("You have won the war! Your winnings increased by $"+(bet*10));
 	    winnings+=bet*10;
@@ -307,7 +321,7 @@ public class war implements casinorules{
 
     }
     public void war(int increase){
-	int val=deal();
+
 	int x;
 	String z;
 	for (int y=0; y< 3; y++){
@@ -315,6 +329,7 @@ public class war implements casinorules{
 	    z= deck.get(x);
 	    System.out.println("The dealer has discarded " + z);
 	}
+	int val=deal();
 	if (val==1) {
 	    System.out.println("You have won the war! Your winnings increased by $"+(bet*2));
 	    winnings+=bet*2*increase;}
@@ -327,7 +342,7 @@ public class war implements casinorules{
 
 
     public void tiewar(int increase){
-	int val=deal();
+
 	int x;
 	String z;
 	for (int y=0; y< 3; y++){
@@ -335,6 +350,7 @@ public class war implements casinorules{
 	    z= deck.get(x);
 	    System.out.println("The dealer has discarded " + z);
 	}
+	int val=deal();
 	if (val==0){
 	    System.out.println("You have won the war! Your winnings increased by $"+(bet*10*increase));
 	    winnings+=bet*10;
@@ -345,8 +361,6 @@ public class war implements casinorules{
 	}
     }
     public static void main(String args[]){
-	war player = new war(1,2,3);
-	player.play();
 
     }
 }
