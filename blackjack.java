@@ -5,7 +5,7 @@ import java.lang.*;
 
 
 public class blackjack implements casinorules {
-    public ArrayList<String> deck= new ArrayList<String>(); //want to be 312
+    public ArrayList<String> deck= new ArrayList<String>(); //want to be 312 or 52
     // the bots
     public String[] listOfPeeps= {"you", "Jack", "Lois", "Will", "Robin","Emily"};
     public ArrayList<String> jack= new ArrayList<String>();
@@ -49,7 +49,10 @@ public class blackjack implements casinorules {
     }
     
     public double play(){
-	start();
+	if (difficulty==1) start2();
+	else start();
+	System.out.println(deck);
+	System.out.println(deck.size());
 	deal();
 	go();
 	if (win){
@@ -116,11 +119,67 @@ public class blackjack implements casinorules {
 	}
 
     }
+    //harder
+
+    public void start2(){
+	int x=2;
+	int y=0;
+	while (x < 11){
+	    for (int i=0; i < 4; i++){		
+		if (i%4.0 == 0) deck.add(y+i,""+x+"♦");
+		if (i%4.0==1) deck.add(y+i,""+x+"♣");
+		if (i%4.0==2) deck.add(y+i,""+x+"♥");
+		if (i%4.0==3) deck.add( y+i, ""+x+"♠");
+	    }
+	    x+=1;
+	    y+=4;
+	}
+	while (x<15){
+	    if (x==11){
+		for (int i=0; i < 4; i++){
+		    if (i%4.0 == 0) deck.add(y+i,"JACK♦");
+		    if (i%4.0==1) deck.add(y+i,"JACK♣");
+		    if (i%4.0==2) deck.add(y+i,"JACK♥");
+		    if (i%4.0==3) deck.add( y+i, "JACK♠");
+		}	
+	    }
+	    if (x==12){
+		for (int i=0; i < 4; i++){
+		    if (i%4.0 == 0) deck.add(y+i,"QUEEN♦");
+		    if (i%4.0==1) deck.add(y+i,"QUEEN♣");
+		    if (i%4.0==2) deck.add(y+i,"QUEEN♥");
+		    if (i%4.0==3) deck.add( y+i, "QUEEN♠");
+		}	
+	    }
+	    if (x==13){
+		for (int i=0; i < 4; i++){
+		    if (i%4.0 == 0) deck.add(y+i,"KING♦");
+		    if (i%4.0==1) deck.add(y+i,"KING♣");
+		    if (i%4.0==2) deck.add(y+i,"KING♥");
+		    if (i%4.0==3) deck.add( y+i, "KING♠");
+		}	
+	    }	    
+
+	    if (x==14){
+		for (int i=0; i < 4; i++){
+		    if (i%4.0 == 0) deck.add(y+i,"ACE♦");
+		    if (i%4.0==1) deck.add(y+i,"ACE♣");
+		    if (i%4.0==2) deck.add(y+i,"ACE♥");
+		    if (i%4.0==3) deck.add( y+i, "ACE♠");
+		}	
+	    }
+	    x+=1;
+	    y+=4;
+	}
+    }
+
+
+
     //deals all the cards out for each player
 
     public void deal(){
 	int x=0;
-	int cardsize = 311;
+	int cardsize = deck.size();
 	//for the players
 	for (int i=0; i < 2; i++){
 	    x=(int)(Math.random()*cardsize);
