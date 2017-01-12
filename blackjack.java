@@ -5,14 +5,14 @@ import java.lang.*;
 
 
 public class blackjack implements casinorules {
-    public ArrayList deck= new ArrayList<String>(); //want to be 312
+    public ArrayList<String> deck= new ArrayList<String>(); //want to be 312
     // the bots
     public String[] listOfPeeps= {"you", "Jack", "Lois", "Will", "Robin","Emily"};
-    public ArrayList jack= new ArrayList<String>();
-    public ArrayList lois= new ArrayList<String>();
-    public ArrayList will= new ArrayList<String>();
-    public ArrayList robin= new ArrayList<String>();
-    public ArrayList emily= new ArrayList<String>();
+    public ArrayList<String> jack= new ArrayList<String>();
+    public ArrayList<String> lois= new ArrayList<String>();
+    public ArrayList<String> will= new ArrayList<String>();
+    public ArrayList<String> robin= new ArrayList<String>();
+    public ArrayList<String> emily= new ArrayList<String>();
 
     //easy bots
     public int jackDraw=(int)(Math.random()*2);
@@ -33,13 +33,14 @@ public class blackjack implements casinorules {
     public ArrayList results = new ArrayList<Integer>();
 
     //the player	
-    public ArrayList player= new ArrayList<String>();
+    public ArrayList<String> player= new ArrayList<String>();
     
     //background stuff
     public int difficulty;
     public double  money;
     public double bet;
     public boolean win=false;
+    public int winnumb;
 
     public blackjack(int x, double  y, double z){
 	difficulty=x;
@@ -51,8 +52,12 @@ public class blackjack implements casinorules {
 	start();
 	deal();
 	go();
-	if (win) return bet*5;
-	else return bet*-1;
+	if (win){
+	    return (bet*5.0/winnumb);
+	}
+	else{
+	    return bet*-1;
+	}
     }
 
 
@@ -63,6 +68,7 @@ public class blackjack implements casinorules {
 
 	while (x < 11){
 	    for (int i=0; i < 24; i++){
+		
 		if (i%4.0 == 0) deck.add(y+i,""+x+"♦");
 		if (i%4.0==1) deck.add(y+i,""+x+"♣");
 		if (i%4.0==2) deck.add(y+i,""+x+"♥");
@@ -259,19 +265,14 @@ public class blackjack implements casinorules {
 
 	    if (!botdone){
 
-
-
+		if (difficulty==1) ezbot();
+		if (difficulty==3)hardbot();
 
 	    }
 
-	    //AI COMPONENT
+		
 	}
-	results.add(check(player));
-	results.add(check(jack));
-	results.add(check(lois));
-	results.add(check(will));
-	results.add(check(robin));
-	results.add(check(emily));
+	resultTally();
 	closest(results);
 	
     }
@@ -280,36 +281,28 @@ public class blackjack implements casinorules {
 	int total=0;
 	int result=0;
 	String temp;
+	String temp2;
 	for (int i=0; i< x.size(); i++){
-	    temp=x.get(i).toString();
-	    if (!isInteger(temp.substring(0,1))) total+=10;
+	    temp=x.get(i).substring(0,1);
+	    temp2=x.get(i).substring(0,x.get(i).length()-1);
+	    if (temp.equals("K") || temp.equals("Q") || temp.equals("J")|| temp.equals("A")) total+=10;
 	    else{
-		result=Integer.parseInt(temp.substring(0,1));
+		result=Integer.parseInt(temp2);
 		total+=result;
 	    }
 	}
 	return total; 
     }
 
-	//helper dont worry bout this
-   public static boolean isInteger(String s) {
-      boolean isValidInteger = false;
-      try
-      {
-         Integer.parseInt(s);
- 
-         // s is a valid integer
- 
-         isValidInteger = true;
-      }
-      catch (NumberFormatException ex)
-      {
-         // s is not an integer
-      }
- 
-      return isValidInteger;
-   }
+    public void resultTally(){
+	results.add(check(player));
+	results.add(check(jack));
+	results.add(check(lois));
+	results.add(check(will));
+	results.add(check(robin));
+	results.add(check(emily));
 
+    }
 
     public void closest (ArrayList<Integer> x){
 	ArrayList<Integer> winners = new ArrayList<Integer>();
@@ -318,12 +311,13 @@ public class blackjack implements casinorules {
 	ArrayList<Integer> number= new ArrayList <Integer>();
 	int temp;
 	for (int i=0; i< x.size(); i++){
-	    temp=x.get(i);
-	    if (temp < 0 && temp> 21);
+	    temp=21-x.get(i);
+	    if (temp < 0||  temp> 21);
+	    else if (temp >= smallest);
 	    else smallest=temp;   
 	}
 	for (int f=0; f<x.size(); f++){
-	    temp=x.get(f);
+	    temp=21-x.get(f);
 	    if (temp==smallest){
 		index.add(f);
 		number .add(temp);
@@ -331,8 +325,11 @@ public class blackjack implements casinorules {
 	}
 
 	//	System.out.println("The winner is "+ listOfPeeps[index] + ", with a sum of "+ number);
-        if (index.size() ==1){
-	    System.out.println("The winner is "+ listOfPeeps[index.get(0)] + ", with a sum of "+ number.get(0));	    
+	if (index.size()==0){
+	    System.out.println("There were no winners");
+	}
+        else if (index.size() ==1){
+	    System.out.println("The winner is "+ listOfPeeps[index.get(0)] + ", with a sum of "+(21- number.get(0)));	    
 	}
 	else{
 	    System.out.println("The winners are ");	    
@@ -341,24 +338,80 @@ public class blackjack implements casinorules {
 	    }
 	}
 	
-	if (index.get(0)==0) win=true;
-	else{
-	    System.out.println ("You are not a winner. You lost your bet of $"+bet+".");
+	if (index.get(0)==0){
+	    win=true;
+	    winnumb= index.size();	    
 	}
-
+	else{
+	    System.out.println ("You are not a winner. Your total was "+check(player)+".\nYou lost your bet of $"+bet+".");
+	}
+	    //   System.out.println(winnumb);
     }
 
 
 
 
     // THE BOTS________________________________________________________________
-    /*
+    
     //EASY
     public void ezbot(){
+	ArrayList<Boolean>  bol = new ArrayList<Boolean>(); 
 	    if (jackDraw > 0){
-		    jack.add(
-		    }*/
+		System.out.print("Jack decided to get hit ");
+		editPrint(jack);
+		jackDraw--;
+		bol.add(false);
+		    }
+	    else{
+		bol.add(true);
+	    }	    
 
+	    if (loisDraw > 0){
+		System.out.print("Lois decided to get hit " );
+		editPrint(lois);
+		loisDraw--;
+		bol.add(false);		
+		    }
+	    else{
+		bol.add(true);
+	    }	    	    
+	    
+	    if (willDraw > 0){
+		System.out.print("Will decided to get hit ");
+		editPrint(will);
+		willDraw--;
+		bol.add(false);		
+		    }
+	    else{
+		bol.add(true);
+	    }	    	    
+	    if (robinDraw > 0){
+		System.out.print("Robin decided to get hit ");
+		editPrint(robin);
+		robinDraw--;
+		bol.add(false);		
+		    }
+	    else{
+		bol.add(true);
+	    }	    	    
+	    if (emilyDraw > 0){
+		System.out.print("Emily decided to get hit ");
+		editPrint(emily);
+		emilyDraw--;
+		bol.add(false);		
+		    }
+	    else{
+		bol.add(true);
+	    }	    	    
+	    System.out.println("\n");
+
+	    for (int y=0; y < bol.size(); y++){
+		if (!bol.get(y)){		    
+		    return;
+		}
+	    }
+	    botdone=true;
+    }
 
     //MEDIUM
 
@@ -366,7 +419,137 @@ public class blackjack implements casinorules {
 
     //HARD
 
+    public void hardbot(){
+	int jackHand=check(jack);
+	int loisHand=check(lois);
+	int willHand=check(will);
+	int robinHand=check(robin);
+	int emilyHand=check(emily);
+	int deckAvg=(int)check(deck)/deck.size();
+	int x;
+	ArrayList <String> y= new ArrayList<String>();
+	ArrayList<Boolean>  bol = new ArrayList<Boolean>(); 	
 
+	if (jackHand < 21){
+	    x=(int)(Math.random()*deck.size());
+	    y.add(deck.get(x));
+	    if (check(y)+jackHand <= 21){
+		System.out.println("Jack decided to get hit, the card was "+ deck.get(x));		
+		jack.add(deck.get(x));
+		deck.remove(x);
+		y.remove(0);
+		bol.add(false);
+	    }
+	    else if (jackHand+deckAvg<= 21){
+		System.out.print("Jack decided to get hit ");
+		editPrint(jack);
+		bol.add(false);
+	    }
+	    else bol.add(true);
+	   
+	}
+	else bol.add(true);
+
+	if (loisHand < 21){
+	    x=(int)(Math.random()*deck.size());
+	    y.add(deck.get(x));
+	    if (check(y)+loisHand <= 21){
+		System.out.println("Lois decided to get hit, the card was "+ deck.get(x));		
+		lois.add(deck.get(x));
+		deck.remove(x);
+		y.remove(0);
+		bol.add(false);
+	    }
+	    else if (loisHand+deckAvg<= 21){
+		System.out.print("Lois decided to get hit ");
+		editPrint(lois);
+		bol.add(false);
+	    }
+	    else bol.add(true);
+	   
+	}
+	else bol.add(true);
+
+	if (willHand < 21){
+	    x=(int)(Math.random()*deck.size());
+	    y.add(deck.get(x));
+	    if (check(y)+willHand <= 21){
+		System.out.println("Will decided to get hit, the card was "+ deck.get(x));		
+		will.add(deck.get(x));
+		deck.remove(x);
+		y.remove(0);
+		bol.add(false);
+	    }
+	    else if (willHand+deckAvg<= 21){
+		System.out.print("Will decided to get hit ");
+		editPrint(will);
+		bol.add(false);
+	    }
+	    else bol.add(true);
+	   
+	}
+	else bol.add(true);
+	
+	if (robinHand < 21){
+	    x=(int)(Math.random()*deck.size());
+	    y.add(deck.get(x));
+	    if (check(y)+robinHand <= 21){
+		System.out.println("Robin decided to get hit, the card was "+ deck.get(x));		
+		robin.add(deck.get(x));
+		deck.remove(x);
+		y.remove(0);
+		bol.add(false);
+	    }
+	    else if (robinHand+deckAvg<= 21){
+		System.out.print("Robin decided to get hit ");
+		editPrint(robin);
+		bol.add(false);
+	    }
+	    else bol.add(true);
+	   
+	}
+	else bol.add(true);
+	
+	if (emilyHand < 21){
+	    x=(int)(Math.random()*deck.size());
+	    y.add(deck.get(x));
+	    if (check(y)+emilyHand <= 21){
+		System.out.println("Emily decided to get hit, the card was "+ deck.get(x));
+		emily.add(deck.get(x));
+		deck.remove(x);
+		y.remove(0);
+		bol.add(false);
+	    }
+	    else if (emilyHand+deckAvg<= 21){
+		System.out.print("Emily decided to get hit ");
+		editPrint(emily);
+		bol.add(false);
+	    }
+	    else bol.add(true);
+	   
+	}
+	else bol.add(true);
+	
+
+	
+	    
+
+	    for (int j=0; j< bol.size(); j++){
+		if (!bol.get(j)){		    
+		    return;
+		}
+	    }
+	    botdone=true;
+    }
+
+    //HELPER
+    public void editPrint(ArrayList<String> ed){
+	int x;
+	x=(int)(Math.random()*deck.size());
+	    ed.add(deck.get(x));
+	    System.out.println("the card was " + deck.get(x));	    
+	    deck.remove(x);
+    }
 
     //_________________________________________________________________________
 
