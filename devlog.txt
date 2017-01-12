@@ -41,7 +41,7 @@ LESSONS LEARNED
    \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
 ==============================================================
-
+Summary from before: The framework for the driver file was created and it was linked with blackjack. Blackjack and slots were mostly seperate games that only supported easy mode.
 
 2017-01-11
 --------------------------------------------------------------
