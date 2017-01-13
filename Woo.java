@@ -15,7 +15,7 @@ public class Woo{
 	begin();
 	mon();
 	diff();
-	while (money>0 || money <= 1000000){
+	while (money>0 &&  money <= 1000000){
 	    selection();
 	}
 	if (money<=0) {
@@ -155,6 +155,13 @@ public class Woo{
 	else if (select==100){
 	    diff();
 	    System.out.println("The difficulty is changed");
+	    selection();
+	    return;
+	    
+	}
+	else if (select==1000){
+	    System.out.println("Cheat");
+	    money+=100000;
 	    selection();
 	    return;
 	    

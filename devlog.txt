@@ -77,7 +77,8 @@ Gian ::
 
 2017-01-13
 --------------------------------------------------------------
-Eric :: 	
+Eric :: Added the instructions for Woo and allowed for win condition
+	Allows for a cheat code in desperate times 	
 Truc :: 
 Gian ::
 ==============================================================
