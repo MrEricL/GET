@@ -364,7 +364,7 @@ public class blackjack implements casinorules {
 
 		if (difficulty==1) ezbot();
 		if (difficulty==2) medbot();
-		if (difficulty==3)hardbot();
+		if (difficulty==3) hardbot();
 
 	    }
 
@@ -532,6 +532,8 @@ public class blackjack implements casinorules {
 	}
 	else bol.add(true);
 	hand.clear();
+
+	
 	//lois
 	for (int i=0; i < lois.size(); i++){
 	    if (i!=1) hand.add(lois.get(i));
