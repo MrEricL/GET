@@ -19,6 +19,8 @@ UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - LOW PRIORITY - If you enter more than one word for the name than it'll error and skip the amount of money being entered. Likely needs to be fix by checking the value entered. (Eric)
 - MEDIUM PRIORITY - Implmenting the try/catch statements in the driver since if an invalid input is put in, it'll skip over the option and leave it as null. Tedious work for little results for now. (Eric)
+- MEDIUM PRIORITY - Medium mode bugs out in blackjack. (Eric)
+- HIGH PRIORITY - Game fails to terminate after hitting a negative amount, or above a million. (Eric)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - try/catch a Thread.sleep(long) allows for text to be printed at a timed manner. (Eric)
 
@@ -65,7 +67,7 @@ Eric :: Completed the medium bot for blackjack.
 	Added the ability to change your difficulty mid-game.	
 	Fixed blackjack for easy mode.
 	Completely finished blackjack. 
-	Added war.java and completed 80%, only needs to add bot response and delayed print.
+	Added war.java and completed 85%, only needs to add bot response and delayed print.
 Truc :: Completed the Slots super class and connected it to the driver.
 	
 Gian ::

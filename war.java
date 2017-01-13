@@ -289,7 +289,8 @@ public class war implements casinorules{
 	    z= deck.get(x);
 	    System.out.println("The dealer has discarded " + z);
 	}
-	int val=deal();	
+	int val=1;
+	System.out.println(deal());
 	
 	if (val==1) {
 	    System.out.println("You have won the war! Your winnings increased by $"+(bet*2));
