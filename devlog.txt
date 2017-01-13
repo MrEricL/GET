@@ -1,5 +1,5 @@
 
-Team Get
+Team GET
 Eric L
 Truc D
 Gian T
@@ -21,6 +21,8 @@ UNRESOLVED ISSUES
 - MEDIUM PRIORITY - Implmenting the try/catch statements in the driver since if an invalid input is put in, it'll skip over the option and leave it as null. Tedious work for little results for now. (Eric)
 - MEDIUM PRIORITY - Medium mode bugs out in blackjack. (Eric)
 - HIGH PRIORITY - Game fails to terminate after hitting a negative amount, or above a million. (Eric)
+- HIGH PRIORITY - Connect Slots subclasses to driver / figure out how to connect them. (Truc)
+- MEDIUM PRIORITY - Allow player to play Dice and Slots more than once without having to retype selection and bet. (Truc)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - try/catch a Thread.sleep(long) allows for text to be printed at a timed manner. (Eric)
 
@@ -28,6 +30,7 @@ MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - Implemented the new interface "casinorules.java" to streamline connecting games with the driver. (Eric) 
 - Instead of poker which would take too long to perfect, I am coding war first. (Eric)
+- Made Slots a super class instead of an abstract class or interface. (Truc)
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -69,7 +72,7 @@ Eric :: Completed the medium bot for blackjack.
 	Completely finished blackjack. 
 	Added war.java and completed 85%, only needs to add bot response and delayed print.
 Truc :: Completed the Slots super class and connected it to the driver.
-	
+	Started writing the subclasses for Slots.
 Gian ::
 ==============================================================
 

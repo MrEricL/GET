@@ -17,6 +17,17 @@ public class fruitSlots extends Slots {
 	money = _money;
 	bet = _bet;
 	_objects = new String[len * 18];
+	for (int index = 0; index < len*9; index += 1){
+	    _objects[index] = objects[index];
+	}
+	for (int index = len*9; index < len*18; index += 1){
+	    _objects[index] = FRUITS[index - len*9];
+	}
+    }
+
+    public static void main(String[] args){
+	fruitSlots finn = new fruitSlots(3, 100, 10);
+	finn.play();
     }
 	
 }

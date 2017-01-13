@@ -1,3 +1,5 @@
+import cs1.Keyboard;
+
 public class Slots implements casinorules{
 
     protected static final String[] objects = {
@@ -88,7 +90,6 @@ public class Slots implements casinorules{
 
     public void start(){
 	System.out.println("Welcome to the Slots machines!");
-	//System.out.println("Choose the game that you're going to play:");
     }
 
     public void go(){
