@@ -17,6 +17,12 @@ public class fruitSlots extends Slots {
 	money = _money;
 	bet = _bet;
 	_objects = new String[len * 6];
-	
+	double randomizer;
+	for (int index = 0; index < _objects.length; index += 1){
+	    randomizer = Math.random()*10;
+	    if (randomizer < 5){
+	    }
+	}
+    }
 	
 }
