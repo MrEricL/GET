@@ -12,10 +12,10 @@ public class Slots implements casinorules{
 	"dice", "dice", "dice",	
     };
 
-    private String[] _objects;
-    private int difficulty;
-    private double money;
-    private double bet;
+    protected String[] _objects;
+    protected int difficulty;
+    protected double money;
+    protected double bet;
 
     public Slots() {
 	_objects = new String[objects.length];
