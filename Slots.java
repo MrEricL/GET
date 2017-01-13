@@ -20,7 +20,7 @@ public class Slots implements casinorules{
     protected double bet;
 
     //for the visual
-    int times=10;
+    int times=13;
     //------------
 
     public Slots() {
@@ -72,8 +72,19 @@ public class Slots implements casinorules{
 	String y = objects[b];
 	int c  =  (int)(Math.random()*objects.length);
 	String z = objects[c];
+
+
+
+	int h =(int)( Math.random() *objects.length);
+	String j = objects[h];
+	int g= (int) (Math.random() * 100);
+
+	if (times > 0 && g > 85){
+	    System.out.println (j+"\t"+j+"\t"+j+"\n");
+
+	}
 	    
-	if (times > 0 && times > 5){
+	else if (times > 0 && times > 5){
 	    System.out.print(x+"\t");
 	    System.out.print(y+"\t");
 	    System.out.print(z+"\n\n");
@@ -141,11 +152,11 @@ public class Slots implements casinorules{
 	System.out.println(this);
 	if (miniWin()){
 	    if (jackpot()){
-		System.out.println("JACKPOT!!!!!!!");
+		System.out.println("\n\nJACKPOT!!!!!!!\n\n");
 		bet *= 2;
 	    }
 	    else{
-		System.out.println("Mini Win!!!!!");
+		System.out.println("\nMini Win!!!!!\n");
 	    }
 	}
 	else{

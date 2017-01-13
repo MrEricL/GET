@@ -79,7 +79,8 @@ Gian ::
 --------------------------------------------------------------
 Eric :: Added the instructions for Woo and allowed for win condition
 	Allows for a cheat code in desperate times 
-	Edited slots for some increased suspense and to print out the “process”	
+	Edited slots for some increased suspense and to print out the “process”
+	Cleaned up blackjack, divides results better3	
 Truc :: 
 Gian ::
 ==============================================================

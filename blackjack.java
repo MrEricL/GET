@@ -64,7 +64,10 @@ public class blackjack implements casinorules {
 	    return bet*-1;
 	}
     }
-
+    /*
+		
+ ♦♣♥♠
+     */
 
     //creates the deck of cards
     public void start(){
@@ -280,11 +283,13 @@ public class blackjack implements casinorules {
     }
     //print cards final
     public void printall(){
+	System.out.println ("\n____The Cards____");
 	System.out.print ("You have " );
 	for (int i=0; i< player.size(); i++){
 	    System.out.print (player.get(i)+" ");
 
 	}
+	System.out.print (" -> " + check(player));
 	System.out.println();	
 
 	System.out.print ("Jack has " );
@@ -292,6 +297,7 @@ public class blackjack implements casinorules {
 	   System.out.print (jack.get(i)+" ");
 
 	}
+	System.out.print (" -> " + check(jack));	
 	System.out.println();
 
 	System.out.print ("Lois has " );
@@ -299,6 +305,7 @@ public class blackjack implements casinorules {
 	    System.out.print (lois.get(i)+" ");
 
 	}
+	System.out.print (" -> " + check(lois));	
 	System.out.println();
 
 	System.out.print ("Will has " );
@@ -306,6 +313,7 @@ public class blackjack implements casinorules {
 	    System.out.print (will.get(i)+" ");
 
 	}
+	System.out.print (" -> " + check(will));	
 	System.out.println();
 
 	System.out.print ("Robin has " );
@@ -313,6 +321,7 @@ public class blackjack implements casinorules {
 	    System.out.print (robin.get(i)+" ");
 
 	}
+	System.out.print (" -> " + check(robin));	
 	System.out.println();
 
 	System.out.print ("Emily  has " );
@@ -320,6 +329,7 @@ public class blackjack implements casinorules {
 	    System.out.print (emily.get(i)+" ");
 
 	}
+	System.out.print (" -> " + check(emily));	
 	System.out.println();	
 
     }
@@ -351,7 +361,6 @@ public class blackjack implements casinorules {
 		    }
 		    else {
 			playerdone=true;
-			System.out.println(player);
 		    }
 	    
 		}
@@ -423,14 +432,15 @@ public class blackjack implements casinorules {
 	}
 
 	//	System.out.println("The winner is "+ listOfPeeps[index] + ", with a sum of "+ number);
+	System.out.println("♦♣♥♠♦♣♥♠♦♣♥♠ Results ♠♣♥♠♦♠♣♥♠♦♠♣♥♠♦");
 	if (index.size()==0){
-	    System.out.println("There were no winners");
+	    System.out.println("\nThere were no winners");
 	}
         else if (index.size() ==1){
-	    System.out.println("The winner is "+ listOfPeeps[index.get(0)] + ", with a sum of "+(21- number.get(0)));	    
+	    System.out.println("\nThe winner is "+ listOfPeeps[index.get(0)] + ", with a sum of "+(21- number.get(0)));	    
 	}
 	else{
-	    System.out.println("The winners are ");	    
+	    System.out.println("\nThe winners are ");	    
 	    for (int s=0; s<index.size(); s++){
 		System.out.println( listOfPeeps[index.get(s)] +" with  "+(21- number.get(s)));
 	    }
@@ -441,7 +451,7 @@ public class blackjack implements casinorules {
 	    winnumb= index.size();	    
 	}
 	else{
-	    System.out.println ("You are not a winner. Your total was "+check(player)+".\nYou lost your bet of $"+bet+".");
+	    System.out.println ("\nYou are not a winner. Your total was "+check(player)+".\nYou lost your bet of $"+bet+".\n\n");
 	}
 
     }
