@@ -1,6 +1,6 @@
 public class Slots implements casinorules{
 
-    private static final String[] objects = {
+    protected static final String[] objects = {
 	"seven", "seven", "seven",
 	"cherry", "cherry", "cherry",
 	"crown", "crown", "crown",
