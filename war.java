@@ -178,25 +178,46 @@ public class war implements casinorules{
 	}
     }
 
+    public int dealTie(){
+	System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+	int x=(int)(Math.random()*deck.size());
+	String a= deck.get(x); //player
+	String b="";
+	System.out.println("Your card is " + a);
+	deck.remove(x);
+	
+	    x=(int)(Math.random()*deck.size());
+	    b= deck.get(x);//bot
+	    System.out.println("Your opponent's card is " + b);
+	    deck.remove(x);
+	    
+	return comp(a,b);
+
+    }
+
     public int deal(){
 	System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
 	int x=(int)(Math.random()*deck.size());
 	String a= deck.get(x); //player
+	String b="";
 	System.out.println("Your card is " + a);
 	deck.remove(x);
 	
-	if (Math.random()*100 >= 75){
+	if (Math.random()*100 >= 66){
+	    x=(int)(Math.random()*deck.size());
+	    deck.remove(x);	    
 	    String h=a.substring(0,a.length()-1);
 	    int p = (int)( Math.random()*4);
 	    if (p==0) h+="♥";
 	    else if (p==1) h+="♠";
 	    else if (p==2) h+="♣";
-	    else h+"♦";
-	    String b=h;
+	    else h+="♦";
+	    b=h;
+	    System.out.println("Your opponent's card is " + b);
 	}
 	else{
 	    x=(int)(Math.random()*deck.size());
-	    String b= deck.get(x);//bot
+	    b= deck.get(x);//bot
 	    System.out.println("Your opponent's card is " + b);
 	    deck.remove(x);
 	}
@@ -213,15 +234,15 @@ public class war implements casinorules{
 	String finala=a.substring(0,a.length()-1);
 	String tempb=b.substring(0,1);
 	String finalb=b.substring(0,b.length()-1);	
-	if (Math.random()*100 <= 75){
-	if (tempa.equals("J")) a1+=11;
-	else if (tempa.equals("Q")) a1+=12;
-	else if (tempa.equals("K")) a1+=13;
-	else if (tempa.equals("A")) a1+=14;
-	else{
-	    result=Integer.parseInt(finala);
-	    a1+=result;
-	}
+	    if (tempa.equals("J")) a1+=11;
+	    else if (tempa.equals("Q")) a1+=12;
+	    else if (tempa.equals("K")) a1+=13;
+	    else if (tempa.equals("A")) a1+=14;
+	    else{
+		result=Integer.parseInt(finala);
+		a1+=result;
+	    }
+
 	
 	if (tempb.equals("J")) b1+=11;
 	else if (tempb.equals("Q")) b1+=12;
@@ -268,7 +289,8 @@ public class war implements casinorules{
 	    z= deck.get(x);
 	    System.out.println("The dealer has discarded " + z);
 	}
-	int val=deal();
+	int val=deal();	
+	
 	if (val==1) {
 	    System.out.println("You have won the war! Your winnings increased by $"+(bet*2));
 	    winnings+=bet*2;}
@@ -287,7 +309,7 @@ public class war implements casinorules{
 	    z= deck.get(x);
 	    System.out.println("The dealer has discarded " + z);
 	}
-	int val=deal();
+	int val=dealTie();
 	if (val==0){
 	    System.out.println("You have won the war! Your winnings increased by $"+(bet*10));
 	    winnings+=bet*10;
@@ -350,7 +372,7 @@ public class war implements casinorules{
 	    z= deck.get(x);
 	    System.out.println("The dealer has discarded " + z);
 	}
-	int val=deal();
+	int val=dealTie();
 	if (val==0){
 	    System.out.println("You have won the war! Your winnings increased by $"+(bet*10*increase));
 	    winnings+=bet*10;
