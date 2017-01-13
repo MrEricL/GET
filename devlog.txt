@@ -13,7 +13,6 @@ OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - Built the first bot for blackjack (and make the bot winnier than people)! 
 - Finished first complete game with all difficulties! 
-- Fixed issues with cs1 (Eric/Truc)
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
