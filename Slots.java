@@ -28,8 +28,8 @@ public class Slots implements casinorules{
 	difficulty = len;
 	money = _money;
 	bet = _bet;
-	_objects = new String[len * 3];
-	for (int index = 0; index < len*3; index += 1){
+	_objects = new String[len * 9];
+	for (int index = 0; index < len*9; index += 1){
 	    _objects[index] = objects[index];
 	}
     }
@@ -117,7 +117,7 @@ public class Slots implements casinorules{
     }
 
     public static void main(String[] args){
-	Slots mike = new Slots();
+	Slots mike = new Slots(1,80,10);
 	mike.play();
 	//System.out.println(mike.toString());
     }
