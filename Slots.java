@@ -10,7 +10,7 @@ public class Slots implements casinorules{
 	"bell", "bell", "bell",
 	"candy", "candy", "candy",
 	"diamond", "diamond", "diamond",
-	"$", "$", "$",
+	"$$$", "$$$", "$$$",
 	"dice", "dice", "dice",	
     };
 
@@ -18,6 +18,10 @@ public class Slots implements casinorules{
     protected int difficulty;
     protected double money;
     protected double bet;
+
+    //for the visual
+    int times=10;
+    //------------
 
     public Slots() {
 	_objects = new String[objects.length];
@@ -61,6 +65,43 @@ public class Slots implements casinorules{
 	}
     }
 
+    public void spinPrint(){
+	int a = (int)(Math.random()*objects.length);
+	String x = objects[a];
+	int b = (int)(Math.random()*objects.length);
+	String y = objects[b];
+	int c  =  (int)(Math.random()*objects.length);
+	String z = objects[c];
+	    
+	if (times > 0 && times > 5){
+	    System.out.print(x+"\t");
+	    System.out.print(y+"\t");
+	    System.out.print(z+"\n\n");
+	}
+	else if (times > 0 && times > 2){
+	    System.out.print(x+"\t");
+	    slp(0.1);
+	    System.out.print(y+"\t");
+	    slp(0.1);
+	    System.out.print(z+"\n\n");
+	    slp(0.1);
+	}
+	else if (times > 0){
+	    System.out.print(x+"\t");
+	    slp(0.8);
+	    System.out.print(y+"\t");
+	    slp(0.8);
+	    System.out.print(z+"\n\n");
+	    slp(0.8);
+
+	}
+	else return;
+	slp(0.25);
+	times--;
+	spinPrint();
+	
+    }
+
     public boolean jackpot() {
 	boolean jackpot = false;
 	if (_objects[0].equals(_objects[1])){
@@ -94,7 +135,9 @@ public class Slots implements casinorules{
 
     public void go(){
 	System.out.println("Spinning.....");
+	spinPrint();
 	spin();
+	slp(1.5);
 	System.out.println(this);
 	if (miniWin()){
 	    if (jackpot()){
@@ -116,6 +159,18 @@ public class Slots implements casinorules{
 	go();
 	return bet;
     }
+
+
+    //helper function don't mind
+	public void slp(double x){
+	    x*=1000;
+	    long y= (long)x;
+	    try{
+		Thread.sleep(y);
+	    }
+	    catch(InterruptedException e){
+	    }
+	}    
 
     public static void main(String[] args){
 	Slots mike = new Slots(1,80,10);
