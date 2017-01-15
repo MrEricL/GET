@@ -7,6 +7,7 @@ public class BingoPlayer extends Bingo {
     // Variables for overloaded constructor
     private int difficulty;
     private double money;
+    private double bet;
 
     // Declare player and opponents' bingo cards.
     private int[][] p1card;
