@@ -110,6 +110,7 @@ public class Woo{
 	int select=0;
 	int blackjackPlay=0; //adds the instructions
 	int dicePlay=0;
+	int slotsPlay = 0;
 	int diff;
 	System.out.println("You have $" + money);
 	System.out.println("\nWhat game would you like to play?\n1. Blackjacks\n2. Dice" +
@@ -143,6 +144,10 @@ public class Woo{
 	    money += game2.play();
 	}
 	else if (select == 3){
+	    if(slotsPlay == 0){
+		System.out.println("The instructions will only appear once so read it carefully");
+		slotsInstruct();
+	    }
 	    bet();
 	    Slots game3 = new Slots(difficulty, money, bet);
 	    money += game3.play();
@@ -245,6 +250,19 @@ public class Woo{
 	    System.out.println("The faces' values range between 1 and 12");
 	}
 	//	slp(6);
+    }
+
+
+    public void slotsInstruct(){
+	System.out.println("Slots is a simple game. Simply enter your bet" +
+			   " and choose your game.");
+	System.out.println("Spin the slots to get three values. If all " +
+			   "all three values are the same, you get a " +
+			   "jackpot and earn double your bet. If all three" +
+			   "values are different, you earn what you bet.");
+	System.out.println("However, in each special slots, you can earn " +
+			   "even more! Keep playing to find out what their" +
+			   "special jackpots are and increase your earnings!");
     }
 
     

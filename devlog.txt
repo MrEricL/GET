@@ -99,10 +99,23 @@ Gian ::
 --------------------------------------------------------------
 Eric :: Finished vanilla Keno (keno.java)
 	Added an automated picker for Keno
-	
 Truc :: Completed two subclasses of Slots with added features for increased possible winnings.
 	Implemented all subclasses into Slots superclass linked to driver.
 Gian :: Added game setup, including functionality for filling and printing bingo cards
         Added mechanism for calling numbers in bingo
+==============================================================
+
+2017-01-16
+--------------------------------------------------------------
+Eric :: 
+Truc :: Added Slots instructions into Woo
+Gian :: 
+==============================================================
+
+2017-01-17
+--------------------------------------------------------------
+Eric :: 	
+Truc :: 
+Gian :: 
 ==============================================================
 
