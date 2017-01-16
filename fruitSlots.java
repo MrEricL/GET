@@ -16,18 +16,24 @@ public class fruitSlots extends Slots {
         difficulty = len;
 	money = _money;
 	bet = _bet;
-	_objects = new String[len * 18];
+	_objects = new String[len * 9];
 	for (int index = 0; index < len*9; index += 1){
-	    _objects[index] = objects[index];
-	}
-	for (int index = len*9; index < len*18; index += 1){
-	    _objects[index] = FRUITS[index - len*9];
+	    _objects[index] = FRUITS[index];
 	}
     }
 
-    public static void main(String[] args){
-	fruitSlots finn = new fruitSlots(3, 100, 10);
-	finn.play();
+    public boolean appleJackpot(){
+	if (jackpot() && _objects[0].equals("apple")){
+	    return true; }
+	else { return false; }
     }
-	
+
+    public void go(){
+	super.go();
+	if (appleJackpot()){
+	    System.out.println("APPLE JACKPOT!!!!! " +
+			       "Double your winnings!\n");
+	    bet *= 2;
+	}
+    }
 }
