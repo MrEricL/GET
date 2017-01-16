@@ -1,0 +1,285 @@
+import cs1.Keyboard;
+import java.util.ArrayList;
+public class keno  {
+
+    //background stuff
+    public int difficulty;
+    public double  money;
+    public double bet;
+    //   public int[][] board = new int[8][10];
+    public ArrayList <Integer> board = new ArrayList <Integer>();
+    public ArrayList <Integer> board2 = new ArrayList <Integer>();
+    public int times;
+    public ArrayList <Integer> picks = new ArrayList <Integer>();
+    public ArrayList <Integer> draws = new ArrayList <Integer>();
+
+    public int correct=0;
+    
+
+    public keno(){
+	play();
+    }
+
+    public keno (int x, double  y, double z){
+	difficulty=x;
+	money=y;
+	bet=z;
+    }
+
+    public void  play(){
+	start();
+	enter();
+	//	go();
+	printnumb();
+	printer(board);
+	draw();
+	fin();
+	System.out.println(correct);
+
+    }
+
+    public void start(){
+	int time;
+	System.out.println("\nHow many spots would you like to play (1-10)?");
+
+	try{
+	    time=Keyboard.readInt();
+
+	    if (time < 1 || time > 10){
+
+		System.out.println ("Try again");
+		start();
+		return;	    
+	    }
+	    else {
+		times=time;
+		System.out.println();
+	    }	    
+	}
+	catch (Exception e){
+	    System.out.println("Error. Try again.\n\n");
+	    start();
+	    return;
+	}
+
+        int i=0;
+	while (i < 80){
+	    board.add(i+1);
+	    i++;
+	}
+        int z=0;
+	while (z < 80){
+	    board2.add(z+1);
+	    z++;
+	}	
+	printer(board);
+    }
+
+    
+
+
+    public void go(){
+	int x;
+
+	while (picks.size() < times){
+	    printnumb();
+	    System.out.println("What number would you like to pick?");
+	    try{
+		x= Keyboard.readInt();
+		if (!check(x) || x < 1 || x > board.size() ){
+		    sopln("Invalid input");
+		    go();
+		    return;
+		}
+		else{
+		    picks.add(x);
+		    board.set(x,0);
+		}
+
+	    }
+	    catch (Exception e){
+		System.out.println("Try again");
+		go();
+		return;
+	    }	
+	}
+
+    }
+
+    // printers ______________________________________________
+
+    public void printnumb(){
+	System.out.print("Your numbers:" );
+	for (int x = 0 ; x < picks.size(); x++){
+	    System.out.print(" "+picks.get(x));
+	}
+	System.out.println("\n");
+
+    }
+    public void printer(ArrayList<Integer> x) {
+	System.out.println("\n\t\t\t\t--- Keno ---");	
+	int i =0;
+	int y=0;
+	while (i < x.size()){
+	    y=x.get(i);
+	    if ( (y-1) % 10 == 0) System.out.println("\n");
+	    if (y <10) System.out.print(" " + y+"\t");
+	    else System.out.print(y+"\t");
+	    i++;
+	}
+	System.out.println("\n");
+	   
+    }
+
+    // enter functions
+
+    public void enter(){
+	String x;
+	System.out.println("\n\nWould you like the computers to pick your numbers? (y/n)");
+
+	try {
+	    x=Keyboard.readWord();   
+	    if (!x.equals("y") && !x.equals( "n")){
+		System.out.println("Invalid input. Try again.");
+		enter();
+		return;
+	    }
+
+	    if (x.equals("y")) compenter();
+	    else go();
+	}
+	catch (Exception e){
+	    System.out.println("Error. Try again.\n\n");
+	    enter();
+	    return;
+	}
+
+    }
+
+    public void compenter(){
+	int x;
+
+	for (int i=0; i < times; i++){
+	    x = (int) (Math.random() *board.size());
+	    if (check(x)){
+		picks.add(x);
+		board.set(x-1, 00);
+	    }
+	    else i--;
+	}
+
+    }
+
+    public boolean check(int x){
+	boolean bol = true;
+	for (int i = 0 ; i < picks.size(); i++){
+	    if (x == picks.get(i)){
+	        bol = false;
+		break;
+	    }
+	}
+	return bol;
+    }
+    public boolean checkv2(int x){
+	boolean bol = true;
+	for (int i = 0 ; i < draws.size(); i++){
+	    if (x == draws.get(i)){
+	        bol = false;
+		break;
+	    }
+	}
+	return bol;
+    }
+
+    //drawing
+
+    public void draw(){
+	int i=0;
+	int x;
+	
+	while (i < times){
+	    x= (int)(Math.random() * board2.size());
+	    
+	    printball(board2.get(x));
+	    draws.add( board2.get(x));
+	    board2.remove(x);
+	    i++;
+	}
+
+    }
+
+    public void printball (int x){
+	sopln("  * * ");
+	sopln("* "+x+" *");
+	sopln(" * *\n");	      
+	slp(0.4);
+    }
+
+    public void fin (){
+	int y=0;
+	boolean bol;
+	
+	for (int i = 0; i < picks.size(); i ++){
+	    bol = checkv2(picks.get(i));
+	    if (!bol) y++;
+	}
+	correct=y;
+
+    }
+
+    // beyond lazy
+
+
+    public void sop(String x){
+	System.out.print(x);
+
+    }
+
+    public void sopln (String x){
+	System.out.println(x);
+    }
+
+    //helper function don't mind
+	public void slp(double x){
+	    x*=1000;
+	    long y= (long)x;
+	    try{
+		Thread.sleep(y);
+	    }
+	    catch(InterruptedException e){
+	    }
+	}       
+
+
+    public static void main (String[] args){
+	keno thing = new keno();
+
+
+    }
+
+    /* 2D Array Junk
+
+the board
+	for (int i = 0; i < board.length; i++){
+	    for (int x = 0; x < board[i].length; x++){
+		board[i][x] = 1 + x + (10*i) ;
+	    }	    
+	    }
+
+printing
+
+
+	System.out.println("\n\t\t\t\t--- Keno ---\n\n");
+	for (int i =0 ;i < x.length ; i++){
+	    for (int y= 0 ; y < x[i].length ; y++){
+		if (x[i][y] < 10) System.out.print (" "+ x[i][y] + "\t");
+		else System.out.print (x[i][y] + "\t");
+	    }
+	    System.out.println();
+	    System.out.println();	    
+	}
+     */
+
+
+
+}

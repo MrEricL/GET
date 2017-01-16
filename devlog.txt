@@ -80,14 +80,24 @@ Gian ::
 Eric :: Added the instructions for Woo and allowed for win condition
 	Allows for a cheat code in desperate times 
 	Edited slots for some increased suspense and to print out the “process”
-	Cleaned up blackjack, divides results better3	
+	Cleaned up blackjack, divides results better
 Truc :: 
 Gian ::
 ==============================================================
 
+2017-01-14
+--------------------------------------------------------------
+Eric :: Tested out driver and accompanying games.
+Truc :: 
+Gian ::
+==============================================================
+
+
 2017-01-15
 --------------------------------------------------------------
-Eric :: 
+Eric :: Finished vanilla Keno (keno.java)
+	Added an automated picker for Keno
+	
 Truc :: Completed two subclasses of Slots with added features for increased possible winnings.
 	Implemented all subclasses into Slots superclass linked to driver.
 Gian ::
