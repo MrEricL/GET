@@ -18,6 +18,7 @@ public class Slots implements casinorules{
     protected int difficulty;
     protected double money;
     protected double bet;
+    private int selection;
 
     //for the visual
     int times=13;
@@ -66,17 +67,17 @@ public class Slots implements casinorules{
     }
 
     public void spinPrint(){
-	int a = (int)(Math.random()*objects.length);
-	String x = objects[a];
-	int b = (int)(Math.random()*objects.length);
-	String y = objects[b];
-	int c  =  (int)(Math.random()*objects.length);
-	String z = objects[c];
+	int a = (int)(Math.random()*_objects.length);
+	String x = _objects[a];
+	int b = (int)(Math.random()*_objects.length);
+	String y = _objects[b];
+	int c  =  (int)(Math.random()*_objects.length);
+	String z = _objects[c];
 
 
 
-	int h =(int)( Math.random() *objects.length);
-	String j = objects[h];
+	int h =(int)( Math.random() * _objects.length);
+	String j = _objects[h];
 	int g= (int) (Math.random() * 100);
 
 	if (times > 0 && g > 85){
@@ -141,7 +142,11 @@ public class Slots implements casinorules{
     }
 
     public void start(){
-	System.out.println("Welcome to the Slots machines!");
+	System.out.println("Which slots would you like to play?");
+	System.out.println("\t1. Regular");
+	System.out.println("\t2. Fruits");
+	System.out.println("\t3. Numbers");
+	selection = Keyboard.readInt();
     }
 
     public void go(){
@@ -152,7 +157,7 @@ public class Slots implements casinorules{
 	System.out.println(this);
 	if (miniWin()){
 	    if (jackpot()){
-		System.out.println("\n\nJACKPOT!!!!!!!\n\n");
+		System.out.println("\n\nJACKPOT!!!!!!!\n");
 		bet *= 2;
 	    }
 	    else{
@@ -167,6 +172,16 @@ public class Slots implements casinorules{
 
     public double play(){
 	start();
+	if (selection == 2){
+	    fruitSlots player = new fruitSlots(difficulty, money, bet);
+	    player.go();
+	    return player.bet;
+	}
+	if (selection == 3){
+	    numberSlots player = new numberSlots(difficulty, money, bet);
+	    player.go();
+	    return player.bet;
+	}
 	go();
 	return bet;
     }
