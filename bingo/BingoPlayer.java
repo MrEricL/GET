@@ -2,29 +2,15 @@
 // Team GET
 // Gian Tricarico, Eric Li, Truc Dao
 
-public class BingoPlayer extends Bingo {
+public class BingoPlayer {
 
-    // Variables for overloaded constructor
-    private int difficulty;
-    private double money;
-    private double bet;
+    private int[][] card;
 
-    // Declare player and opponents' bingo cards.
-    private int[][] p1card;
-    private int[][] opp1card;
-    private int[][] opp2card;
-
-    // Letter and number called by the bingo person
-    // (not sure what the official name is)
-    private int calledLetter; // is an int because method converts letter to number for indexing in the array
-    private int calledNumber;
-
-    // Overloaded constructor
-    public Bingo( diff, mon, b ) {
-	difficulty = diff;
-	money = mon;
-	bet = b;
-	fillCards();
+    // Default constructor
+    public BingoPlayer() {
+	for ( int i = 0; i < card.length; i += 1 ) {
+	    for ( int x = 0; x < card[i].length; x += 1 ) {
+		card[i][x] = 1 + 24 * Math.random();
     }
 
     // Fills cards with random numbers

@@ -2,32 +2,42 @@
 // Team GET
 // Gian Tricarico, Eric Li, Truc Dao
 
-public abstract class Bingo {
+import java.util.ArrayList;
 
-    // Commented out:
-    /*========================
-    // Variables for overloaded constructor
+public class Bingo {
+
     private int difficulty;
-    private double money;
+    private double bet;
 
-    // Declare player and opponents' bingo cards.
-    private int[][] p1card;
-    private int[][] opp1card;
-    private int[][] opp2card;
-    ========================*/
+    private BingoPlayer player0, opp0, opp1, opp2, opp3, opp4, opp5;
 
-    protected int[5][5] card;
+    private ArrayList<BingoPlayer> players;
 
     // Letter and number called by the bingo person
     // (not sure what the official name for the bingo person is)
-    protected int calledLetter; // is an int because it is used for indexing into the card array
-    protected int calledNumber;
+    private int calledLetter; // is an int because it is used for indexing into the card array
+    private int calledNumber;
 
     // Overloaded constructor
-    public Bingo( diff ) {
-	for ( int i = 0; i < card.length; i += 1 ) {
-	    for ( int x = 0; x < card[i].length; x += 1 ) {
-		card[i][x] = 
+    public Bingo( diff, b ) {
+	difficulty = diff;
+	bet = b;
+	players = new ArrayList<BingoPlayer>();
+	players.add( player0 );
+	players.add( opp0 );
+	players.add( opp1 );
+	if ( difficulty > 1 ) {
+	    players.add( opp2 );
+	    players.add( opp3 );
+	}
+	if ( difficulty > 2 ) {
+	    players.add( opp4 );
+	    players.add( opp5 );
+	}
+	// Instantiate only the BingoPlayers in players
+	for ( int i = 0; i < players.size(); i += 1 ) {
+	    players.get( i ) = new BingoPlayer( difficulty );
+	}
     }
 
     // Fills cards with random numbers
