@@ -29,13 +29,15 @@ MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - Implemented the new interface "casinorules.java" to streamline connecting games with the driver. 
 - Instead of poker which would take too long to perfect, I am coding war first. 
-- Made Slots a super class instead of an abstract class or interface. 
+- Made Slots a super class instead of an abstract class or interface.
+- Added class BingoPlayer instead of using one class for bingo
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - ArrayList is far better than arrays! When in doubt use ArrayList. 
 - For ArrayList don't create it as just ArrayList name, since it'll think each thing is an object. 
 - You can have a local variable with the same name as your instance variables. Don't do that.
+- Start with MVP and add to it afterward.
 ||||||||||||||||||||||||||||||||||||||||||
 
  ______   ______   __   __   __       ______   _______     
@@ -59,7 +61,7 @@ Truc :: Finished up dice functionality and connected dice with the driver and in
 	Set up Slots.
 	Set up dice difficulty levels.
 	
-Gian :: Begin setting up cards for Bingo.
+Gian :: Began setting up cards for Bingo.
 ==============================================================
 
 2017-01-12
@@ -100,6 +102,7 @@ Eric :: Finished vanilla Keno (keno.java)
 	
 Truc :: Completed two subclasses of Slots with added features for increased possible winnings.
 	Implemented all subclasses into Slots superclass linked to driver.
-Gian ::
+Gian :: Added game setup, including functionality for filling and printing bingo cards
+        Added mechanism for calling numbers in bingo
 ==============================================================
 
