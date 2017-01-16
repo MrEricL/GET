@@ -87,7 +87,7 @@ Gian ::
 
 2017-01-15
 --------------------------------------------------------------
-Eric :: 
+Eric :: Tested out the driver and accompanying games.
 Truc :: Completed two subclasses of Slots with added features for increased possible winnings.
 	Implemented all subclasses into Slots superclass linked to driver.
 Gian ::
