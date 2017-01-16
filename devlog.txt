@@ -17,6 +17,7 @@ OBSTACLES OVERCOME
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - LOW PRIORITY - If you enter more than one word for the name than it'll error and skip the amount of money being entered. Likely needs to be fix by checking the value entered. 
+		 (FIXED -Truc)
 - MEDIUM PRIORITY - Implmenting the try/catch statements in the driver since if an invalid input is put in, it'll skip over the option and leave it as null. Tedious work for little results for now. 
 - MEDIUM PRIORITY - Medium mode bugs out in blackjack. 
 - HIGH PRIORITY - Game fails to terminate after hitting a negative amount, or above a million. 
@@ -108,7 +109,8 @@ Gian :: Added game setup, including functionality for filling and printing bingo
 2017-01-16
 --------------------------------------------------------------
 Eric :: 
-Truc :: Added Slots instructions into Woo
+Truc :: Added Slots instructions into Woo.
+	Fixed the name error. Added a small heading to the game. :)
 Gian :: 
 ==============================================================
 

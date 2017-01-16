@@ -27,10 +27,10 @@ public class Woo{
     }
  
     public void begin(){
-	
+	System.out.println("\tDo Ya Feel Lucky? The Terminal Casino Adventure\n\n\n");
 	System.out.println ("\nYou are ?");
-	System.out.println ("(Type your first name)\n");
-        name = Keyboard.readWord();
+	//	System.out.println ("(Type your first name)\n");
+        name = Keyboard.readString();
 	System.out.println ("\n\nNice you meet you " + name);
 	//	slp(1.5);
 	System.out.println ("\nYou unfortunately contracted a deathly illness in the jungles of Zambia");
