@@ -71,7 +71,7 @@ Keno
 
 The pay table for keno is provided by the British-Columbia Lottery Corporation: http://lotto.bclc.com/keno-and-keno-bonus/prizes-and-odds.html
 
-(stuff)[http://lmsotfy.com/so.png]
+<img src="http://lmsotfy.com/so.png">
 
 War
 ---
