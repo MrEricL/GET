@@ -12,12 +12,10 @@ public class Bingo {
 
     private BingoPlayer player0, opp0, opp1, opp2, opp3, opp4, opp5, opp6, opp7;
 
-    private ArrayList<BingoPlayer> players;
-    // The number of BingoPlayers added to players will depend
+    private ArrayList<BingoPlayer> opponents;
+    // The number of BingoPlayers added to opponents will depend
     // on the difficulty setting, and operations will only be performed
-    // on the BingoPlayers in players.
-
-    private boolean bingo; // indicates whether a player has won
+    // on the BingoPlayers in opponents.
     
     // Letter and number called by the caller
     private int letter; // is an int even though it represents a letter because it is used for indexing into the card array
@@ -40,28 +38,28 @@ public class Bingo {
     }
     
     public void start() {
-	players = new ArrayList<BingoPlayer>();
+	opponents = new ArrayList<BingoPlayer>();
 	player0 = new BingoPlayer( player0name, difficulty );
 	opp0 = new BingoPlayer( "Erma", difficulty );
 	opp1 = new BingoPlayer( "Zeb", difficulty );
-	players.add( player0 );
-	players.add( opp0 );
-	players.add( opp1 );
+	// players.add( player0 );
+	opponents.add( opp0 );
+	opponents.add( opp1 );
 	if ( difficulty > 1 ) {
 	    opp2 = new BingoPlayer( "Gertrude", difficulty );
 	    opp3 = new BingoPlayer( "Ebenezer", difficulty );
 	    opp4 = new BingoPlayer( "Aretha", difficulty );
-	    players.add( opp2 );
-	    players.add( opp3 );
-	    players.add( opp4 );
+	    opponents.add( opp2 );
+	    opponents.add( opp3 );
+	    opponents.add( opp4 );
 	}
 	if ( difficulty > 2 ) {
 	    opp5 = new BingoPlayer( "Ferdinand", difficulty );
 	    opp6 = new BingoPlayer( "Uriah", difficulty );
 	    opp7 = new BingoPlayer( "Deanne", difficulty );
-	    players.add( opp5 );
-	    players.add( opp6 );
-	    players.add( opp7 );
+	    opponents.add( opp5 );
+	    opponents.add( opp6 );
+	    opponents.add( opp7 );
 	}
 	// System.out.println( players );
 	B = new ArrayList<Integer>();
@@ -72,32 +70,36 @@ public class Bingo {
     } // end start()
 
     public double play() {
+	boolean bingo; // indicates whether a player has won
+	boolean win; // indicates whether player0 (the user) has won
 	bingo = false;
+	win = false;
 	while ( !bingo ) {
 	    System.out.println( "This is your card:\n\n" );
 	    System.out.println( player0.printableCard() );
 	    System.out.println( call() );
-	    for ( BingoPlayer x : players ) {
+	    player0.checkCard( letter, number );
+	    if ( player0.checkBingo() ) {
+		bingo = true;
+		win = true;
+		System.out.println( winSequence( player0 ) );
+	    }
+	    for ( BingoPlayer x : opponents ) {
 		x.checkCard( letter, number );
 		if ( x.checkBingo() ) {
-		    System.out.println( x.name + ": Bingo!" );
 		    bingo = true;
-		    System.out.println( "Caller: " + x.name + " has won!\n" );
-		    if ( x.equals( player0 ) ) {
-			bet *= 6;
-		    }
-		    else {
-			bet *= -1;
-		    }
-		    System.out.println( x.name + "'s card is shown:\n\n" );
-		    System.out.println( x.printableCard() );
-		    System.out.println( "Caller: Good game, everybody!" );
+		    System.out.println( winSequence( x ) );
 		}
 	    }
 	    // bingo = true;
+	} // end while loop
+	if ( win ) {
+	    return player0.getMultiplier() * opponents.size() * bet;
 	}
-	return bet;
-    }
+	else {
+	    return -1 * bet;
+	}
+    } // end play()
 
     public String call() {
 	int range;
@@ -114,6 +116,7 @@ public class Bingo {
 	letters = "BINGO";
 	retStr = "Caller: ";
 	retStr += letters.substring( letter, letter + 1 );
+	retStr += " ";
 	retStr += number;
 	if ( letter == 0 ) {
 	    B.add( number );
@@ -133,6 +136,20 @@ public class Bingo {
 	else {
 	    O.add( number );
 	}
+	return retStr;
+    }
+
+    public String winSequence( BingoPlayer player ) {
+	String retStr;
+	retStr = player.getName() + ": Bingo!\n";
+	retStr += "Caller: " + player.getName() + " has won!";
+	if ( player.getMultiplier() == 2 ) {
+	    retStr += " It's a double bingo!";
+	}
+	retStr += "\n\n" + player.getName() + "'s card is shown:\n\n\n";
+	retStr += player.printableCard();
+	retStr += "\n";
+	retStr += "Caller: Good game, everybody!";
 	return retStr;
     }
 
