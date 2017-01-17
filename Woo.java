@@ -82,8 +82,9 @@ public class Woo{
     }
 
     public void bet(){
+	System.out.println("_______Bet_______");
 	System.out.println("\nHow much money would you like to bet?");
-	System.out.println("\n(You can bet as much as you have)");
+	System.out.println("(You can bet as much as you have)\n");
 	try{
 	    bet=Keyboard.readDouble();
 	    if (bet > money){

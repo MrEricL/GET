@@ -38,7 +38,8 @@ public class war implements casinorules{
     //start_________________________________________________________
     public void start(){
 	int times=0;
-	System.out.println("Casino war is very short. How many times would you like to play");
+	System.out.println("\n\n~~~~~~~~~ CASINO WAR ~~~~~~~~~\n");
+	System.out.println("\nCasino war is very short. How many times would you like to play?\n");
 	try {
 	    times=Keyboard.readInt();
 	    turns=times;
@@ -179,7 +180,7 @@ public class war implements casinorules{
     }
 
     public int dealTie(){
-	System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+	System.out.println("\n||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n");
 	int x=(int)(Math.random()*deck.size());
 	String a= deck.get(x); //player
 	String b="";
@@ -194,9 +195,53 @@ public class war implements casinorules{
 	return comp(a,b);
 
     }
+    public int dealTie2(){
+	int x=(int)(Math.random()*deck.size());
+	String a= deck.get(x); //player
+	String b="";
+	System.out.println("Your card is " + a);
+	deck.remove(x);
+	
+	    x=(int)(Math.random()*deck.size());
+	    b= deck.get(x);//bot
+	    System.out.println("Your opponent's card is " + b);
+	    deck.remove(x);
+	    
+	return comp(a,b);
 
+    }
     public int deal(){
-	System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+	System.out.println("\n||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n");
+	int x=(int)(Math.random()*deck.size());
+	String a= deck.get(x); //player
+	String b="";
+	System.out.println("Your card is " + a);
+	deck.remove(x);
+	
+	if (Math.random()*100 >= 66){
+	    x=(int)(Math.random()*deck.size());
+	    deck.remove(x);	    
+	    String h=a.substring(0,a.length()-1);
+	    int p = (int)( Math.random()*4);
+	    if (p==0) h+="♥";
+	    else if (p==1) h+="♠";
+	    else if (p==2) h+="♣";
+	    else h+="♦";
+	    b=h;
+	    System.out.println("Your opponent's card is " + b);
+	}
+	else{
+	    x=(int)(Math.random()*deck.size());
+	    b= deck.get(x);//bot
+	    System.out.println("Your opponent's card is " + b);
+	    deck.remove(x);
+	}
+	return comp(a,b);
+
+    }
+
+
+    public int deal2(){
 	int x=(int)(Math.random()*deck.size());
 	String a= deck.get(x); //player
 	String b="";
@@ -264,7 +309,7 @@ public class war implements casinorules{
     public void prepwar(){
 	int want;
 	System.out.println("The values are equal! What would you like to do?");
-	System.out.println("1.Bet on winning\n2.Bet on tie\n3.Surrender");
+	System.out.println("1.Bet on winning\n2.Bet on tie\n3.Surrender\n");
 	try{
 	    want=Keyboard.readInt();
 	    if (want==3){
@@ -284,13 +329,15 @@ public class war implements casinorules{
     public void war(){
 	int x;
 	String z;
+
+	System.out.println("\n");
 	for (int y=0; y< 3; y++){
 	    x=(int)(Math.random()*deck.size());
 	    z= deck.get(x);
 	    System.out.println("The dealer has discarded " + z);
 	}
 	int val=1;
-	System.out.println(deal());
+	val=deal2();
 	
 	if (val==1) {
 	    System.out.println("You have won the war! Your winnings increased by $"+(bet*2));
@@ -310,7 +357,7 @@ public class war implements casinorules{
 	    z= deck.get(x);
 	    System.out.println("The dealer has discarded " + z);
 	}
-	int val=dealTie();
+	int val=dealTie2();
 	if (val==0){
 	    System.out.println("You have won the war! Your winnings increased by $"+(bet*10));
 	    winnings+=bet*10;
@@ -368,12 +415,13 @@ public class war implements casinorules{
 
 	int x;
 	String z;
+	System.out.println("\n");
 	for (int y=0; y< 3; y++){
 	    x=(int)(Math.random()*deck.size());
 	    z= deck.get(x);
 	    System.out.println("The dealer has discarded " + z);
 	}
-	int val=dealTie();
+	int val=dealTie2();
 	if (val==0){
 	    System.out.println("You have won the war! Your winnings increased by $"+(bet*10*increase));
 	    winnings+=bet*10;
@@ -383,6 +431,32 @@ public class war implements casinorules{
 	    winnings-=bet*10;
 	}
     }
+
+    public String moneycheck(double z){
+	String x = ""+z;
+	int indexDec=0;
+	int space;
+
+	for (int i=0; i < x.length()-1 ; i++){
+	    if (x.substring(i,i+1)=="."){
+		indexDec=i;
+	    }
+	}
+
+	space=x.length()-indexDec-2;
+	if (space < 2){
+	    x+="0";
+	}
+	else{
+	    x=x.substring(0,indexDec+4);
+
+	}
+	return x;
+    }
+
+
+
+    
     public static void main(String args[]){
 
     }
