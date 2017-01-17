@@ -14,6 +14,11 @@ cs1 is used to take terminal input, DO NOT modify
 Instructions
 ============
 
+Launch Instructions
+-------------------
+$ javac Woo.java
+$ java Woo
+
 Blackjack
 ---------
 **Introduction**
