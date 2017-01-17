@@ -116,7 +116,7 @@ public class Woo{
 	System.out.println("---------Selection---------");
 	System.out.println("You have $" + money);
 	System.out.println("\nWhat game would you like to play?\n1. Blackjacks\n2. Dice" +
-			   "\n3. Slots\n4. War\n5. Keno");
+			   "\n3. Slots\n4. War\n5. Keno\n6. Bingo");
 	System.out.println("(To change the difficulty enter 100) \n");
 	try{
 	    select= Keyboard.readInt();}
@@ -166,6 +166,17 @@ public class Woo{
 
 
 
+	}
+	else if ( select == 6 ) {
+	    /* Uncomment once bingoInstruct() is written.
+	    if ( bingoPlay == 0 ) {
+		System.out.println( "The instructions will only appear once so read it carefully" );
+		bingoInstruct();
+	    }
+	    */
+	    bet();
+	    bingo game6 = new bingo( name, difficulty );
+	    money += game6.play();
 	}
 	else if (select==100){
 	    diff();
