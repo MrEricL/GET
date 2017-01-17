@@ -16,18 +16,18 @@ Instructions
 
 Blackjack
 ---------
-##Introduction
+**Introduction**
 
 Blackjack is a classic casino card game with the goal to to get a total of 21. Suits don't matter in this version 
 with all JACK/QUEEN/KING/ACE being worth 10.
 
-###Notes
+**Notes**
 
 The game will stop when you don't want to get hit or when your hand is too large.
 If you win your prize money depends on the other winners. If only you win, and no body else wins, you get your bet by six fold more, 
 or if everyone wins, you get your bet amount.
 
-###Difficulty Levels
+**Difficulty Levels**
 
 You are in easy mode: the game will only use one deck. The bots are extremely simple and rely on guessing more.
     
