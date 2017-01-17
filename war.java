@@ -164,15 +164,15 @@ public class war implements casinorules{
 	while(turns>0){
 	    val=deal();
 	    if (val ==1){
-		System.out.println ("You won! You have gained your bet of $" + bet);
+		System.out.println ("\nYou won! You have gained your bet of $" + cn(bet));
 		winnings+=bet;
 	    }
 	    else if (val == -1){
-		System.out.println ("You lost! You have lost your bet of $" + bet);
+		System.out.println ("\nYou lost! You have lost your bet of $" + cn(bet));
 		winnings-=bet;
 	    }
 	    else{
-		System.out.println("It's a tie! Time for war!");
+		System.out.println("\nIt's a tie! Time for war!");
 		prepwar();
 	    }
 	    turns--;
@@ -313,14 +313,14 @@ public class war implements casinorules{
 	try{
 	    want=Keyboard.readInt();
 	    if (want==3){
-		System.out.println( "You have surrendered! You lost $" +bet/2);
+		System.out.println( "\nYou have surrendered! You lost $" +cn(bet/2));
 		winnings-=bet/2;
 	    }
 	    else if (want==1) war();
 	    else tiewar();
 	}
 	catch(Exception e){
-	    System.out.println("Try again! You can fight or you can run! Nothing else!");
+	    System.out.println("\nTry again! You can fight or you can run! Nothing else!");
 	    prepwar();
 	    return;
 	}
@@ -340,10 +340,10 @@ public class war implements casinorules{
 	val=deal2();
 	
 	if (val==1) {
-	    System.out.println("You have won the war! Your winnings increased by $"+(bet*2));
+	    System.out.println("\nYou have won the war! Your winnings increased by $"+cn((bet*2)));
 	    winnings+=bet*2;}
 	else if (val==-1){
-	    System.out.println("You have lost the war! Your winnings decrease by $"+(bet*2));
+	    System.out.println("\nYou have lost the war! Your winnings decrease by $"+cn((bet*2)));
 	    winnings-=bet*2;
 	}	
 	else prepwar(2);
@@ -359,11 +359,11 @@ public class war implements casinorules{
 	}
 	int val=dealTie2();
 	if (val==0){
-	    System.out.println("You have won the war! Your winnings increased by $"+(bet*10));
+	    System.out.println("\nYou have won the war! Your winnings increased by $"+cn((bet*10)));
 	    winnings+=bet*10;
 	}
 	else{
-	    System.out.println("You have lost the war! Your winnings decrease by $"+(bet*10));
+	    System.out.println("\nYou have lost the war! Your winnings decrease by $"+cn((bet*10)));
 	    winnings-=bet*10;
 	}
     }
@@ -377,7 +377,7 @@ public class war implements casinorules{
 	try{
 	    want=Keyboard.readInt();
 	    if (want==3){
-		System.out.println( "You have surrendered! You lost $" +(bet*increase)/(2));
+		System.out.println( "\nYou have surrendered! You lost $" +cn((bet*increase)/(2)));
 		winnings-=bet/2;
 	    }
 	    else if (want==1) war(increase);
@@ -401,10 +401,10 @@ public class war implements casinorules{
 	}
 	int val=deal();
 	if (val==1) {
-	    System.out.println("You have won the war! Your winnings increased by $"+(bet*2));
+	    System.out.println("\nYou have won the war! Your winnings increased by $"+cn((bet*2)));
 	    winnings+=bet*2*increase;}
 	else if (val==-1){
-	    System.out.println("You have lost the war! Your winnings decrease by $"+(bet*2));
+	    System.out.println("\nYou have lost the war! Your winnings decrease by $"+cn((bet*2)));
 	    winnings-=bet*2*increase;
 	}	
 	else prepwar(increase*2);
@@ -423,22 +423,22 @@ public class war implements casinorules{
 	}
 	int val=dealTie2();
 	if (val==0){
-	    System.out.println("You have won the war! Your winnings increased by $"+(bet*10*increase));
+	    System.out.println("\nYou have won the war! Your winnings increased by $"+cn(bet*10*increase));
 	    winnings+=bet*10;
 	}
 	else{
-	    System.out.println("You have lost the war! Your winnings decrease by $"+(bet*10*increase));
+	    System.out.println("\nYou have lost the war! Your winnings decrease by $"+cn((bet*10*increase)));
 	    winnings-=bet*10;
 	}
     }
-
-    public String moneycheck(double z){
+    // IMPORTANT
+    public String cn(double z){
 	String x = ""+z;
 	int indexDec=0;
 	int space;
 
 	for (int i=0; i < x.length()-1 ; i++){
-	    if (x.substring(i,i+1)=="."){
+	    if (x.substring(i,i+1).equals(".")){
 		indexDec=i;
 	    }
 	}
