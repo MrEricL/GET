@@ -37,6 +37,28 @@ You are in hard  mode: the game will use six deck. The bots have seeming omnisci
       
 Slots
 -----
+Slots employs machines that turn rolls of pictures until it stops. Your goal is to get a set of matching pictures or a set of three completely different pictures to win.
+
+**Notes**
+Slots also divides into different slots machines. All machines allow you to win a miniwin (three different pictures in the slots) or a jackpot (all three are the same). However, the different slots machines have additional features (except the normal slots). In fruit Slots, you can double your earnings if your jackpot is with the apples picture. In number Slots, you add 1000 to your earnings if your jackpot lands on the "thousand" picture.
+
+**Difficulty Levels**
+Easy mode: There are only three different pictures being cycled.
+
+Medium mode: Six different pictures are available.
+
+Hard mode: Nine different pictures are running. Good luck getting that jackpot!
+
+Dice
+-----
+Dice is the simplest game in the casino. It employs a simple dice roll of two equal dice, and your objective is to guess what each die will roll.
+
+**Difficulty Levels**
+Easy mode: The dice each have 6 sides.
+
+Medium mode: The dice each have 9 sides.
+
+Hard mode: The dice each have 12 sides. Good luck guessing that one!
 
 Keno
 ----
