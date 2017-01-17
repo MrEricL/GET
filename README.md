@@ -16,7 +16,7 @@ Instructions
 
 Launch Instructions
 -------------------
-$ javac Woo.java 
+$ javac Woo.java     
 $ java Woo
 
 Blackjack
