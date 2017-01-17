@@ -108,7 +108,9 @@ Gian :: Added game setup, including functionality for filling and printing bingo
 
 2017-01-16
 --------------------------------------------------------------
-Eric :: 
+Eric :: Finished and linked all of Keno to the driver.
+	Added a pay table for different wins.
+	Started a cleaned up readme for instructions
 Truc :: Added Slots instructions into Woo.
 	Fixed the name error. Added a small heading to the game. :)
 Gian :: Added functionality for checking and marking bingo cards, and for winning the bingo game
