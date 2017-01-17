@@ -59,6 +59,7 @@ Dice
 Dice is the simplest game in the casino. It employs a simple dice roll of two equal dice, and your objective is to guess what each die will roll.
 
 **Difficulty Levels**
+
 Easy mode: The dice each have 6 sides.
 
 Medium mode: The dice each have 9 sides.
