@@ -16,7 +16,7 @@ Instructions
 
 Launch Instructions
 -------------------
-$ javac Woo.java
+$ javac Woo.java     
 $ java Woo
 
 Blackjack
@@ -58,7 +58,7 @@ Dice
 -----
 Dice is the simplest game in the casino. It employs a simple dice roll of two equal dice, and your objective is to guess what each die will roll.
 
-**Difficulty Levels**
+**Difficulty Levels**        
 
 Easy mode: The dice each have 6 sides.
 
@@ -71,6 +71,8 @@ Keno
 
 The pay table for keno is provided by the British-Columbia Lottery Corporation: http://lotto.bclc.com/keno-and-keno-bonus/prizes-and-odds.html
 
+<img src="https://github.com/MrEricL/GET/blob/master/pics/Screen%20Shot%202017-01-17%20at%2010.48.12%20AM.png"><br>
+<img src="https://github.com/MrEricL/GET/blob/master/pics/Screen%20Shot%202017-01-17%20at%2010.48.24%20AM.png"><br>
 War
 ---
 
