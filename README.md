@@ -16,7 +16,7 @@ Instructions
 
 Blackjack
 ---------
-###Introduction
+##Introduction
 
 Blackjack is a classic casino card game with the goal to to get a total of 21. Suits don't matter in this version 
 with all JACK/QUEEN/KING/ACE being worth 10.
