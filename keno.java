@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class keno  {
 
     //background stuff
-    public int difficulty;
+    public int difficulty=1;
     public double  money;
     public double bet;
     //   public int[][] board = new int[8][10];
@@ -12,6 +12,8 @@ public class keno  {
     public int times;
     public ArrayList <Integer> picks = new ArrayList <Integer>();
     public ArrayList <Integer> draws = new ArrayList <Integer>();
+    
+    public double win;
 
     public int correct=0;
     
@@ -20,13 +22,11 @@ public class keno  {
 	play();
     }
 
-    public keno (int x, double  y, double z){
+    public keno (int x){
 	difficulty=x;
-	money=y;
-	bet=z;
     }
 
-    public void  play(){
+    public double  play(){
 	start();
 	enter();
 	//	go();
@@ -34,13 +34,19 @@ public class keno  {
 	printer(board);
 	draw();
 	fin();
-	System.out.println(correct);
+	winnings();
+	picked();
+	System.out.print("You have selected " + times+" draws ");
+	System.out.println("and have got "+ correct+" correct");
+	System.out.println("You have won $"+win);
+	    
+	return win;
 
     }
 
     public void start(){
 	int time;
-	System.out.println("\nHow many spots would you like to play (1-10)?");
+	System.out.println("\nHow many spots would you like to play (1-10)?\n");
 
 	try{
 	    time=Keyboard.readInt();
@@ -62,6 +68,38 @@ public class keno  {
 	    return;
 	}
 
+	if (difficulty==1) start1();
+	else if (difficulty==2) start2();
+	else start3();
+	printer(board);
+    }
+
+
+    public void start1(){
+        int i=0;
+	while (i < 30){
+	    board.add(i+1);
+	    i++;
+	}
+        int z=0;
+	while (z < 30){
+	    board2.add(z+1);
+	    z++;
+	}
+    }
+    public void start2(){
+        int i=0;
+	while (i < 60){
+	    board.add(i+1);
+	    i++;
+	}
+        int z=0;
+	while (z < 60){
+	    board2.add(z+1);
+	    z++;
+	}
+    }
+    public void start3(){
         int i=0;
 	while (i < 80){
 	    board.add(i+1);
@@ -72,9 +110,7 @@ public class keno  {
 	    board2.add(z+1);
 	    z++;
 	}	
-	printer(board);
     }
-
     
 
 
@@ -135,7 +171,7 @@ public class keno  {
 
     public void enter(){
 	String x;
-	System.out.println("\n\nWould you like the computers to pick your numbers? (y/n)");
+	System.out.println("\n\nWould you like the computers to pick your numbers? (y/n)\n");
 
 	try {
 	    x=Keyboard.readWord();   
@@ -210,8 +246,8 @@ public class keno  {
 
     public void printball (int x){
 	sopln("  * * ");
-	sopln("* "+x+" *");
-	sopln(" * *\n");	      
+	sopln("*  "+x+"  *");
+	sopln("   * * \n");	      
 	slp(0.4);
     }
 
@@ -225,6 +261,15 @@ public class keno  {
 	}
 	correct=y;
 
+    }
+
+    public void picked(){
+
+	System.out.print ("The balls that were picked are: ");
+	for (int i=0; i < picks.size(); i++){
+	    System.out.print(picks.get(i)+" ");
+	}
+	System.out.println();
     }
 
     // beyond lazy
@@ -250,9 +295,49 @@ public class keno  {
 	    }
 	}       
 
+    public void winnings(){
+	if (correct==1 && times==1) win=2.0;
+	else if(correct ==2 && times==2) win = 10.0;
+	else if(correct==3 && times==3) win=25.0;
+	else if(correct==2 && times==3) win = 2;
+	else if(times==4 && correct == 4) win=500.0;
+	else if(times==4 && correct == 3)win=5.0;
+	else if(times==4 && correct == 2)win=1.0;
+	else if(times==5 && correct == 5)win=500.0;
+	else if(times==5 && correct == 4)win=15.0;
+	else if(times==5 && correct == 3)win=2;
+	else if(times==6 && correct == 6)win=1500;
+	else if(times==6 && correct == 5)win=50;
+	else if(times==6 && correct == 4)win=5;
+	else if(times==6 && correct == 3)win=1;
+	else if(times==7 && correct == 7)win=5000;
+	else if(times==7 && correct == 6)win=150;
+	else if(times==7 && correct == 5)win=15;
+	else if(times==7 && correct == 4)win=2;
+	else if(times==7 && correct == 3)win=1;
+	else if(times==8 && correct == 8)win=15000;
+	else if(times==8 && correct == 7)win=400;
+	else if(times==8 && correct == 6)win=50;
+	else if(times==8 && correct == 5)win=10;
+	else if(times==8 && correct == 4)win=2;
+	else if(times==9 && correct == 9)win=25000;
+	else if(times==9 && correct == 8)win=2500;
+	else if(times==9 && correct == 7)win=200;
+	else if(times==9 && correct == 6)win=25;
+	else if(times==9 && correct == 5)win=4;
+	else if(times==9 && correct == 4)win=1;
+	else if(times==10 && correct == 10)win=200000;
+	else if(times==10 && correct == 9)win=10000;
+	else if(times==10 && correct == 8)win=500;
+	else if(times==10 && correct == 7)win=50;
+	else if(times==10 && correct == 6)win=10;
+	else if(times==10 && correct == 5)win=3;
+	else if(times==10 && correct == 0)win=3;
+	else win=0;	
+    }
 
     public static void main (String[] args){
-	keno thing = new keno();
+	//	keno thing = new keno();
 
 
     }

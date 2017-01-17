@@ -27,8 +27,8 @@ public class Woo{
     }
  
     public void begin(){
-	System.out.println("\tDo Ya Feel Lucky? The Terminal Casino Adventure\n\n\n");
-	System.out.println ("\nYou are ?");
+	System.out.println("\t\n\n\nDo Ya Feel Lucky? The Terminal Casino Adventure\n");
+	System.out.println ("\nYou are ?\n");
 	//	System.out.println ("(Type your first name)\n");
         name = Keyboard.readString();
 	System.out.println ("\n\nNice you meet you " + name);
@@ -61,15 +61,15 @@ public class Woo{
 	    diff();
 	    return;
 	}
-	if (difficulty==1) System.out.println("\nShould I get the baby it's rattle?\n\n");
-	else if (difficulty==2) System.out.println("\nThis will emulate real life \nand you will lose\n\n");
-	else System.out.println("\nWhat do you want on your tombstone?\n\n");
+	if (difficulty==1) System.out.println("\nEasy mode? Should I get the baby it's rattle?\n\n");
+	else if (difficulty==2) System.out.println("\nMedium mode? This will emulate real life \nand you will lose\n\n");
+	else System.out.println("\nHard mode? What do you want on your tombstone?\n\n");
     }
 
     public void mon () {
 	System.out.println("\n\nHow much money would you like to start with?");	
 	System.out.println("Your game  will end when you hit your $1mil goal or when you've  spent all your money");
-	System.out.println("(Hit 0 for default amount of 10k)");
+	System.out.println("(Hit 0 for default amount of 10k)\n");
          money=Keyboard.readDouble();
 	if (money==0) money = 10000.00;
 	if (money >= 700000) {
@@ -112,9 +112,10 @@ public class Woo{
 	int dicePlay=0;
 	int slotsPlay = 0;
 	int diff;
+	System.out.println("---------Selection---------");
 	System.out.println("You have $" + money);
 	System.out.println("\nWhat game would you like to play?\n1. Blackjacks\n2. Dice" +
-			   "\n3. Slots\n4. War");
+			   "\n3. Slots\n4. War\n5. Keno");
 	System.out.println("(To change the difficulty enter 100) \n");
 	try{
 	    select= Keyboard.readInt();}
@@ -156,6 +157,14 @@ public class Woo{
 	    bet();
 	    war game4= new war(difficulty, money, bet);
 	    money+=game4.play();
+	}
+	else if (select==5){
+	    money-=1;
+	    keno game5= new keno(difficulty);
+	    money+=game5.play();
+
+
+
 	}
 	else if (select==100){
 	    diff();
