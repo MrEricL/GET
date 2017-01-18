@@ -91,6 +91,7 @@ public class Bingo {
 		    System.out.println( winSequence( x ) );
 		}
 	    }
+	    slp(0.1);
 	    // bingo = true;
 	} // end while loop
 	if ( win ) {
@@ -149,14 +150,23 @@ public class Bingo {
 	retStr += "\n\n" + player.getName() + "'s card is shown:\n\n\n";
 	retStr += player.printableCard();
 	retStr += "\n";
-	retStr += "Caller: Good game, everybody!";
+	retStr += "Caller: Good game, everybody!\n\n";
 	return retStr;
     }
+	public void slp(double x){
+	    x*=1000;
+	    long y= (long)x;
+	    try{
+		Thread.sleep(y);
+	    }
+	    catch(InterruptedException e){
+	    }
+	}    
 
     // main method for testing purposes
     public static void main( String[] args ) {
-	Bingo japajoe;
+	/*	Bingo japajoe;
 	japajoe = new Bingo( "Kevin", 1, 50.0 );
-	japajoe.play();
+	japajoe.play();*/
     }
 }

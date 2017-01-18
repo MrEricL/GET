@@ -175,7 +175,7 @@ public class Woo{
 	    }
 	    */
 	    bet();
-	    bingo game6 = new bingo( name, difficulty );
+	    Bingo game6 = new Bingo( name, difficulty, bet );
 	    money += game6.play();
 	}
 	else if (select==100){

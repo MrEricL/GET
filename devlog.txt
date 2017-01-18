@@ -119,7 +119,8 @@ Gian :: Added functionality for checking for numbers on bingo cards and marking 
 
 2017-01-17
 --------------------------------------------------------------
-Eric :: 	
+Eric :: Fixed some bugs in the driver when connecting with Bingo.
+	Edited formatting for bingo and added a timed print function.	
 Truc :: 
 Gian :: 
 ==============================================================
