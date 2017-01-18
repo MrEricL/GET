@@ -128,3 +128,10 @@ Truc :: Started an attempt at pictures for slots.
 Gian :: 
 ==============================================================
 
+2017-01-18
+--------------------------------------------------------------
+Eric :: Added taunt system to blackjack
+	Created new file for red dog
+Truc :: 
+Gian :: 
+==============================================================
