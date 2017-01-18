@@ -121,6 +121,7 @@ Gian :: Added functionality for checking for numbers on bingo cards and marking 
 --------------------------------------------------------------
 Eric :: Fixed some bugs in the driver when connecting with Bingo.
 	Edited formatting for bingo and added a timed print function.	
+	Edited blackjack for early bust and stops unlimited games
 Truc :: 
 Gian :: 
 ==============================================================

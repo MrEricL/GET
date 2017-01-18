@@ -19,9 +19,9 @@ public class Woo{
 	    selection();
 	}
 	if (money<=0) {
-	System.out.println("You have lost your life savings. " +
-			   "You can no longer afford treatment.\n " +
-			   "Your game has ended");
+	System.out.println("\n\n\n\n\n\n\n\n+++++++END+++++++\n\nYou have lost your life savings. " +
+			   "You can no longer afford treatment.\n" +
+			   "Your game has ended\n\n\n\n\n\n\n\n\n\n\n");
 	}
 	else System.out.println("You win! You won't go sick! \n On your way to the hospital you got hit by a car!\n\n\n\n\n\n\t\t\t~~~ FIN~~~");
     }
@@ -82,7 +82,7 @@ public class Woo{
     }
 
     public void bet(){
-	System.out.println("_______Bet_______");
+	System.out.println("\n\n_______Bet_______");
 	System.out.println("\nHow much money would you like to bet?");
 	System.out.println("(You can bet as much as you have)\n");
 	try{
@@ -115,7 +115,7 @@ public class Woo{
 	int diff;
 	System.out.println("---------Selection---------");
 	System.out.println("You have $" + money);
-	System.out.println("\nWhat game would you like to play?\n1. Blackjacks\n2. Dice" +
+	System.out.println("\nWhat game would you like to play?\n1. Blackjack\n2. Dice" +
 			   "\n3. Slots\n4. War\n5. Keno\n6. Bingo");
 	System.out.println("(To change the difficulty enter 100) \n");
 	try{
@@ -127,7 +127,7 @@ public class Woo{
 	}
 	if (select==1){
 	    if (blackjackPlay<1){
-		System.out.println("The instructions will only appear once so read it carefully");
+		System.out.println("\nThe instructions will only appear once so read it carefully");
 		blackjackInstruct();
 	    }
 	    blackjackPlay+=1;
@@ -137,7 +137,7 @@ public class Woo{
 	}
 	else if (select == 2){
 	    if (dicePlay==0){
-		System.out.println("The instructions will only appear once so read it carefully");
+		System.out.println("\nThe instructions will only appear once so read it carefully");
 	        diceInstruct();
 	    }
 	    dicePlay+=1;
@@ -147,7 +147,7 @@ public class Woo{
 	}
 	else if (select == 3){
 	    if(slotsPlay == 0){
-		System.out.println("The instructions will only appear once so read it carefully");
+		System.out.println("\nThe instructions will only appear once so read it carefully");
 		slotsInstruct();
 	    }
 	    bet();

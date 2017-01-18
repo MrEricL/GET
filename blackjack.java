@@ -21,7 +21,13 @@ public class blackjack implements casinorules {
     public int robinDraw=(int)(Math.random()*2);
     public int emilyDraw=(int)(Math.random()*2);
 
-    // med bot
+    //bot taunt
+
+    public String[] tauntPick = {"You seem to be out of your league.", "Who would hit on that?", "Are you blind or are you blind?", "This game is way too easy!","Clever move!","My eighty year old nan could play better than that!","Wow! That was such a good move.","Ah yes, another rookie, another win for me."};
+
+    public String[] tauntWin = {"GG EZ\nGIT GUD SCRUB","Why that was simply to be expected.","Finally more money for drugs!","That was a wonderful game everyone!","My oh my!",};
+
+    public String[] tauntLose={"You card counting scum!","You just got lucky!","Hmmmm... My disposable income is in the millions~","@!#%","Pfffff... Beginner's luck.",";)\n","Good job!"};
 
 
 
@@ -283,55 +289,94 @@ public class blackjack implements casinorules {
     }
     //print cards final
     public void printall(){
+	String a;
+	String b;
+	String c;
+	String d;
+	String e;
+	String f;
 	System.out.println ("\n____The Cards____");
-	System.out.print ("You have " );
+	//a
+        a="You have ";
 	for (int i=0; i< player.size(); i++){
-	    System.out.print (player.get(i)+" ");
+	    a+=player.get(i)+" ";
 
 	}
-	System.out.print (" -> " + check(player));
-	System.out.println();	
 
-	System.out.print ("Jack has " );
+	//b
+        b="Jack has ";
 	for (int i=0; i< jack.size(); i++){
-	   System.out.print (jack.get(i)+" ");
+	  b+=jack.get(i)+" ";
 
 	}
-	System.out.print (" -> " + check(jack));	
-	System.out.println();
+	//	System.out.print (" -> " + check(jack));	
+	//	System.out.println();
 
-	System.out.print ("Lois has " );
+	//c
+        c="Lois has ";
 	for (int i=0; i< lois.size(); i++){
-	    System.out.print (lois.get(i)+" ");
+	    c+=lois.get(i)+" ";
 
 	}
-	System.out.print (" -> " + check(lois));	
-	System.out.println();
+	//	System.out.print (" -> " + check(lois));	
+	//	System.out.println();
 
-	System.out.print ("Will has " );
+	//d
+	d="Will has " ;
 	for (int i=0; i< will.size(); i++){
-	    System.out.print (will.get(i)+" ");
+	    d+=will.get(i)+" ";
 
 	}
-	System.out.print (" -> " + check(will));	
-	System.out.println();
+	//	System.out.print (" -> " + check(will));	
+	//	System.out.println();
 
-	System.out.print ("Robin has " );
+	//e
+
+        e="Robin has ";
 	for (int i=0; i< robin.size(); i++){
-	    System.out.print (robin.get(i)+" ");
+	    e==robin.get(i)+" ";
 
 	}
-	System.out.print (" -> " + check(robin));	
-	System.out.println();
+	//	System.out.print (" -> " + check(robin));	
+	//	System.out.println();
 
-	System.out.print ("Emily  has " );
+	//f
+       f="Emily  has " ;
 	for (int i=0; i< emily.size(); i++){
-	    System.out.print (emily.get(i)+" ");
+	   f+=emily.get(i)+" ";
 
 	}
-	System.out.print (" -> " + check(emily));	
-	System.out.println();	
+	//	System.out.print (" -> " + check(emily));	
+	//	System.out.println();
 
+	int leng=0;
+
+	if(a.length() > leng) leng = a.length();
+	if(b.length() > leng) leng = b.length();
+	if(c.length() > leng) leng = c.length();
+	if(d.length() > leng) leng = d.length();
+	if(e.length() > leng) leng = e.length();
+	if(f.length() > leng) leng = f.length();
+
+	while (a.length() < leng) a+=" ";
+	while (b.length() < leng) b+=" ";
+	while (c.length() < leng) c+=" ";
+	while (d.length() < leng) d+=" ";
+	while (e.length() < leng) e+=" ";
+	while (f.length() < leng) f+=" ";
+
+	System.out.print (a+" -> " + check(player));
+	System.out.println();	
+	System.out.print (b+" -> " + check(jack));
+	System.out.println();
+	System.out.print (c+" -> " + check(lois));
+	System.out.println();	
+	System.out.print (d+" -> " + check(will));
+	System.out.println();
+	System.out.print (e+" -> " + check(robin));
+	System.out.println();	
+	System.out.print (f+" -> " + check(emily));
+	System.out.println("\n");	
     }
 
 
@@ -342,6 +387,10 @@ public class blackjack implements casinorules {
 	System.out.println ("\n ~~~ BEGIN ~~~ ");
 
 	while (!playerdone || !botdone){
+	    if (checkBust(player) > 21){
+		System.out.println("Look's like you're busted!!!\n");
+		playerdone=true;
+		}
 	    if (!playerdone){
 		
 		System.out.println("~~~~~~~~~~~~\n");
@@ -383,8 +432,30 @@ public class blackjack implements casinorules {
 	closest(results);
 	
     }
-    //work on this
+    //CHECK
     public int check (ArrayList <String> x){
+	int total=0;
+	int result=0;
+	String temp;
+	String temp2;
+	for (int i=0; i< x.size(); i++){
+	    temp=x.get(i).substring(0,1);
+	    temp2=x.get(i).substring(0,x.get(i).length()-1);
+	    if (temp.equals("K") || temp.equals("Q") || temp.equals("J")|| temp.equals("A")) total+=10;
+	    else{
+		result=Integer.parseInt(temp2);
+		total+=result;
+	    }
+	}
+	return total; 
+    }
+
+    public int checkBust(ArrayList <String> y){
+	ArrayList <String> x = new ArrayList<String>();
+	for (int i =0 ; i < y.size(); i++){
+	    x.add(y.get(i));
+	}
+	x.remove(1);
 	int total=0;
 	int result=0;
 	String temp;
