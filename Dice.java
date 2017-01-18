@@ -48,7 +48,6 @@ public class Dice implements casinorules{
     }
 
     public void start(){
-	System.out.println("Welcome to the Dice game!");
 	System.out.print("Guess what one die will roll: ");
 	guess1 = Keyboard.readInt();
 	while  (guess1 > Dice1.length || guess1 < 0) {
@@ -86,6 +85,7 @@ public class Dice implements casinorules{
     }
 
     public double play(){
+	System.out.println("Welcome to the Dice game!");
 	start();
 	go();
 	System.out.print("Care for another roll? Y or N? ");
