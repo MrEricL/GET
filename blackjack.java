@@ -406,7 +406,8 @@ public class blackjack implements casinorules {
 			player.add(deck.get(x));
 			System.out.println ("You got a " + deck.get(x));
 			System.out.println();
-			deck.remove(x);		
+			deck.remove(x);
+			
 		    }
 		    else {
 			playerdone=true;
@@ -415,7 +416,13 @@ public class blackjack implements casinorules {
 		}
 		catch (Exception e) {
 		    return;		
-		}			   
+		}
+		if ((Math.random()*100) <= 75){
+		    int g = (int)(Math.random()*listOfPeeps.length);
+		    int k= (int)(Math.random()*tauntPick.length);
+		    System.out.println("\n\n"+listOfPeeps[g]+": "+tauntPick[k]+"\n\n");
+
+		}		
 	    }
 
 	    if (!botdone){
@@ -423,8 +430,8 @@ public class blackjack implements casinorules {
 		if (difficulty==1) ezbot();
 		if (difficulty==2) medbot();
 		if (difficulty==3) hardbot();
-
 	    }
+
 	    slp(0.15);
 		
 	}
