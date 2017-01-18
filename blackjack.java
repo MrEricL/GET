@@ -240,9 +240,7 @@ public class blackjack implements casinorules {
     public void printcards(){
 	System.out.print ("You have " );
 	for (int i=0; i< player.size(); i++){
-	    if (i!=1) System.out.print (player.get(i)+" ");
-	    else System.out.print ("? ");
-
+	    System.out.print (player.get(i)+" ");
 	}
 	System.out.println();	
 
@@ -388,7 +386,7 @@ public class blackjack implements casinorules {
 	System.out.println ("\n~~~ BEGIN ~~~ ");
 
 	while (!playerdone || !botdone){
-	    if (checkBust(player) > 21){
+	    if (check(player) > 21){
 		System.out.println("Look's like you're busted!!!\n");
 		playerdone=true;
 		}
@@ -406,14 +404,16 @@ public class blackjack implements casinorules {
 			int x= (int)(Math.random()*deck.size());
 			player.add(deck.get(x));
 			System.out.println ("You got a " + deck.get(x));
-			System.out.println();
-			deck.remove(x);
-			
+			    System.out.println();
+			if (deck.get(x).substring(0,3)=="ACE"){
+			    player.add( aceC(deck.get(x)));
+			}
+			else	player.add(deck.get(x));
+			deck.remove(x);	
 		    }
 		    else {
 			playerdone=true;
 		    }
-	    
 		}
 		catch (Exception e) {
 		    return;		
@@ -422,24 +422,48 @@ public class blackjack implements casinorules {
 		    int g = (int)(Math.random()*listOfPeeps.length-1);
 		    int k= (int)(Math.random()*tauntPick.length);
 		    System.out.println("\n\n"+listOfPeeps[g+1]+": "+tauntPick[k]+"\n\n");
-
 		}		
 	    }
-
 	    if (!botdone){
-
 		if (difficulty==1) ezbot();
 		if (difficulty==2) medbot();
 		if (difficulty==3) hardbot();
 	    }
-
-	    slp(0.5);
-		
+	    slp(0.5);	
 	}
 	resultTally();
-	closest(results);
-	
+	closest(results);	
     }
+
+	//ACE Choose
+
+
+	public String aceC(String y){
+	    System.out.println("You have an ACE! You woud you like the value to be 1 or 11?");
+			    String c = y;
+			    int s;
+			    try{
+				s=Keyboard.readInt();
+				if (s!= 1 && s!=11){
+				    System.out.println("\nYou need to choose 1 or 11!\n");
+				    aceC(y);
+				    return;
+				}
+				else{
+				    if (s==1){
+					c="#"+c;
+				    }
+				    else{
+					c="%"+c;
+				    }
+				}
+			    }
+			    catch (Exception e){
+				aceC(y);
+				//	return;
+			    }
+			    return c;
+	}
     //CHECK
     public int check (ArrayList <String> x){
 	int total=0;
@@ -449,7 +473,9 @@ public class blackjack implements casinorules {
 	for (int i=0; i< x.size(); i++){
 	    temp=x.get(i).substring(0,1);
 	    temp2=x.get(i).substring(0,x.get(i).length()-1);
-	    if (temp.equals("K") || temp.equals("Q") || temp.equals("J")|| temp.equals("A")) total+=10;
+	    if (temp.equals("%")) total+=11;
+	    else if (temp.equals("#")) total+=1;
+	    else if (temp.equals("K") || temp.equals("Q") || temp.equals("J")) total+=10;
 	    else{
 		result=Integer.parseInt(temp2);
 		total+=result;
@@ -511,7 +537,7 @@ public class blackjack implements casinorules {
 	}
 
 	//	System.out.println("The winner is "+ listOfPeeps[index] + ", with a sum of "+ number);
-	System.out.println("\n\n\n♦♣♥♠♦♣♥♠♦♣♥♠ Results ♠♣♥♠♦♠♣♥♠♦♠♣♥♠♦");
+	System.out.println("\n\n\n♦ ♣ ♥ ♠ ♦ ♣ ♥ ♠ ♦ ♣ ♥ ♠ Results ♠ ♣ ♥ ♠ ♦ ♠ ♣ ♥ ♠ ♦ ♠ ♣ ♥ ♠ ♦");
 	if (index.size()==0){
 	    System.out.println("\nThere were no winners");
 	}
