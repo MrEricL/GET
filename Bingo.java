@@ -4,11 +4,13 @@
 
 import java.util.ArrayList;
 
-public class Bingo {
+public class Bingo implements casinorules {
 
     private String player0name;
     private int difficulty;
     private double bet;
+    private boolean bingo; // indicates whether a player has won
+    private boolean win; // indicates whether player0 (the user) has won
 
     private BingoPlayer player0, opp0, opp1, opp2, opp3, opp4, opp5, opp6, opp7;
 
@@ -70,37 +72,39 @@ public class Bingo {
     } // end start()
 
     public double play() {
-	boolean bingo; // indicates whether a player has won
-	boolean win; // indicates whether player0 (the user) has won
 	bingo = false;
 	win = false;
 	while ( !bingo ) {
-	    System.out.println( "This is your card:\n\n" );
-	    System.out.println( player0.printableCard() );
-	    System.out.println( call() );
-	    player0.checkCard( letter, number );
-	    if ( player0.checkBingo() ) {
-		bingo = true;
-		win = true;
-		System.out.println( winSequence( player0 ) );
-	    }
-	    for ( BingoPlayer x : opponents ) {
-		x.checkCard( letter, number );
-		if ( x.checkBingo() ) {
-		    bingo = true;
-		    System.out.println( winSequence( x ) );
-		}
-	    }
-	    slp(0.1);
-	    // bingo = true;
-	} // end while loop
+	    go();
+	}
 	if ( win ) {
-	    return player0.getMultiplier() * opponents.size() * bet;
+	    return player0.getMultiplier() * (opponents.size() + 1) * bet;
 	}
 	else {
 	    return -1 * bet;
 	}
     } // end play()
+
+    public void go() {
+	System.out.println( "This is your card:\n\n" );
+	System.out.println( player0.printableCard() );
+	System.out.println( call() );
+	player0.checkCard( letter, number );
+	if ( player0.checkBingo() ) {
+	    bingo = true;
+	    win = true;
+	    System.out.println( winSequence( player0 ) );
+	}
+	for ( BingoPlayer x : opponents ) {
+	    x.checkCard( letter, number );
+	    if ( x.checkBingo() ) {
+		bingo = true;
+		System.out.println( winSequence( x ) );
+	    }
+	}
+	slp(2.0);
+	// bingo = true;
+    } // end go()
 
     public String call() {
 	int range;
@@ -165,8 +169,8 @@ public class Bingo {
 
     // main method for testing purposes
     public static void main( String[] args ) {
-	/*	Bingo japajoe;
+	Bingo japajoe;
 	japajoe = new Bingo( "Kevin", 1, 50.0 );
-	japajoe.play();*/
+	japajoe.play();
     }
 }
