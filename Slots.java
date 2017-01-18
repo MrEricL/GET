@@ -1,5 +1,5 @@
 import cs1.Keyboard;
-import SlotsPics.Pictures;
+//import SlotsPics.Pictures;
 
 public class Slots implements casinorules{
 

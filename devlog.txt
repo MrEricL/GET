@@ -120,7 +120,8 @@ Gian :: Added functionality for checking for numbers on bingo cards and marking 
 2017-01-17
 --------------------------------------------------------------
 Eric :: 	
-Truc :: 
+Truc :: Started an attempt at pictures for slots.
+	Improved dice.
 Gian :: 
 ==============================================================
 
