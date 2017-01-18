@@ -328,6 +328,7 @@ public class war implements casinorules{
     }
 
     public void war(){
+	
 	int x;
 	String z;
 
@@ -336,7 +337,10 @@ public class war implements casinorules{
 	    x=(int)(Math.random()*deck.size());
 	    z= deck.get(x);
 	    System.out.println("The dealer has discarded " + z);
+	    slp(0.3);
 	}
+		System.out.println();
+		slp(0.4);
 	int val=1;
 	val=deal2();
 	
@@ -350,7 +354,7 @@ public class war implements casinorules{
 	else prepwar(2);
     }
     public void tiewar(){
-
+	System.out.println("\n");
 	int x;
 	String z;
 	for (int y=0; y< 3; y++){
@@ -376,7 +380,7 @@ public class war implements casinorules{
     public void prepwar(int increase){
 	int want;
 	System.out.println("The values are equal! What would you like to do?");
-	System.out.println("1.Bet on winning\n2.Bet on tie\n3. Surrender");
+	System.out.println("1.Bet on winning\n2.Bet on tie\n3.Surrender");
 	try{
 	    want=Keyboard.readInt();
 	    if (want==3){
@@ -395,15 +399,19 @@ public class war implements casinorules{
 
     }
     public void war(int increase){
-
+	System.out.println("\n");
 	int x;
 	String z;
 	for (int y=0; y< 3; y++){
 	    x=(int)(Math.random()*deck.size());
 	    z= deck.get(x);
 	    System.out.println("The dealer has discarded " + z);
+	    slp(0.3);
 	}
-	int val=deal();
+	
+	System.out.println();
+	slp(0.4);
+	int val=deal2();
 	if (val==1) {
 	    System.out.println("\nYou have won the war! Your winnings increased by $"+cn((bet*2)));
 	    winnings+=bet*2*increase;
@@ -419,7 +427,7 @@ public class war implements casinorules{
 
 
     public void tiewar(int increase){
-
+	System.out.println("\n");
 	int x;
 	String z;
 	System.out.println("\n");
@@ -427,7 +435,10 @@ public class war implements casinorules{
 	    x=(int)(Math.random()*deck.size());
 	    z= deck.get(x);
 	    System.out.println("The dealer has discarded " + z);
+	    slp(0.3);
 	}
+	System.out.println();	
+	slp(0.4);
 	int val=dealTie2();
 	if (val==0){
 	    System.out.println("\nYou have won the war! Your winnings increased by $"+cn(bet*10*increase));
