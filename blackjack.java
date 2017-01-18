@@ -334,7 +334,7 @@ public class blackjack implements casinorules {
 
         e="Robin has ";
 	for (int i=0; i< robin.size(); i++){
-	    e==robin.get(i)+" ";
+	    e+=robin.get(i)+" ";
 
 	}
 	//	System.out.print (" -> " + check(robin));	
@@ -425,7 +425,7 @@ public class blackjack implements casinorules {
 		if (difficulty==3) hardbot();
 
 	    }
-
+	    slp(0.15);
 		
 	}
 	resultTally();
@@ -503,7 +503,7 @@ public class blackjack implements casinorules {
 	}
 
 	//	System.out.println("The winner is "+ listOfPeeps[index] + ", with a sum of "+ number);
-	System.out.println("♦♣♥♠♦♣♥♠♦♣♥♠ Results ♠♣♥♠♦♠♣♥♠♦♠♣♥♠♦");
+	System.out.println("\n\n\n♦♣♥♠♦♣♥♠♦♣♥♠ Results ♠♣♥♠♦♠♣♥♠♦♠♣♥♠♦");
 	if (index.size()==0){
 	    System.out.println("\nThere were no winners");
 	}
@@ -816,7 +816,15 @@ public class blackjack implements casinorules {
     }
 
     //_________________________________________________________________________
-
+	public void slp(double x){
+	    x*=1000;
+	    long y= (long)x;
+	    try{
+		Thread.sleep(y);
+	    }
+	    catch(InterruptedException e){
+	    }
+	}
     public static void main (String[] args){
 	//	blackjack play = new blackjack();
     }

@@ -176,6 +176,7 @@ public class war implements casinorules{
 		prepwar();
 	    }
 	    turns--;
+	    slp(1.85);
 	}
     }
 
@@ -361,10 +362,12 @@ public class war implements casinorules{
 	if (val==0){
 	    System.out.println("\nYou have won the war! Your winnings increased by $"+cn((bet*10)));
 	    winnings+=bet*10;
+	    slp(0.25);	    
 	}
 	else{
 	    System.out.println("\nYou have lost the war! Your winnings decrease by $"+cn((bet*10)));
 	    winnings-=bet*10;
+	    slp(0.25);	    
 	}
     }
 
@@ -379,6 +382,7 @@ public class war implements casinorules{
 	    if (want==3){
 		System.out.println( "\nYou have surrendered! You lost $" +cn((bet*increase)/(2)));
 		winnings-=bet/2;
+		slp(0.25);		
 	    }
 	    else if (want==1) war(increase);
 	    else tiewar(increase);
@@ -402,10 +406,13 @@ public class war implements casinorules{
 	int val=deal();
 	if (val==1) {
 	    System.out.println("\nYou have won the war! Your winnings increased by $"+cn((bet*2)));
-	    winnings+=bet*2*increase;}
+	    winnings+=bet*2*increase;
+	    slp(0.25);	    
+	}
 	else if (val==-1){
 	    System.out.println("\nYou have lost the war! Your winnings decrease by $"+cn((bet*2)));
 	    winnings-=bet*2*increase;
+	    slp(0.25);	    
 	}	
 	else prepwar(increase*2);
     }
@@ -424,6 +431,7 @@ public class war implements casinorules{
 	int val=dealTie2();
 	if (val==0){
 	    System.out.println("\nYou have won the war! Your winnings increased by $"+cn(bet*10*increase));
+	    slp(0.25);
 	    winnings+=bet*10;
 	}
 	else{
@@ -454,7 +462,15 @@ public class war implements casinorules{
 	return x;
     }
 
-
+	public void slp(double x){
+	    x*=1000;
+	    long y= (long)x;
+	    try{
+		Thread.sleep(y);
+	    }
+	    catch(InterruptedException e){
+	    }
+	}
 
     
     public static void main(String args[]){
