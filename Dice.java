@@ -106,7 +106,7 @@ public class Dice implements casinorules{
 
     //tester
     public static void main(String[] args){
-	Dice mike = new Dice();
+	Dice mike = new Dice(3, 100, 14);
 	mike.play();
     }
 

@@ -119,15 +119,10 @@ Gian :: Added functionality for checking for numbers on bingo cards and marking 
 
 2017-01-17
 --------------------------------------------------------------
-<<<<<<< HEAD
-Eric :: 	
-Truc :: Started an attempt at pictures for slots.
-	Improved dice.
-=======
 Eric :: Fixed some bugs in the driver when connecting with Bingo.
 	Edited formatting for bingo and added a timed print function.	
-Truc :: 
->>>>>>> f2dc78986063db2c18dbfe882458497519f0220c
+Truc :: Started an attempt at pictures for slots.
+	Improved dice. Now guessing isn't specific to each die. You can continually roll dice and rebet until you don't want to anymore.
 Gian :: 
 ==============================================================
 
