@@ -92,10 +92,19 @@ public class Dice implements casinorules{
 	String ans = Keyboard.readString().toUpperCase();
 	if (ans.equals("Y")){
 	    winnings = bet;
-	    System.out.print("How much will you be betting? ");
-	    bet = Keyboard.readDouble();
-	    Dice newPlay = new Dice(difficulty, money, bet);
-	    winnings += newPlay.play();
+	    if (money + winnings > 0){
+		System.out.print("How much will you be betting? ");
+		bet = Keyboard.readDouble();
+		while (bet > money + winnings){
+		    System.out.println("You don't have that kind of money!!");
+		    System.out.println("You currently have " + (money+winnings));
+		    System.out.print("How much will you be betting? ");
+		    bet = Keyboard.readDouble();
+		}
+		Dice newPlay = new Dice(difficulty, money, bet);
+		winnings += newPlay.play();
+	    }
+	    else{ System.out.println("I don't think you have any money left!"); }
 	    return winnings;
 	}
 	else{
