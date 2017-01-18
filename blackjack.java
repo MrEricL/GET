@@ -377,7 +377,7 @@ public class blackjack implements casinorules {
 	System.out.println();	
 	System.out.print (f+" -> " + check(emily));
 	System.out.println("\n");
-	slp(2);
+	slp(3.55);
     }
 
 
@@ -433,7 +433,7 @@ public class blackjack implements casinorules {
 		if (difficulty==3) hardbot();
 	    }
 
-	    slp(0.15);
+	    slp(0.5);
 		
 	}
 	resultTally();
