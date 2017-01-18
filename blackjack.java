@@ -376,7 +376,8 @@ public class blackjack implements casinorules {
 	System.out.print (e+" -> " + check(robin));
 	System.out.println();	
 	System.out.print (f+" -> " + check(emily));
-	System.out.println("\n");	
+	System.out.println("\n");
+	slp(2);
     }
 
 
