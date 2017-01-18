@@ -1,4 +1,5 @@
-
+//WORK ON PRINTING THE ACE
+//WORK ON FITING THE CHOICE WITH THE BOTS
 import java.util.ArrayList;
 import cs1.Keyboard;
 import java.lang.*;
