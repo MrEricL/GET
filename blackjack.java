@@ -341,7 +341,7 @@ public class blackjack implements casinorules {
 	//	System.out.println();
 
 	//f
-       f="Emily  has " ;
+       f="Emily has " ;
 	for (int i=0; i< emily.size(); i++){
 	   f+=emily.get(i)+" ";
 

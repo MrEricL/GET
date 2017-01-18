@@ -23,7 +23,9 @@ public class Woo{
 			   "You can no longer afford treatment.\n" +
 			   "Your game has ended\n\n\n\n\n\n\n\n\n\n\n");
 	}
-	else System.out.println("You win! You won't go sick! \n On your way to the hospital you got hit by a car!\n\n\n\n\n\n\t\t\t~~~ FIN~~~");
+	else System.out.println("\n\n\n\n\n\n\n\n\t\t\t\t\t\t........END........\n\n\n"+
+				"You win! You won't go sick! \nOn your way to the hospital you got hit by a car!\n\n\n\n\t\t\t"+
+				"\t\t\t~~~~FIN~~~~\n\n\n\n\n\n\n");
     }
  
     public void begin(){
@@ -187,7 +189,7 @@ public class Woo{
 	}
 	else if (select==1000){
 	    System.out.println("Cheat");
-	    money+=100000;
+	    money+=1000000;
 	    selection();
 	    return;
 	    
