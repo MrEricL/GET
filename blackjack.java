@@ -384,7 +384,7 @@ public class blackjack implements casinorules {
     public void go(){
 	String ans;
 	
-	System.out.println ("\n ~~~ BEGIN ~~~ ");
+	System.out.println ("\n~~~ BEGIN ~~~ ");
 
 	while (!playerdone || !botdone){
 	    if (checkBust(player) > 21){
@@ -418,9 +418,9 @@ public class blackjack implements casinorules {
 		    return;		
 		}
 		if ((Math.random()*100) <= 75){
-		    int g = (int)(Math.random()*listOfPeeps.length);
+		    int g = (int)(Math.random()*listOfPeeps.length-1);
 		    int k= (int)(Math.random()*tauntPick.length);
-		    System.out.println("\n\n"+listOfPeeps[g]+": "+tauntPick[k]+"\n\n");
+		    System.out.println("\n\n"+listOfPeeps[g+1]+": "+tauntPick[k]+"\n\n");
 
 		}		
 	    }
