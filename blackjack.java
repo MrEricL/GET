@@ -447,8 +447,7 @@ public class blackjack implements casinorules {
 				s=Keyboard.readInt();
 				if (s!= 1 && s!=11){
 				    System.out.println("\nYou need to choose 1 or 11!\n");
-				    aceC(y);
-				    return;
+				    return aceC(y);
 				}
 				else{
 				    if (s==1){
@@ -476,6 +475,7 @@ public class blackjack implements casinorules {
 	    temp2=x.get(i).substring(0,x.get(i).length()-1);
 	    if (temp.equals("%")) total+=11;
 	    else if (temp.equals("#")) total+=1;
+	    else if (temp.equals("A")) total+=6;
 	    else if (temp.equals("K") || temp.equals("Q") || temp.equals("J")) total+=10;
 	    else{
 		result=Integer.parseInt(temp2);
@@ -573,6 +573,7 @@ public class blackjack implements casinorules {
 	    if (jackDraw > 0){
 		System.out.print("Jack decided to get hit ");
 		editPrint(jack);
+		ezAce(jack);
 		jackDraw--;
 		bol.add(false);
 		    }
@@ -583,6 +584,7 @@ public class blackjack implements casinorules {
 	    if (loisDraw > 0){
 		System.out.print("Lois decided to get hit " );
 		editPrint(lois);
+		ezAce(lois);		
 		loisDraw--;
 		bol.add(false);		
 		    }
@@ -593,6 +595,7 @@ public class blackjack implements casinorules {
 	    if (willDraw > 0){
 		System.out.print("Will decided to get hit ");
 		editPrint(will);
+		ezAce(will);		
 		willDraw--;
 		bol.add(false);		
 		    }
@@ -602,6 +605,7 @@ public class blackjack implements casinorules {
 	    if (robinDraw > 0){
 		System.out.print("Robin decided to get hit ");
 		editPrint(robin);
+		ezAce(robin);		
 		robinDraw--;
 		bol.add(false);		
 		    }
@@ -611,6 +615,7 @@ public class blackjack implements casinorules {
 	    if (emilyDraw > 0){
 		System.out.print("Emily decided to get hit ");
 		editPrint(emily);
+		ezAce(emily);		
 		emilyDraw--;
 		bol.add(false);		
 		    }
@@ -625,6 +630,21 @@ public class blackjack implements casinorules {
 		}
 	    }
 	    botdone=true;
+    }
+
+    public void ezAce(ArrayList<String> x){
+	int rand;
+	String temp;
+	String replace;
+	for (int i =0; i < x.size(); i++){
+	    temp=x.get(i).substring(0,1);
+	    if (temp.equals("A")){
+		replace=x.get(i);
+		rand = (int)(Math.random()*100);
+		if (rand >= 50) replace= "%"+replace;
+		else replace="#"+replace;
+	    }	    
+	}
     }
 
     //MEDIUM
