@@ -133,6 +133,7 @@ Gian ::
 Eric :: Added taunt system to blackjack
 	Created new file for red dog
 	Edited blackjack so user can select the 1/11 for ace
-Truc :: 
+Truc :: Edited dice for improved functionality.
+	Created TwoUp and got most of it coded.
 Gian :: 
 ==============================================================
