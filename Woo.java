@@ -240,6 +240,12 @@ public class Woo{
 	    }
 	}
 
+    public String slpS(double x){
+	slp(x);
+	return "";
+
+    }
+
        
 	//-----------------------------------------------------------------------------------------------------
 
@@ -329,13 +335,19 @@ public class Woo{
     public void event(){
 	int x= (int)(Math.random()*100);
 	if (x >= 50){
-	    System.out.println("\n\n"+"..... A man in black is approaching you .....\n\n\n"
-			       +
-			       +
-			       +);
+	    System.out.println("\n\n"+"..... A suited man is approaching you .....\n\n"
+			       + "\tSo"+slpS(0.2)+"."+slpS(0.2)+"."+slpS(0.2)+"."+
+			       +" You're that desperate fool?\n"+ slpS(1.2)+
+			       +slpS(0.2)+"."+slpS(0.2)+"."+slpS(0.2)+"."
+			       +"Wanna make a bet?"+slpS(1)+"\nNo, you're not worth it"			       
+			       );
 	    
 	}
 	else{
+	    for (int i = 0; i < 100; i++){
+
+		System.out.println("████████████████████████████████████████████████████████████\n");		
+	    }
 
 	}
     }
