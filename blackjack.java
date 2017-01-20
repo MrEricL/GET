@@ -16,11 +16,11 @@ public class blackjack implements casinorules {
     public ArrayList<String> emily= new ArrayList<String>();
 
     //easy bots
-    public int jackDraw=(int)(Math.random()*2);
-    public int loisDraw=(int)(Math.random()*2);
-    public int willDraw=(int)(Math.random()*2);
-    public int robinDraw=(int)(Math.random()*2);
-    public int emilyDraw=(int)(Math.random()*2);
+    public int jackDraw=(int)(Math.random()*3);
+    public int loisDraw=(int)(Math.random()*3);
+    public int willDraw=(int)(Math.random()*3);
+    public int robinDraw=(int)(Math.random()*3);
+    public int emilyDraw=(int)(Math.random()*3);
 
     //bot taunt
 
@@ -387,10 +387,12 @@ public class blackjack implements casinorules {
 	System.out.println ("\n~~~ BEGIN ~~~ ");
 
 	while (!playerdone || !botdone){
-	    if (check(player) > 21){
-		System.out.println("Look's like you're busted!!!\n");
-		playerdone=true;
+	    if (!playerdone){
+		if (check(player) > 21){
+		    System.out.println("Look's like you're busted!!!\n");
+		    playerdone=true;
 		}
+	    }
 	    if (!playerdone){
 		
 		System.out.println("~~~~~~~~~~~~\n");
@@ -459,7 +461,7 @@ public class blackjack implements casinorules {
 				}
 			    }
 			    catch (Exception e){
-				aceC(y);
+				return aceC(y);
 				//	return;
 			    }
 			    return c;
@@ -573,7 +575,6 @@ public class blackjack implements casinorules {
 	    if (jackDraw > 0){
 		System.out.print("Jack decided to get hit ");
 		editPrint(jack);
-		ezAce(jack);
 		jackDraw--;
 		bol.add(false);
 		    }
@@ -583,8 +584,7 @@ public class blackjack implements casinorules {
 
 	    if (loisDraw > 0){
 		System.out.print("Lois decided to get hit " );
-		editPrint(lois);
-		ezAce(lois);		
+		editPrint(lois);	
 		loisDraw--;
 		bol.add(false);		
 		    }
@@ -594,8 +594,7 @@ public class blackjack implements casinorules {
 	    
 	    if (willDraw > 0){
 		System.out.print("Will decided to get hit ");
-		editPrint(will);
-		ezAce(will);		
+		editPrint(will);		
 		willDraw--;
 		bol.add(false);		
 		    }
@@ -604,8 +603,7 @@ public class blackjack implements casinorules {
 	    }	    	    
 	    if (robinDraw > 0){
 		System.out.print("Robin decided to get hit ");
-		editPrint(robin);
-		ezAce(robin);		
+		editPrint(robin);		
 		robinDraw--;
 		bol.add(false);		
 		    }
@@ -614,8 +612,7 @@ public class blackjack implements casinorules {
 	    }	    	    
 	    if (emilyDraw > 0){
 		System.out.print("Emily decided to get hit ");
-		editPrint(emily);
-		ezAce(emily);		
+		editPrint(emily);		
 		emilyDraw--;
 		bol.add(false);		
 		    }
@@ -630,21 +627,6 @@ public class blackjack implements casinorules {
 		}
 	    }
 	    botdone=true;
-    }
-
-    public void ezAce(ArrayList<String> x){
-	int rand;
-	String temp;
-	String replace;
-	for (int i =0; i < x.size(); i++){
-	    temp=x.get(i).substring(0,1);
-	    if (temp.equals("A")){
-		replace=x.get(i);
-		rand = (int)(Math.random()*100);
-		if (rand >= 50) replace= "%"+replace;
-		else replace="#"+replace;
-	    }	    
-	}
     }
 
     //MEDIUM
@@ -863,9 +845,36 @@ public class blackjack implements casinorules {
 
     //HELPER
     public void editPrint(ArrayList<String> ed){
+	int ray;
+	String joe;
+	String max;
+	for (int o = 0; o < ed.size(); o++){
+	    ray = (int)(Math.random()*100);
+	    joe=ed.get(o);
+	    max=joe.substring(0,1);
+	    if (max.equals("A")){
+		if (ray>=50){
+		    joe = "#"+joe;
+		    ed.set(o,joe);
+		}
+		else{
+		    joe = "%"+joe;
+		    ed.set(o,joe);
+		}
+	    }	   
+	}
+	
 	int x;
 	x=(int)(Math.random()*deck.size());
-	    ed.add(deck.get(x));
+	String g = deck.get(x);
+	String h=g.substring(0,1);
+	if (h.equals("A")){
+	    int blah = (int)(Math.random()*100);
+	    if (blah>=50) g = "#"+g;
+	    else g="%"+g;
+
+	}    
+	    ed.add(g);
 	    System.out.println("the card was " + deck.get(x));	    
 	    deck.remove(x);
     }
