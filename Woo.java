@@ -1,5 +1,9 @@
 import cs1.Keyboard;
 
+
+//DO TRY CATCH MORE MONEY
+
+
 public class Woo{
 
     public int difficulty;
@@ -222,6 +226,12 @@ public class Woo{
 	    return;
 	    
 	}
+
+	else if (select == 55){
+	    System.out.println("Test\n\n\n");
+	    playChance=9;
+	    return;
+	}
         else{
 	    System.out.println("Invalid input");
 	    selection();
@@ -336,19 +346,23 @@ public class Woo{
 	int x= (int)(Math.random()*100);
 	if (x >= 50){
 	    System.out.println("\n\n"+"..... A suited man is approaching you .....\n\n"
-			       + "\tSo"+slpS(0.2)+"."+slpS(0.2)+"."+slpS(0.2)+"."+
-			       +" You're that desperate fool?\n"+ slpS(1.2)+
+			       + "\tSo"+slpS(0.2)+"."+slpS(0.2)+"."+slpS(0.2)+"."
+			       +" You're that desperate fool?\n"+ slpS(1.2)
 			       +slpS(0.2)+"."+slpS(0.2)+"."+slpS(0.2)+"."
 			       +"Wanna make a bet?"+slpS(1)+"\nNo, you're not worth it"			       
 			       );
 	    
 	}
 	else{
-	    for (int i = 0; i < 100; i++){
+	    double y = (Math.random()*money/2);
+	    for (int i = 0; i < 75; i++){
 
-		System.out.println("████████████████████████████████████████████████████████████\n");		
+		System.out.println("████████████████████████████████████████████████████████████");
+		slp(0.01);
 	    }
-
+	    System.out.println("You blacked out from your illness. You were pickpocketed. You lost" + cn(y));
+	    money-=y;
+			       
 	}
     }
 
@@ -369,10 +383,10 @@ public class Woo{
 	    x+="0";
 	}
 	else{
-	    x=x.substring(0,indexDec+4);
+	    x=x.substring(0,indexDec+3);
 
 	}
-	return "$" + x;
+	return " $" + x;
     }
 
     
