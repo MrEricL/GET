@@ -13,12 +13,28 @@ public class Woo{
     private int slotsPlay = 0;
     private int TwoUpPlay = 0;
 
+    public int eventChance=0;
+
+    private int playTotal=0;
+    private int playChance;
+
     public Woo(){
 	begin();
 	mon();
 	diff();
 	while (money>0 &&  money <= 1000000){
-	    selection();
+	    eventChance=(int)(Math.random()*100);
+	    if (eventChance >= (80-playChance*7) || playChance > 7){
+
+		event(); // EVENT METHOD NEEDS TO BE ADDED
+
+		playChance-=1;
+	    }
+	    else{
+		selection();
+		playTotal+=1;
+		playChance+=1;
+	    }
 	}
 	if (money<=0) {
 	System.out.println("\n\n\n\n\n\n\n\n+++++++END+++++++\n\nYou have lost your life savings. " +
@@ -305,6 +321,23 @@ public class Woo{
 	System.out.println("Two-Up is a coin toss game. Bets are placed on ");
 	System.out.println("each coin toss. Each bet is special!");
 	System.out.println("You can win different amounts of money for each.");
+    }
+
+
+
+
+    public void event(){
+	int x= (int)(Math.random()*100);
+	if (x >= 50){
+	    System.out.println("\n\n"+"..... A man in black is approaching you .....\n\n\n"
+			       +
+			       +
+			       +);
+	    
+	}
+	else{
+
+	}
     }
 
     //Money printing function

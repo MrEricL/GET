@@ -718,6 +718,24 @@ public class blackjack implements casinorules {
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //---------------------------------------------------------------------------
+
+
     //HARD
 
     public void hardbot(){
