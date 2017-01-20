@@ -140,10 +140,34 @@ Gian ::
 
 2017-01-19
 --------------------------------------------------------------
-Eric :: 
+Eric :: Recoded easy bot for blackjack.
+	Recoded the print function for medium and hard bots.
+	Edited war for clarity.
 Truc :: Finished up TwoUp.
 	Edited the looping for both Dice and TwoUp to continually play.
 	Linked TwoUp to the driver.
 	Added instructions for TwoUp.
 Gian :: 
+==============================================================
+
+2017-01-20
+--------------------------------------------------------------
+Eric :: Worked on flowchart.
+Truc :: Adjusted TwoUp to include sleep function.
+	Fixed cn function and added it to several classes and the driver.
+Gian ::
+==============================================================
+
+2017-01-21
+--------------------------------------------------------------
+Eric :: 
+Truc :: 
+Gian ::
+==============================================================
+
+2017-01-22
+--------------------------------------------------------------
+Eric :: 
+Truc :: 
+Gian ::
 ==============================================================
