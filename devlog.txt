@@ -16,13 +16,12 @@ OBSTACLES OVERCOME
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-- LOW PRIORITY - If you enter more than one word for the name than it'll error and skip the amount of money being entered. Likely needs to be fix by checking the value entered. 
-		 (FIXED -Truc)
+- LOW PRIORITY - If you enter more than one word for the name than it'll error and skip the amount of money being entered. Likely needs to be fix by checking the value entered. (FIXED -Truc)
 - MEDIUM PRIORITY - Implmenting the try/catch statements in the driver since if an invalid input is put in, it'll skip over the option and leave it as null. Tedious work for little results for now. 
 - MEDIUM PRIORITY - Medium mode bugs out in blackjack. 
 - HIGH PRIORITY - Game fails to terminate after hitting a negative amount, or above a million. 
 - HIGH PRIORITY - Connect Slots subclasses to driver / figure out how to connect them. 
-- MEDIUM PRIORITY - Allow player to play Dice and Slots more than once without having to retype selection and bet. 
+- MEDIUM PRIORITY - Allow player to play Dice and Slots more than once without having to retype selection and bet. (FIXED -Truc)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - try/catch a Thread.sleep(long) allows for text to be printed at a timed manner. 
 
@@ -32,6 +31,7 @@ MID-DEVELOPMENT DESIGN CHANGES
 - Instead of poker which would take too long to perfect, I am coding war first. 
 - Made Slots a super class instead of an abstract class or interface.
 - Added class BingoPlayer instead of using one class for bingo
+- Created Two-Up
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
