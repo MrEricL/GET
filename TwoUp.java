@@ -1,6 +1,6 @@
 import cs1.Keyboard;
 
-public class TwoUp{
+public class TwoUp implements casinorules{
 
     private final String[] Coin1 = new String[] {"heads", "tails"};
     private final String[] Coin2 = new String[] {"heads", "tails"};
