@@ -418,7 +418,7 @@ public class war implements casinorules{
 	    slp(0.25);	    
 	}
 	else if (val==-1){
-	    System.out.println("\nYou have lost the war! Your winnings decrease by $"+cn((bet*2)));
+	    System.out.println("\nYou have lost the war! Your winnings decrease by "+cn((bet*2)));
 	    winnings-=bet*2*increase;
 	    slp(0.25);	    
 	}	
@@ -441,12 +441,12 @@ public class war implements casinorules{
 	slp(0.4);
 	int val=dealTie2();
 	if (val==0){
-	    System.out.println("\nYou have won the war! Your winnings increased by $"+cn(bet*10*increase));
+	    System.out.println("\nYou have won the war! Your winnings increased by "+cn(bet*10*increase));
 	    slp(0.25);
 	    winnings+=bet*10;
 	}
 	else{
-	    System.out.println("\nYou have lost the war! Your winnings decrease by $"+cn((bet*10*increase)));
+	    System.out.println("\nYou have lost the war! Your winnings decrease by "+cn((bet*10*increase)));
 	    winnings-=bet*10;
 	}
     }
@@ -470,7 +470,7 @@ public class war implements casinorules{
 	    x=x.substring(0,indexDec+4);
 
 	}
-	return x;
+	return "$" + x;
     }
 
 	public void slp(double x){

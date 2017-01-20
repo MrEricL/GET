@@ -41,15 +41,20 @@ public class TwoUp{
     public void instruct(String instructions){
 	System.out.println("Would you like instructions? Y or N? ");
 	String response = Keyboard.readString().toUpperCase();
+	
 	while(!response.equals("Y") && !response.equals("N")){
 	    System.out.println("Please type Y or N.");
 	    System.out.print("Would you like to continue playing? Y or N? ");
 	    response = Keyboard.readWord().toUpperCase();
 	}
+	
 	if (response.equals("Y")){
 	    System.out.println(instructions);
+	    slp(2);
 	}
+	
 	System.out.println("Let's play!\n");
+	slp(1);
     }
     
     /* bet 1:1 */
@@ -57,9 +62,11 @@ public class TwoUp{
 	String instructions = "Your objective is to toss two heads ONCE.\n";
 	instructions += "Afterwards, you must toss two tails or an odd.";
 	instruct(instructions);
+	slp(1);
 	
 	System.out.println("Tossing... ");
 	toss();
+	slp(3);
 	System.out.println("You got the following:");
 	System.out.println("\tCoin 1: " + C1);
 	System.out.println("\tCoin 2: " + C2);
@@ -68,9 +75,11 @@ public class TwoUp{
 	    System.out.println("Two Heads! Keep going!");
 	    System.out.println("Tossing... ");
 	    toss();
+	    slp(3);
 	    System.out.println("You got the following:");
 	    System.out.println("\tCoin 1: " + C1);
 	    System.out.println("\tCoin 2: " + C2);
+	    slp(3);
 	    
 	    if(checkSame("tails") || checkOpp()){
 		System.out.println("Single Head win!");
@@ -93,6 +102,7 @@ public class TwoUp{
         String instructions = "Your objective is to toss two tails ONCE.\n";
 	instructions += "Afterwards, you must toss two heads or an odd.";
 	instruct(instructions);
+	slp(1);
 	
 	System.out.println("Tossing... ");
 	toss();
@@ -134,9 +144,12 @@ public class TwoUp{
 	String instructions = "Your objective is to toss three tosses of the ";
 	instructions += "face in a row.\n";
 	instruct(instructions);
+
+	slp(1);
 	
 	System.out.println("Tossing... ");
 	toss();
+	slp(3);
 	System.out.println("You got the following:");
 	System.out.println("\tCoin 1: " + C1);
 	System.out.println("\tCoin 2: " + C2);
@@ -147,7 +160,9 @@ public class TwoUp{
 	    counter = 1;
 	    
 	    while (counter < 3){
+		slp(1);
 		System.out.println("Tossing... ");
+		slp(3);
 		toss();
 		System.out.println("You got the following:");
 		System.out.println("\tCoin 1: " + C1);
@@ -155,6 +170,7 @@ public class TwoUp{
 		same = checkSame(face);
 		
 		if (!same){
+		    slp(1);
 		    counter = 3;
 		    System.out.println("Loss!");
 		    bet = 0 - bet;
@@ -164,11 +180,13 @@ public class TwoUp{
 	}
 	
 	else{
+	    slp(1);
 	    System.out.println("Loss!");
 	    bet = 0 - bet;
 	}
 	
 	if(same){
+	    slp(1);
 	    System.out.println("Win!");
 	    bet *= 7.5;
 	}
@@ -185,7 +203,9 @@ public class TwoUp{
 	instruct(instructions);
 	
 	while (counter < 5){
+	    slp(1);
 	    System.out.println("Tossing... ");
+	    slp(3);
 	    toss();
 	    System.out.println("You got the following:");
 	    System.out.println("\tCoin 1: " + C1);
@@ -197,24 +217,29 @@ public class TwoUp{
 	}
 	
         if (opp){
+	    slp(1);
 	    System.out.println("Tossing... ");
+	    slp(3);
 	    toss();
 	    System.out.println("You got the following:");
 	    System.out.println("\tCoin 1: " + C1);
 	    System.out.println("\tCoin 2: " + C2);
 	    
 	    if(check()){
+		slp(1);
 		System.out.println("Win!!");
 		bet *= 28;
 	    }
 	    
 	    else{
+		slp(1);
 		System.out.println("Loss :( ");
 		bet = 0 - bet;
 	    }
 	}
 	
 	else{
+	    slp(1);
 	    System.out.println("Loss :( ");
 	    bet = 0 - bet;
 	}
@@ -267,6 +292,7 @@ public class TwoUp{
 		
 		TwoUp player = new TwoUp(money,newBet);
 		System.out.print("Well then without further ado, ");
+		slp(1);
 		bet += player.play();
 	    }
 	    
@@ -282,6 +308,16 @@ public class TwoUp{
 	
 	return bet;
     }
+
+    public void slp(double x){
+	    x*=1000;
+	    long y= (long)x;
+	    try{
+		Thread.sleep(y);
+	    }
+	    catch(InterruptedException e){
+	    }
+	}
 
     public static void main(String[] args){
 	TwoUp player = new TwoUp(100, 10);
