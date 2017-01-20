@@ -48,6 +48,7 @@ public class Dice implements casinorules{
     }
 
     public void start(){
+	System.out.println("Welcome to the Dice game!");
 	System.out.print("Guess what one die will roll: ");
 	guess1 = Keyboard.readInt();
 	while  (guess1 > Dice1.length || guess1 < 0) {
@@ -86,19 +87,23 @@ public class Dice implements casinorules{
     }
 
     public double play(){
-	System.out.println("Welcome to the Dice game!");
 	start();
 	go();
 	System.out.print("Care for another roll? Y or N? ");
 	String ans = Keyboard.readString().toUpperCase();
+	while(!ans.equals("Y") && !ans.equals("N")){
+	    System.out.println("Please type Y or N.");
+	    System.out.print("Care for another roll? Y or N? ");
+	    ans = Keyboard.readWord().toUpperCase();
+	}
 	if (ans.equals("Y")){
 	    winnings = bet;
 	    money += bet;
-	    System.out.println("winnings : " + winnings);
+	    System.out.println("You currently have " + money);
 	    if (money > 0){
 		System.out.print("How much will you be betting? ");
 		bet = Keyboard.readDouble();
-		while (bet > money + winnings){
+		while (bet > money){
 		    System.out.println("You don't have that kind of money!!");
 		    System.out.println("You currently have " + money);
 		    System.out.print("How much will you be betting? ");

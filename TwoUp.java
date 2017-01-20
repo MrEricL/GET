@@ -57,10 +57,12 @@ public class TwoUp{
 	    }
 	    else{
 		System.out.println("Single Head loss. Better luck next time!");
+		bet = 0 - bet;
 	    }
 	}
 	else{
 	    System.out.println("Single Head loss. Better luck next time!");
+	    bet = 0 - bet;
 	}
     }
 
@@ -95,6 +97,41 @@ public class TwoUp{
     /* bet 15:2
        Spin three heads or three tails*/
     public void SpinnersBet(){
+	int counter = 0;
+	boolean same = false;
+	String face;
+	System.out.println("Tossing... ");
+	toss();
+	System.out.println("You got the following:");
+	System.out.println("\tCoin 1: " + C1);
+	System.out.println("\tCoin 2: " + C2);
+	same = check();
+	if(same){
+	    face = C1;
+	    counter = 1;
+	    while (counter < 3){
+		System.out.println("Tossing... ");
+		toss();
+		System.out.println("You got the following:");
+		System.out.println("\tCoin 1: " + C1);
+		System.out.println("\tCoin 2: " + C2);
+		same = check();
+		if (!same){
+		    counter = 3;
+		    System.out.println("Loss!");
+		    bet = 0 - bet;
+		}
+		counter += 1;
+	    }
+	}
+	else{
+	    System.out.println("Loss!");
+	    bet = 0 - bet;
+	}
+	if(same){
+	    System.out.println("Win!");
+	    bet *= 7.5;
+	}
     }
     
     /* bet 28:1
@@ -113,8 +150,19 @@ public class TwoUp{
 	    else{ counter = 5; }
 	}
         if (opp){
-	    System.out.println("Win!!");
-	    bet += 28;
+	    System.out.println("Tossing... ");
+	    toss();
+	    System.out.println("You got the following:");
+	    System.out.println("\tCoin 1: " + C1);
+	    System.out.println("\tCoin 2: " + C2);
+	    if(check()){
+		System.out.println("Win!!");
+		bet *= 28;
+	    }
+	    else{
+		System.out.println("Loss :( ");
+		bet = 0 - bet;
+	    }
 	}
 	else{
 	    System.out.println("Loss :( ");
@@ -130,19 +178,55 @@ public class TwoUp{
 	System.out.println("\t3. Spinner's Bet");
 	System.out.println("\t4. Five Odds");
 	System.out.print("Your choice: ");
-	int ans = Keyboard.readInt();
+	ans = Keyboard.readInt();
     }
 
     public void go(){
 	if (ans == 1){ SingleHead(); }
 	else if (ans == 2){ SingleTail(); }
 	else if (ans == 3){ SpinnersBet(); }
-	else{ FiveOdds(); }
+	else if (ans == 4){ FiveOdds(); }
     }
 
     public double play(){
 	start();
 	go();
+	System.out.print("Would you like to continue playing? y or n? ");
+	String response = Keyboard.readString().toUpperCase();
+	while(!response.equals("Y") && !response.equals("N")){
+	    System.out.println("Please type Y or N.");
+	    System.out.print("Would you like to continue playing? Y or N? ");
+	    response = Keyboard.readWord().toUpperCase();
+	}
+	if(response.equals("Y")){
+	    money += bet;
+	    System.out.println("You currently have " + money);
+	    if (money > 0){
+		System.out.print("How much will you be betting? ");
+		double newBet = Keyboard.readDouble();
+		while (newBet > money){
+		    System.out.println("You don't have that kind of money!!");
+		    System.out.println("You currently have " + money);
+		    System.out.print("How much will you be betting? ");
+		    newBet = Keyboard.readDouble();
+		}
+		TwoUp player = new TwoUp(money,newBet);
+		System.out.print("Well then without further ado, ");
+		bet += player.play();
+	    }
+	    else{
+		System.out.println("I don't think you have any money left!");
+		System.out.println("Sorry mate, you're not playing any more today!");
+	    }
+	}
+	else{
+	    System.out.println("Best of luck on all your endeavors!");
+	}
 	return bet;
+    }
+
+    public static void main(String[] args){
+	TwoUp player = new TwoUp(100, 10);
+	player.play();
     }
 }
