@@ -37,14 +37,33 @@ public class TwoUp{
 	if (check()){ return false; }
 	else{ return true; }
     }
+
+    public void instruct(String instructions){
+	System.out.println("Would you like instructions? Y or N? ");
+	String response = Keyboard.readString().toUpperCase();
+	while(!response.equals("Y") && !response.equals("N")){
+	    System.out.println("Please type Y or N.");
+	    System.out.print("Would you like to continue playing? Y or N? ");
+	    response = Keyboard.readWord().toUpperCase();
+	}
+	if (response.equals("Y")){
+	    System.out.println(instructions);
+	}
+	System.out.println("Let's play!\n");
+    }
     
     /* bet 1:1 */
     public void SingleHead(){
+	String instructions = "Your objective is to toss two heads ONCE.\n";
+	instructions += "Afterwards, you must toss two tails or an odd.";
+	instruct(instructions);
+	
 	System.out.println("Tossing... ");
 	toss();
 	System.out.println("You got the following:");
 	System.out.println("\tCoin 1: " + C1);
 	System.out.println("\tCoin 2: " + C2);
+	
         if (checkSame("heads")){
 	    System.out.println("Two Heads! Keep going!");
 	    System.out.println("Tossing... ");
@@ -52,14 +71,17 @@ public class TwoUp{
 	    System.out.println("You got the following:");
 	    System.out.println("\tCoin 1: " + C1);
 	    System.out.println("\tCoin 2: " + C2);
+	    
 	    if(checkSame("tails") || checkOpp()){
 		System.out.println("Single Head win!");
 	    }
+	    
 	    else{
 		System.out.println("Single Head loss. Better luck next time!");
 		bet = 0 - bet;
 	    }
 	}
+	
 	else{
 	    System.out.println("Single Head loss. Better luck next time!");
 	    bet = 0 - bet;
@@ -68,11 +90,16 @@ public class TwoUp{
 
     /* bet 1:1 */
     public void SingleTail(){
+        String instructions = "Your objective is to toss two tails ONCE.\n";
+	instructions += "Afterwards, you must toss two heads or an odd.";
+	instruct(instructions);
+	
 	System.out.println("Tossing... ");
 	toss();
 	System.out.println("You got the following:");
 	System.out.println("\tCoin 1: " + C1);
 	System.out.println("\tCoin 2: " + C2);
+	
         if (checkSame("tails")){
 	    System.out.println("Two Tails! Keep going!");
 	    System.out.println("Tossing... ");
@@ -80,14 +107,17 @@ public class TwoUp{
 	    System.out.println("You got the following:");
 	    System.out.println("\tCoin 1: " + C1);
 	    System.out.println("\tCoin 2: " + C2);
+	    
 	    if(checkSame("heads") || checkOpp()){
 		System.out.println("Single Tail win!");
 	    }
+	    
 	    else{
 		System.out.println("Single Tail loss. Better luck next time!");
 		bet = 0-bet;
 	    }
 	}
+	
 	else{
 	    System.out.println("Single Tail loss. Better luck next time!");
 	    bet = 0-bet;
@@ -100,22 +130,30 @@ public class TwoUp{
 	int counter = 0;
 	boolean same = false;
 	String face;
+
+	String instructions = "Your objective is to toss three tosses of the ";
+	instructions += "face in a row.\n";
+	instruct(instructions);
+	
 	System.out.println("Tossing... ");
 	toss();
 	System.out.println("You got the following:");
 	System.out.println("\tCoin 1: " + C1);
 	System.out.println("\tCoin 2: " + C2);
 	same = check();
+	
 	if(same){
 	    face = C1;
 	    counter = 1;
+	    
 	    while (counter < 3){
 		System.out.println("Tossing... ");
 		toss();
 		System.out.println("You got the following:");
 		System.out.println("\tCoin 1: " + C1);
 		System.out.println("\tCoin 2: " + C2);
-		same = check();
+		same = checkSame(face);
+		
 		if (!same){
 		    counter = 3;
 		    System.out.println("Loss!");
@@ -124,10 +162,12 @@ public class TwoUp{
 		counter += 1;
 	    }
 	}
+	
 	else{
 	    System.out.println("Loss!");
 	    bet = 0 - bet;
 	}
+	
 	if(same){
 	    System.out.println("Win!");
 	    bet *= 7.5;
@@ -139,6 +179,11 @@ public class TwoUp{
     public void FiveOdds(){
 	int counter = 0;
 	boolean opp = true;
+
+	String instructions = "Your objective is to toss five odds in a row.\n";
+	instructions += "Afterwards you must toss something else.";
+	instruct(instructions);
+	
 	while (counter < 5){
 	    System.out.println("Tossing... ");
 	    toss();
@@ -146,24 +191,29 @@ public class TwoUp{
 	    System.out.println("\tCoin 1: " + C1);
 	    System.out.println("\tCoin 2: " + C2);
 	    opp = checkOpp();
+	    
 	    if (opp){ counter += 1; }
 	    else{ counter = 5; }
 	}
+	
         if (opp){
 	    System.out.println("Tossing... ");
 	    toss();
 	    System.out.println("You got the following:");
 	    System.out.println("\tCoin 1: " + C1);
 	    System.out.println("\tCoin 2: " + C2);
+	    
 	    if(check()){
 		System.out.println("Win!!");
 		bet *= 28;
 	    }
+	    
 	    else{
 		System.out.println("Loss :( ");
 		bet = 0 - bet;
 	    }
 	}
+	
 	else{
 	    System.out.println("Loss :( ");
 	    bet = 0 - bet;
@@ -191,6 +241,7 @@ public class TwoUp{
     public double play(){
 	start();
 	go();
+	
 	System.out.print("Would you like to continue playing? y or n? ");
 	String response = Keyboard.readString().toUpperCase();
 	while(!response.equals("Y") && !response.equals("N")){
@@ -198,30 +249,37 @@ public class TwoUp{
 	    System.out.print("Would you like to continue playing? Y or N? ");
 	    response = Keyboard.readWord().toUpperCase();
 	}
+	
 	if(response.equals("Y")){
 	    money += bet;
 	    System.out.println("You currently have " + money);
+	    
 	    if (money > 0){
 		System.out.print("How much will you be betting? ");
 		double newBet = Keyboard.readDouble();
+		
 		while (newBet > money){
 		    System.out.println("You don't have that kind of money!!");
 		    System.out.println("You currently have " + money);
 		    System.out.print("How much will you be betting? ");
 		    newBet = Keyboard.readDouble();
 		}
+		
 		TwoUp player = new TwoUp(money,newBet);
 		System.out.print("Well then without further ado, ");
 		bet += player.play();
 	    }
+	    
 	    else{
 		System.out.println("I don't think you have any money left!");
 		System.out.println("Sorry mate, you're not playing any more today!");
 	    }
 	}
+	
 	else{
 	    System.out.println("Best of luck on all your endeavors!");
 	}
+	
 	return bet;
     }
 
