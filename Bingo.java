@@ -12,7 +12,7 @@ public class Bingo implements casinorules {
     private boolean bingo; // indicates whether a player has won
     private boolean win; // indicates whether player0 (the user) has won
 
-    private BingoPlayer player0, opp0, opp1, opp2, opp3, opp4, opp5, opp6, opp7;
+    private BingoPlayer player0, opp0, opp1, opp2, opp3, opp4, opp5, opp6, opp7, opp8, opp9, opp10, opp11, opp12, opp13, opp14, opp15, opp16, opp17, opp18, opp19, opp20, opp21, opp22, opp23, opp24, opp25, opp26, opp27, opp28, opp29, opp30, opp31, opp32, opp33, opp34;
 
     private ArrayList<BingoPlayer> opponents;
     // The number of BingoPlayers added to opponents will depend
@@ -44,24 +44,56 @@ public class Bingo implements casinorules {
 	player0 = new BingoPlayer( player0name, difficulty );
 	opp0 = new BingoPlayer( "Erma", difficulty );
 	opp1 = new BingoPlayer( "Zeb", difficulty );
+	opp2 = new BingoPlayer( "Gertrude", difficulty );
+	opp3 = new BingoPlayer( "Ebenezer", difficulty );
+	opp4 = new BingoPlayer( "Aretha", difficulty );
+	opp5 = new BingoPlayer( "Ferdinand", difficulty );
+	opp6 = new BingoPlayer( "Uriah", difficulty );
+	opp7 = new BingoPlayer( "Deanne", difficulty );
+	opp8 = new BingoPlayer( "Miles", difficulty );
+	opp9 = new BingoPlayer( "Herodotos", difficulty );
+	opp10 = new BingoPlayer( "Praskoviya", difficulty );
 	// players.add( player0 );
 	opponents.add( opp0 );
 	opponents.add( opp1 );
+	opponents.add( opp2 );
+	opponents.add( opp3 );
+	opponents.add( opp4 );
+	opponents.add( opp5 );
+	opponents.add( opp6 );
+	opponents.add( opp7 );
+	opponents.add( opp8 );
+	opponents.add( opp9 );
+	opponents.add( opp10 );
 	if ( difficulty > 1 ) {
-	    opp2 = new BingoPlayer( "Gertrude", difficulty );
-	    opp3 = new BingoPlayer( "Ebenezer", difficulty );
-	    opp4 = new BingoPlayer( "Aretha", difficulty );
-	    opponents.add( opp2 );
-	    opponents.add( opp3 );
-	    opponents.add( opp4 );
+	    opp11 = new BingoPlayer( "Hedviga", difficulty );
+	    opp12 = new BingoPlayer( "Arvid", difficulty );
+	    opp13 = new BingoPlayer( "Cnaeus", difficulty );
+	    opp14 = new BingoPlayer( "Tatiana", difficulty );
+	    opp15 = new BingoPlayer( "Sudarshana", difficulty );
+	    opp16 = new BingoPlayer( "Mladen", difficulty );
+	    opp17 = new BingoPlayer( "Miren", difficulty );
+	    opp18 = new BingoPlayer( "Asklepiades", difficulty );
+	    opp19 = new BingoPlayer( "Azra", difficulty );
+	    opp20 = new BingoPlayer( "Loris", difficulty );
+	    opp21 = new BingoPlayer( "Murali", difficulty );
+	    opp22 = new BingoPlayer( "Kazimieras", difficulty );
+	    opponents.add( opp11 );
+	    opponents.add( opp12 );
+	    opponents.add( opp13 );
+	    opponents.add( opp14 );
+	    opponents.add( opp15 );
+	    opponents.add( opp16 );
+	    opponents.add( opp17 );
+	    opponents.add( opp18 );
+	    opponents.add( opp19 );
+	    opponents.add( opp20 );
+	    opponents.add( opp21 );
+	    opponents.add( opp22 );
 	}
 	if ( difficulty > 2 ) {
-	    opp5 = new BingoPlayer( "Ferdinand", difficulty );
-	    opp6 = new BingoPlayer( "Uriah", difficulty );
-	    opp7 = new BingoPlayer( "Deanne", difficulty );
-	    opponents.add( opp5 );
-	    opponents.add( opp6 );
-	    opponents.add( opp7 );
+	    
+	    
 	}
 	// System.out.println( players );
 	B = new ArrayList<Integer>();
