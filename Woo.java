@@ -8,8 +8,10 @@ public class Woo{
     public String name;
     public boolean cont;
 
-    public int blackjackPlay=0;
-    public int dicePlay=0;
+    private int blackjackPlay = 0;
+    private int dicePlay = 0;
+    private int slotsPlay = 0;
+    private int TwoUpPlay = 0;
 
     public Woo(){
 	begin();
@@ -118,8 +120,9 @@ public class Woo{
 	System.out.println("---------Selection---------");
 	System.out.println("You have $" + money);
 	System.out.println("\nWhat game would you like to play?\n1. Blackjack\n2. Dice" +
-			   "\n3. Slots\n4. War\n5. Keno\n6. Bingo");
+			   "\n3. Slots\n4. War\n5. Keno\n6. Bingo\n7. Two-Up");
 	System.out.println("(To change the difficulty enter 100) \n");
+	System.out.print("Your choice : ");
 	try{
 	    select= Keyboard.readInt();}
 	catch (Exception e){
@@ -150,8 +153,9 @@ public class Woo{
 	else if (select == 3){
 	    if(slotsPlay == 0){
 		System.out.println("\nThe instructions will only appear once so read it carefully");
-		slotsInstruct();
+		slotsInstruct();;
 	    }
+	    slotsPlay = 1;
 	    bet();
 	    Slots game3 = new Slots(difficulty, money, bet);
 	    money += game3.play();
@@ -165,20 +169,28 @@ public class Woo{
 	    money-=1;
 	    keno game5= new keno(difficulty);
 	    money+=game5.play();
-
-
-
 	}
 	else if ( select == 6 ) {
 	    /* Uncomment once bingoInstruct() is written.
 	    if ( bingoPlay == 0 ) {
 		System.out.println( "The instructions will only appear once so read it carefully" );
 		bingoInstruct();
+		bingoPlay += 1;
 	    }
 	    */
 	    bet();
 	    Bingo game6 = new Bingo( name, difficulty, bet );
 	    money += game6.play();
+	}
+	else if ( select == 7 ){
+	    bet();
+	    if ( TwoUpPlay == 0 ) {
+		System.out.println( "The instructions will only appear once so read it carefully" );
+		TwoUpInstruct();
+	    }
+	    TwoUpPlay += 1;
+	    TwoUp game7 = new TwoUp(money, bet);
+	    money += game7.play();
 	}
 	else if (select==100){
 	    diff();
@@ -281,11 +293,18 @@ public class Woo{
 			   " and choose your game.");
 	System.out.println("Spin the slots to get three values. If all " +
 			   "all three values are the same, you get a " +
-			   "jackpot and earn double your bet. If all three" +
-			   "values are different, you earn what you bet.");
-	System.out.println("However, in each special slots, you can earn " +
+			   "jackpot and earn double your bet.");
+	System.out.println("If all three" +
+			   " values are different, you earn what you bet.");
+	System.out.println("However, in each special slot, you can earn " +
 			   "even more! Keep playing to find out what their" +
-			   "special jackpots are and increase your earnings!");
+			   " special jackpots are and increase your earnings!");
+    }
+
+    public void TwoUpInstruct(){
+	System.out.println("Two-Up is a coin toss game. Bets are placed on ");
+	System.out.println("each coin toss. Each bet is special!");
+	System.out.println("You can win different amounts of money for each.");
     }
 
     
