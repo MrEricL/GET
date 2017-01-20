@@ -277,7 +277,7 @@ public class TwoUp{
 	
 	if(response.equals("Y")){
 	    money += bet;
-	    System.out.println("You currently have " + money);
+	    System.out.println("You currently have " + cn(money));
 	    
 	    if (money > 0){
 		System.out.print("How much will you be betting? ");
@@ -285,7 +285,7 @@ public class TwoUp{
 		
 		while (newBet > money){
 		    System.out.println("You don't have that kind of money!!");
-		    System.out.println("You currently have " + money);
+		    System.out.println("You currently have " + cn(money));
 		    System.out.print("How much will you be betting? ");
 		    newBet = Keyboard.readDouble();
 		}
@@ -318,6 +318,28 @@ public class TwoUp{
 	    catch(InterruptedException e){
 	    }
 	}
+
+    public String cn(double z){
+	String x = "" + z;
+	int indexDec=0;
+	int space;
+
+	for (int i=0; i < x.length()-1 ; i++){
+	    if (x.substring(i,i+1).equals(".")){
+		indexDec=i;
+	    }
+	}
+
+	space=x.length()-indexDec-2;
+	if (space < 2){
+	    x+="0";
+	}
+	else{
+	    x=x.substring(0,indexDec+4);
+
+	}
+	return "$" + x;
+    }
 
     public static void main(String[] args){
 	TwoUp player = new TwoUp(100, 10);
