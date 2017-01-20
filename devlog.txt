@@ -137,3 +137,13 @@ Truc :: Edited dice for improved functionality.
 	Created TwoUp and got most of it coded.
 Gian :: 
 ==============================================================
+
+2017-01-19
+--------------------------------------------------------------
+Eric :: 
+Truc :: Finished up TwoUp.
+	Edited the looping for both Dice and TwoUp to continually play.
+	Linked TwoUp to the driver.
+	Added instructions for TwoUp.
+Gian :: 
+==============================================================
