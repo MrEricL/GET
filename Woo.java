@@ -118,7 +118,7 @@ public class Woo{
 	int slotsPlay = 0;
 	int diff;
 	System.out.println("---------Selection---------");
-	System.out.println("You have $" + money);
+	System.out.println("You have" + cn(money));
 	System.out.println("\nWhat game would you like to play?\n1. Blackjack\n2. Dice" +
 			   "\n3. Slots\n4. War\n5. Keno\n6. Bingo\n7. Two-Up");
 	System.out.println("(To change the difficulty enter 100) \n");
@@ -305,6 +305,29 @@ public class Woo{
 	System.out.println("Two-Up is a coin toss game. Bets are placed on ");
 	System.out.println("each coin toss. Each bet is special!");
 	System.out.println("You can win different amounts of money for each.");
+    }
+
+    //Money printing function
+    public String cn(double z){
+	String x = "" + z;
+	int indexDec=0;
+	int space;
+
+	for (int i=0; i < x.length()-1 ; i++){
+	    if (x.substring(i,i+1).equals(".")){
+		indexDec=i;
+	    }
+	}
+
+	space=x.length()-indexDec-2;
+	if (space < 2){
+	    x+="0";
+	}
+	else{
+	    x=x.substring(0,indexDec+4);
+
+	}
+	return "$" + x;
     }
 
     

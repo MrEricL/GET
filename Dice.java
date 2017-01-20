@@ -97,31 +97,53 @@ public class Dice implements casinorules{
 	    ans = Keyboard.readWord().toUpperCase();
 	}
 	if (ans.equals("Y")){
-	    winnings = bet;
+	    //winnings = bet;
 	    money += bet;
-	    System.out.println("You currently have " + money);
+	    System.out.println("You currently have " + cn(money));
 	    if (money > 0){
 		System.out.print("How much will you be betting? ");
-		bet = Keyboard.readDouble();
-		while (bet > money){
+		double newBet = Keyboard.readDouble();
+		while (newBet > money){
 		    System.out.println("You don't have that kind of money!!");
-		    System.out.println("You currently have " + money);
+		    System.out.println("You currently have " + cn(money));
 		    System.out.print("How much will you be betting? ");
-		    bet = Keyboard.readDouble();
+		    newBet = Keyboard.readDouble();
 		}
 		Dice newPlay = new Dice(difficulty, money, bet);
-		winnings += newPlay.play();
-		System.out.println("winnings : " + winnings);
+		bet += newPlay.play();
+		//System.out.println("winnings : " + winnings);
 	    }
 	    else{
 		System.out.println("I don't think you have any money left!");
 	    }
-	    return winnings;
+	    return bet;
 	}
 	else{
 	    System.out.println("Best of luck in your endeavors!");
 	    return bet;
 	}
+    }
+
+    public String cn(double z){
+	String x = "" + z;
+	int indexDec=0;
+	int space;
+
+	for (int i=0; i < x.length()-1 ; i++){
+	    if (x.substring(i,i+1).equals(".")){
+		indexDec=i;
+	    }
+	}
+
+	space=x.length()-indexDec-2;
+	if (space < 2){
+	    x+="0";
+	}
+	else{
+	    x=x.substring(0,indexDec+4);
+
+	}
+	return "$" + x;
     }
 
     //tester
