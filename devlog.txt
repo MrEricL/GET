@@ -73,7 +73,7 @@ Eric :: Completed the medium bot for blackjack.
 	Added war.java and completed 85%, only needs to add bot response and delayed print.
 Truc :: Completed the Slots super class and connected it to the driver.
 	Started writing the subclasses for Slots.
-Gian ::
+Gian :: created subclass for Bingo (later removed from this tree)
 ==============================================================
 
 2017-01-13
@@ -90,7 +90,7 @@ Gian ::
 --------------------------------------------------------------
 Eric :: Tested out driver and accompanying games.
 Truc :: 
-Gian ::
+Gian :: Edited constructors for bingo classes
 ==============================================================
 
 
