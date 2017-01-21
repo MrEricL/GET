@@ -200,17 +200,19 @@ public class Bingo implements casinorules {
 
     // runs bingo game until one or more players have won
     public double play() {
-	double retDouble;
 	bingo = false;
 	win = false;
 	while ( !bingo ) {
 	    go();
 	}
 	if ( win ) {
+	    double retDouble;
 	    retDouble = player0.getMultiplier() * (opponents.size() + 1) * bet;
-	    System.out.println();
+	    System.out.println( "You won " + cn( retDouble ) + "!" );
+	    return retDouble;
 	}
 	else {
+	    System.out.println( "You lost " + cn( bet ) );
 	    return -1 * bet;
 	}
     }
@@ -332,7 +334,7 @@ public class Bingo implements casinorules {
     // main method for testing purposes
     public static void main( String[] args ) {
 	Bingo japajoe;
-	japajoe = new Bingo( "Kevin", 3, 50.0 );
+	japajoe = new Bingo( "Kevin", 1, 50.0 );
 	japajoe.play();
     }
 } // end class Bingo
