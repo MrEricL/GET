@@ -25,7 +25,7 @@ public class BingoPlayer {
 	card = new int[5][5];
 	for ( int i = 0; i < card.length; i += 1 ) {
 	    for ( int x = 0; x < card[i].length; x += 1 ) {
-		// The range of the ints in the card will be [1, range+1)
+		// The interval of the ints in the card will be [1, range+1)
 		card[i][x] = (int)( 1 + range * Math.random() );
 	    }
 	}
@@ -36,7 +36,7 @@ public class BingoPlayer {
 	N = new ArrayList<Integer>();
 	G = new ArrayList<Integer>();
 	O = new ArrayList<Integer>();
-    }
+    } // end BingoPlayer( String _name, int diff )
 
     //------------------------Accessors------------------------
     public String getName() {
@@ -65,7 +65,7 @@ public class BingoPlayer {
 	    retStr += "\n\n";
 	}
 	return retStr;
-    }
+    } // end printableCard()
 
     // Mark each number on the card that matches the number and letter called.
     // returns true if card is marked, false otherwise
@@ -95,7 +95,7 @@ public class BingoPlayer {
 	    } // end if loop
 	} // end for loop
 	return retBool;
-    } // end checkCard()
+    } // end checkCard( int letter, int number )
 
     public boolean checkBingo() {
 	multiplier = checkRows() + checkColumns() + checkDiagonals();
@@ -118,7 +118,7 @@ public class BingoPlayer {
 	    }
 	}
 	return 0;
-    }
+    } // end checkRows()
 
     public int checkColumns() {
 	int markCtr;
@@ -138,7 +138,7 @@ public class BingoPlayer {
 	    }
 	}
 	return 0;
-    }
+    } // end checkColumns()
 
     public int checkDiagonals() {
 	int markCtr;
@@ -170,7 +170,7 @@ public class BingoPlayer {
 	    numBingos += 1;
 	}
 	return numBingos;
-    }
+    } // end checkDiagonals()
 
     // main method for testing purposes
     public static void main( String[] args ) {
@@ -178,4 +178,4 @@ public class BingoPlayer {
 	yo = new BingoPlayer( "pat", 1 );
 	System.out.println( yo.printableCard() );
     }
-}
+} // end class BingoPlayer

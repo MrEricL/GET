@@ -38,7 +38,8 @@ public class Bingo implements casinorules {
 	bet = _bet;
 	start();
     }
-    
+
+    // sets up game and opponents based on difficulty setting
     public void start() {
 	opponents = new ArrayList<BingoPlayer>();
 	player0 = new BingoPlayer( player0name, difficulty );
@@ -138,7 +139,7 @@ public class Bingo implements casinorules {
 	    opponents.add( opp44 );
 	    opponents.add( opp45 );
 	    opponents.add( opp46 );
-	}
+	} // end if statement
 	if ( difficulty > 2 ) {
 	    opp47 = new BingoPlayer( "Marion", difficulty );
 	    opp48 = new BingoPlayer( "Maja", difficulty );
@@ -188,7 +189,7 @@ public class Bingo implements casinorules {
 	    opponents.add( opp68 );
 	    opponents.add( opp69 );
 	    opponents.add( opp70 );
-	}
+	} // end if statement
 	// System.out.println( players );
 	B = new ArrayList<Integer>();
 	I = new ArrayList<Integer>();
@@ -197,20 +198,24 @@ public class Bingo implements casinorules {
 	O = new ArrayList<Integer>();
     } // end start()
 
+    // runs bingo game until one or more players have won
     public double play() {
+	double retDouble;
 	bingo = false;
 	win = false;
 	while ( !bingo ) {
 	    go();
 	}
 	if ( win ) {
-	    return player0.getMultiplier() * (opponents.size() + 1) * bet;
+	    retDouble = player0.getMultiplier() * (opponents.size() + 1) * bet;
+	    System.out.println();
 	}
 	else {
 	    return -1 * bet;
 	}
-    } // end play()
+    }
 
+    // plays one turn
     public void go() {
 	System.out.println( "This is your card:\n\n" );
 	System.out.println( player0.printableCard() );
@@ -232,16 +237,17 @@ public class Bingo implements casinorules {
 	// bingo = true;
     } // end go()
 
+    // calls a letter and number for the players to mark on their cards
     public String call() {
 	int range;
 	String letters;
 	String retStr;
 	
-	// rand int in [0, 5)
+	// rand int in interval [0, 5)
 	letter = (int)( 5 * Math.random() );
 
 	range = 25 * difficulty;
-	// rand int in [1, range +1)
+	// rand int in interval [1, range +1)
 	number = (int)( 1 + range * Math.random() );
 
 	letters = "BINGO";
@@ -268,8 +274,9 @@ public class Bingo implements casinorules {
 	    O.add( number );
 	}
 	return retStr;
-    }
+    } // end call()
 
+    // for the end of a bingo game, after a player has won
     public String winSequence( BingoPlayer player ) {
 	String retStr;
 	retStr = player.getName() + ": Bingo!\n";
@@ -283,15 +290,44 @@ public class Bingo implements casinorules {
 	retStr += "Caller: Good game, everybody!\n\n";
 	return retStr;
     }
-	public void slp(double x){
-	    x*=1000;
-	    long y= (long)x;
-	    try{
-		Thread.sleep(y);
+
+    // ------------------------Helper Methods------------------------
+    
+    // for pausing between print statements
+    public void slp(double x){
+	x*=1000;
+	long y= (long)x;
+	try{
+	    Thread.sleep(y);
+	}
+	catch(InterruptedException e){
+	}
+    }
+
+    // for printing the quantity of money with two decimal places
+    public String cn(double z){
+	String x = ""+z;
+	int indexDec=0;
+	int space;
+
+	for (int i=0; i < x.length()-1 ; i++){
+	    if (x.substring(i,i+1).equals(".")){
+		indexDec=i;
 	    }
-	    catch(InterruptedException e){
-	    }
-	}    
+	}
+
+	space=x.length()-indexDec-2;
+	if (space < 2){
+	    x+="0";
+	}
+	else{
+	    x=x.substring(0,indexDec+4);
+
+	}
+	return "$" + x;
+    }
+    
+    // --------------------------------------------------------------
 
     // main method for testing purposes
     public static void main( String[] args ) {
@@ -299,4 +335,4 @@ public class Bingo implements casinorules {
 	japajoe = new Bingo( "Kevin", 3, 50.0 );
 	japajoe.play();
     }
-}
+} // end class Bingo
