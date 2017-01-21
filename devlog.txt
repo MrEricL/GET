@@ -153,6 +153,8 @@ Gian ::
 Eric :: Worked on flowchart.
 Truc :: Adjusted TwoUp to include sleep function.
 	Fixed cn function and added it to several classes and the driver.
+	Added color to all Slots classes. 
+	Created a new Slots subclass.
 Gian ::
 ==============================================================
 
