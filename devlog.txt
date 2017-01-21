@@ -123,7 +123,7 @@ Eric :: Fixed some bugs in the driver when connecting with Bingo.
         Edited blackjack for early bust hands
 Truc :: Started an attempt at pictures for slots.
 	Improved dice. Now guessing isn't specific to each die. You can continually roll dice and rebet until you don't want to anymore.
-Gian :: 
+Gian :: connected bingo to driver file
 ==============================================================
 
 2017-01-18
@@ -133,7 +133,7 @@ Eric :: Added taunt system to blackjack
 	Edited blackjack so user can select the 1/11 for ace
 Truc :: Edited dice for improved functionality.
 	Created TwoUp and got most of it coded.
-Gian :: 
+Gian :: Reorganized class Bingo so that it implements interface casinorules
 ==============================================================
 
 2017-01-19
@@ -155,7 +155,8 @@ Truc :: Adjusted TwoUp to include sleep function.
 	Fixed cn function and added it to several classes and the driver.
 	Added color to all Slots classes. 
 	Created a new Slots subclass.
-Gian ::
+Gian :: Added many more players for each difficulty in bingo
+        debugged class BingoPlayer	
 ==============================================================
 
 2017-01-21
