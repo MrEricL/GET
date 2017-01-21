@@ -163,7 +163,8 @@ Gian :: Added many more players for each difficulty in bingo
 --------------------------------------------------------------
 Eric :: 
 Truc :: 
-Gian ::
+Gian :: Added more comments in classes Bingo and BingoPlayer
+        bingo game now tells the user how much money has been won or lost at the end
 ==============================================================
 
 2017-01-22
