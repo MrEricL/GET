@@ -20,7 +20,7 @@ UNRESOLVED ISSUES
 - MEDIUM PRIORITY - Implmenting the try/catch statements in the driver since if an invalid input is put in, it'll skip over the option and leave it as null. Tedious work for little results for now. 
 - MEDIUM PRIORITY - Medium mode bugs out in blackjack. 
 - HIGH PRIORITY - Game fails to terminate after hitting a negative amount, or above a million. 
-- HIGH PRIORITY - Connect Slots subclasses to driver / figure out how to connect them. 
+- HIGH PRIORITY - Connect Slots subclasses to driver / figure out how to connect them. (FIXED -Truc)
 - MEDIUM PRIORITY - Allow player to play Dice and Slots more than once without having to retype selection and bet. (FIXED -Truc)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - try/catch a Thread.sleep(long) allows for text to be printed at a timed manner. 
@@ -57,11 +57,9 @@ Eric :: Added thread.sleep and accompanying helper function for Woo.java.
 	Added instructions in driver file.
 	Built the both the easy and difficult bot and tested them out. Bots win 90% more games.
 	Recoded the win condition to allow for multiple winners and thus making winnings vary from (6X to 1X the bet).
-	
 Truc :: Finished up dice functionality and connected dice with the driver and interface.
 	Set up Slots.
 	Set up dice difficulty levels.
-	
 Gian :: Began setting up cards for Bingo.
 ==============================================================
 
