@@ -31,8 +31,8 @@ public class numberSlots extends Slots {
     public void go(){
 	super.go();
 	if (thousandWin()){
-	    System.out.println("THOUSAND JACKPOT!!! " +
-			       "Add 1000 to your winnings!");
+	    System.out.println(yellow + "THOUSAND JACKPOT!!! " +
+			       "Add 1000 to your winnings!" + reset);
 	    bet += 1000;
 	}
     }

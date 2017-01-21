@@ -1,6 +1,8 @@
 public class fruitSlots extends Slots {
 
     private static final String[] FRUITS = {
+	// "apple", "apple", "apple",
+	// "apple", "apple", "apple",
 	"apple", "apple", "apple",
 	"grape", "grape", "grape",
 	"grapefruit", "grapefruit", "grapefruit",
@@ -28,11 +30,22 @@ public class fruitSlots extends Slots {
 	else { return false; }
     }
 
+    // public String toString(){
+    // 	String retStr = "";
+    // 	if (miniWin()){ retStr = green; }
+    // 	if (jackpot()){ retStr = yellow; }
+    // 	if (appleJackpot()){ retStr = blue; }
+    // 	for(int index = 0; index < 3; index += 1){
+    // 	    retStr += _objects[index] + "\t";
+    // 	}
+    // 	return retStr + reset;
+    // }
+
     public void go(){
 	super.go();
 	if (appleJackpot()){
-	    System.out.println("APPLE JACKPOT!!!!! " +
-			       "Double your winnings!\n");
+	    System.out.println(yellow + "APPLE JACKPOT!!!!! " +
+			       "Double your winnings!\n" + reset);
 	    bet *= 2;
 	}
     }

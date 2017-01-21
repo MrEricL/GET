@@ -1,5 +1,4 @@
 import cs1.Keyboard;
-//import SlotsPics.Pictures;
 
 public class Slots implements casinorules{
 
@@ -14,6 +13,16 @@ public class Slots implements casinorules{
 	"$$$", "$$$", "$$$",
 	"dice", "dice", "dice",	
     };
+
+    protected static final String reset = "\u001B[0m";
+    protected static final String black = "\u001B[30m";
+    protected static final String red = "\u001B[31m";
+    protected static final String green = "\u001B[32m";
+    protected static final String yellow = "\u001B[33m";
+    protected static final String blue = "\u001B[34m";
+    protected static final String purple = "\u001B[35m";
+    protected static final String cyan = "\u001B[36m";
+    protected static final String white = "\u001B[37m";
 
     protected String[] _objects;
     protected int difficulty;
@@ -44,11 +53,14 @@ public class Slots implements casinorules{
 
     public String toString(){
 	String retStr = "";
+	if (miniWin()){ retStr += green; }
+	if (jackpot()){ retStr += yellow; }
+	//else{ retStr += white; }
 	for(int index = 0; index < 3; index += 1){
 	    retStr += _objects[index] + "\t";
 	    //System.out.println(_objects[index]);
 	}
-	return retStr;
+	return retStr + reset;
     }
 
     private void swap (int one, int two){
@@ -83,7 +95,6 @@ public class Slots implements casinorules{
 
 	if (times > 0 && g > 85){
 	    System.out.println (j+"\t"+j+"\t"+j+"\n");
-
 	}
 	    
 	else if (times > 0 && times > 5){
