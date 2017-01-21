@@ -50,7 +50,7 @@ public class BingoPlayer {
     // printableCard() returns printable version of bingo card
     public String printableCard() {
 	String retStr;
-	retStr = "B   I   N   G   O\n\n";
+	retStr = "B   I   N   G   O\n\n\n";
 	for ( int[] x : card ) {
 	    for ( int y : x ) {
 		retStr += y;
@@ -143,9 +143,13 @@ public class BingoPlayer {
     public int checkDiagonals() {
 	int markCtr;
 	int numBingos;
+	int x;
 	markCtr = 0;
 	numBingos = 0;
-	// first diagonal
+	// first diagonal:
+	// This for loop terminates when it comes to an int in the
+	// diagonal that is not 0, rather than iterating through the whole
+	// diagonal.
 	for ( int i = 0; i < card.length && card[i][i] == 0; i += 1 ) {
 	    markCtr += 1;
 	}
@@ -153,9 +157,14 @@ public class BingoPlayer {
 	    numBingos += 1;
 	}
 	markCtr = 0;
-	// second diagonal
-	for ( int i = card.length - 1; i > -1 && card[i][i] == 0; i -= 1 ) {
+	// second diagonal:
+	// This for loop terminates when it comes to an int in the
+	// diagonal that is not 0, rather than iterating through the whole
+	// diagonal.
+	x = 0;
+	for ( int i = card.length - 1; i > -1 && card[x][i] == 0; i -= 1 ) {
 	    markCtr += 1;
+	    x += 1;
 	}
 	if ( markCtr == card.length ) {
 	    numBingos += 1;
