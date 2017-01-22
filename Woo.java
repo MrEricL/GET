@@ -155,11 +155,11 @@ public class Woo{
 	int dicePlay=0;
 	int slotsPlay = 0;
 	int diff;
-	System.out.println("---------Selection---------\n");
+	System.out.println("\n\n---------Selection---------\n");
 	System.out.println("You have" + cn(money));
 	System.out.println("\nWhat game would you like to play?\n1. Blackjack\n2. Dice" +
 			   "\n3. Slots\n4. War\n5. Keno\n6. Bingo\n7. Two-Up");
-	System.out.println("(To change the difficulty enter 100) \n\n\n");
+	System.out.println("(To change the difficulty enter 100) \n\n WARNING - Bingo takes quite a while to run.\n\n");
 	System.out.print("Your choice : ");
 	try{
 	    select= Keyboard.readInt();}
@@ -382,10 +382,10 @@ public class Woo{
 	    double y = (Math.random()*money/2);
 	    for (int i = 0; i < 75; i++){
 
-		System.out.println("████████████████████████████████████████████████████████████");
+		System.out.println("█████████████████████████████████████████████████████████████████████");
 		slp(0.01);
 	    }
-	    System.out.println("You blacked out from your illness. You were pickpocketed. You lost" + cn(y)+"\n\n\n\n");
+	    System.out.println("You blacked out from your illness. You were pickpocketed. You lost around" + cn(y)+".\n\n\n\n");
 	    money-=y;
 			       
 	}
