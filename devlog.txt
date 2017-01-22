@@ -161,7 +161,7 @@ Gian :: Added many more players for each difficulty in bingo
 
 2017-01-21
 --------------------------------------------------------------
-Eric :: 
+Eric :: Fixing the bots
 Truc :: 
 Gian :: Added more comments in classes Bingo and BingoPlayer
         bingo game now tells the user how much money has been won or lost at the end
