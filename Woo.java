@@ -22,6 +22,7 @@ public class Woo{
     private int playTotal=0;
     private int playChance;
 
+
     public Woo(){
 	begin();
 	mon();
@@ -57,17 +58,19 @@ public class Woo{
         name = Keyboard.readString();
 	System.out.println ("\n\nNice you meet you " + name);
 	//	slp(1.5);
-	System.out.println ("\nYou unfortunately contracted a deathly illness in the jungles of Zambia");
+	System.out.println ("\nYou have unfortunately contracted a deathly illness.");
 	//	slp(3);
-	System.out.println ("Your doctor tells you about a rare and expensive treatment");
+	System.out.println ("Your doctor tells you about a rare and expensive treatment.");
 	//	slp(2.7);
-	System.out.println ("But you don't have anything but the stack of bills under your couch");   
+	System.out.println ("However you cannot afford it. It cost $1 million for one dose.");
+	//	slp(2.7);
+	System.out.println ("You don't have anything but that stack of bills under your bed.");   
 	//	slp(3.2);
-	System.out.println ("You don't have any family and since the 2008 crisis you don't trust banks");	
+	System.out.println ("Due to a multiple incidents involving credit card fraud, the bank and insurance isn't help you.");	
 	//	slp(3.5);
-	System.out.println ("You're at your wit's end and you decide to go to test your luck at a casino");
+	System.out.println ("You're at your wit's end and you decide to go to test your luck at a casino.");
 	//	slp(2);
-	System.out.println("You will gamble your entire lifes saving tonight");
+	System.out.println("You will gamble your entire lifes saving tonight.\n\n\n\n");
 	//	slp(4);
 	
     }
@@ -79,7 +82,9 @@ public class Woo{
 	}
 	catch (Exception e){
 	    System.out.println("\n Try again\n\n\n");
-	    diff();}
+	    diff();
+	    return;
+	}
 	if (difficulty< 1 || difficulty > 3){
 	    System.out.println("\n Try again with a valid number\n\n\n");
 	    diff();
@@ -93,8 +98,16 @@ public class Woo{
     public void mon () {
 	System.out.println("\n\nHow much money would you like to start with?");	
 	System.out.println("Your game  will end when you hit your $1mil goal or when you've  spent all your money");
-	System.out.println("(Hit 0 for default amount of 10k)\n");
+	System.out.println("(Hit 0 for default amount of $10k)\n");
+
+	try{
          money=Keyboard.readDouble();
+	}
+	catch(Exception e){
+	    System.out.println("\n Try again with a valid amount\n\n\n");
+	    mon();
+	    return;
+	}
 	if (money==0) money = 10000.00;
 	if (money >= 700000) {
 	    System.out.println("\nYa sure you broke?\n");
@@ -107,23 +120,28 @@ public class Woo{
 
     public void bet(){
 	System.out.println("\n\n_______Bet_______");
-	System.out.println("\nHow much money would you like to bet?");
-	System.out.println("(You can bet as much as you have)\n");
+	if (playTotal <1){
+	    System.out.println("\nHow much money would you like to bet?");
+	    System.out.println("(You can bet as much as you have)\n");
+	}
+	else{
+	    System.out.print("Amount: ");
+	}
 	try{
 	    bet=Keyboard.readDouble();
 	    if (bet > money){
-		System.out.println("Ya broke. Enter an amount within the money you have");
+		System.out.println("Ya broke. Enter a bet within the money you have\n");
 		bet();
 		return;
 	    }
 	    if (bet==0){
-		System.out.println("Ya gotta bet somethin'");
+		System.out.println("Ya gotta bet somethin'\n");
 		bet();
 		return;
 	    }
 	}
 	catch(Exception e){
-	    System.out.println("Try again!!!\n\n\n");
+	    System.out.println("\n Try again with a valid amount\n\n\n");
 	    bet();
 	    return;		
 	}
@@ -137,11 +155,11 @@ public class Woo{
 	int dicePlay=0;
 	int slotsPlay = 0;
 	int diff;
-	System.out.println("---------Selection---------");
+	System.out.println("---------Selection---------\n");
 	System.out.println("You have" + cn(money));
 	System.out.println("\nWhat game would you like to play?\n1. Blackjack\n2. Dice" +
 			   "\n3. Slots\n4. War\n5. Keno\n6. Bingo\n7. Two-Up");
-	System.out.println("(To change the difficulty enter 100) \n");
+	System.out.println("(To change the difficulty enter 100) \n\n\n");
 	System.out.print("Your choice : ");
 	try{
 	    select= Keyboard.readInt();}
@@ -279,64 +297,57 @@ public class Woo{
 
     //INSTRUCTIONS
     public void blackjackInstruct(){
-	System.out.println ("Blackjack is a classic casino card game.");
-	    System.out.println ("Your goal to to get a total of 21");
-	System.out.println ("Suits don't matter and JACK/QUEEN/KING/ACE are all worth 10");
-	    System.out.println ("The game will stop when you don't want to get hit or when your hand is too large");
-	System.out.println("If you win your prize money depends on the other winners");
-	System.out.println("If only you win you get your bet by six fold more, or if everyone wins, you get your bet amount");	    	
+	    System.out.println ("\n\nYour goal to to get a total of 21.");
+	System.out.println ("Suits don't matter and JACK/QUEEN/KING are all worth 10.");
+	System.out.println("You decide if an ACE is either worth 1 or 11.");
+	    System.out.println ("The game will stop when you don't want to get hit or when your hand is too large.");
+
+	    
 	    if (difficulty==1){
-		System.out.println ("You are in easy mode: the game will only use one deck");
-		System.out.println ("The bots are extremely simple and will likely fail");
+		System.out.println ("\nYou are in easy mode: the game will only use one deck.");
+		System.out.println ("The bots are extremely simple and will mainly guess.\n\n");
 
 	    }
 	    if (difficulty==2){
-		System.out.println ("You are in medium mode: the game will use six decks");
-		System.out.println ("The bots will use basic logic and calculations to make their choice");		
+		System.out.println ("\nYou are in medium mode: the game will use six decks");
+		System.out.println ("The bots will use basic logic and calculations to make their choice.\n\n");		
 	    }
 	    if (difficulty==3){
-		System.out.println ("You are in hard  mode: the game will use six deck");
-		System.out.println ("The bots have seeming omniscience and will likely win");		
+		System.out.println ("You are in hard  mode: the game will use six deck.");
+		System.out.println ("The bots are very sophisticated and will almost always win.\n\n");		
 	    }
 	    //	    slp(10);
     }
 
     public void diceInstruct(){
-	System.out.println("Dice is a very simple game");
-	System.out.println("Simply guess two values");	
-	System.out.println("Two fair die will be rolled");
-	System.out.println("The game then ends depending on whether you get it correct or not");
-	System.out.println("If you win, your bet is doubled");	
+	System.out.println("\n\nAttempt to guess what two dices will land one.\n");	
+
 	if (difficulty==1){
-	    System.out.println("The faces' values range between 1 and 6");
+	    System.out.println("The faces' values range between 1 and 6\n\n");
 	}
 	if (difficulty==2){
-	    System.out.println("The faces' values range between 1 and 9");
+	    System.out.println("The faces' values range between 1 and 9\n\n");
 	}
 	if (difficulty==3){
-	    System.out.println("The faces' values range between 1 and 12");
+	    System.out.println("The faces' values range between 1 and 12\n\n");
 	}
 	//	slp(6);
     }
 
 
     public void slotsInstruct(){
-	System.out.println("Slots is a simple game. Simply enter your bet" +
-			   " and choose your game.");
-	System.out.println("Spin the slots to get three values. If all " +
-			   "all three values are the same, you get a " +
-			   "jackpot and earn double your bet.");
-	System.out.println("If all three" +
-			   " values are different, you earn what you bet.");
-	System.out.println("However, in each special slot, you can earn " +
-			   "even more! Keep playing to find out what their" +
-			   " special jackpots are and increase your earnings!");
+	System.out.println("\nSpin the slots to get three values.");
+	System.out.println("Depending on what you spin, you win certain amounts.\n\n");
     }
 
+    public void kenoInstruct(){
+	System.out.println("\nSelect a certain amount of numbers of picks.");
+	System.out.println("Depending on how many you pick and if they are correct, you win certain amounts.\n\n");
+    }
+    
     public void TwoUpInstruct(){
 	System.out.println("Two-Up is a coin toss game. Bets are placed on ");
-	System.out.println("each coin toss. Each bet is special!");
-	System.out.println("You can win different amounts of money for each.");
+	System.out.println("each coin toss.");
     }
 
 
@@ -344,14 +355,28 @@ public class Woo{
 
     public void event(){
 	int x= (int)(Math.random()*100);
+	String z;
 	if (x >= 50){
-	    System.out.println("\n\n"+"..... A suited man is approaching you .....\n\n"
-			       + "\tSo"+slpS(0.2)+"."+slpS(0.2)+"."+slpS(0.2)+"."
-			       +" You're that desperate fool?\n"+ slpS(1.2)
-			       +slpS(0.2)+"."+slpS(0.2)+"."+slpS(0.2)+"."
-			       +"Wanna make a bet?"+slpS(1)+"\nNo, you're not worth it"			       
-			       );
-	    
+	    System.out.println("..... A suited man is approaching you .....\n\n"
+			       + "Wanna make a bet?\n (y/n)");
+	    try{
+		z= Keyboard.readWord();
+		if (z.equals("y")){
+		    bet();
+		}
+		else{
+		    System.out.println("Hmmm....");
+		    slp(0.3);
+		    System.out.println("Looks like you're not serious...");
+		    return;
+		}
+	    }
+	    catch(Exception e){
+		System.out.println("Hmmm....");
+		slp(0.3);
+		System.out.println("Looks like you're not serious...");
+		return;
+	    }	    
 	}
 	else{
 	    double y = (Math.random()*money/2);
@@ -360,7 +385,7 @@ public class Woo{
 		System.out.println("████████████████████████████████████████████████████████████");
 		slp(0.01);
 	    }
-	    System.out.println("You blacked out from your illness. You were pickpocketed. You lost" + cn(y));
+	    System.out.println("You blacked out from your illness. You were pickpocketed. You lost" + cn(y)+"\n\n\n\n");
 	    money-=y;
 			       
 	}
