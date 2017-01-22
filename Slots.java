@@ -191,12 +191,12 @@ public class Slots implements casinorules{
 	    player.go();
 	    bet =  player.bet;
 	}
-	if (selection == 3){
+	else if (selection == 3){
 	    numberSlots player = new numberSlots(difficulty, money, bet);
 	    player.go();
 	    bet = player.bet;
 	}
-	if (selection == 4){
+	else if (selection == 4){
 	    suddenDeathSlots player = new suddenDeathSlots(difficulty, money, bet);
 	    player.go();
 	    bet = player.bet;
@@ -204,6 +204,7 @@ public class Slots implements casinorules{
 	else{
 	    go();
 	}
+	
 	System.out.print("Care for another spin? Y or N? ");
 	String ans = Keyboard.readString().toUpperCase();
 	while(!ans.equals("Y") && !ans.equals("N")){
@@ -223,7 +224,7 @@ public class Slots implements casinorules{
 		    System.out.print("How much will you be betting? ");
 		    newBet = Keyboard.readDouble();
 		}
-		Dice newPlay = new Dice(difficulty, money, bet);
+		Slots newPlay = new Slots(difficulty, money, bet);
 		bet += newPlay.play();
 	    }
 	}
