@@ -26,12 +26,14 @@ public class suddenDeathSlots extends Slots{
 	for (String x : _objects){
 	    if (x.equals("angel")){
 		bet += 10;
+		System.out.println("You got an angel! +10 on earnings!");
 	    }
 	    if (x.equals("rock")){
 		bet += 1;
+		System.out.println("You got a rock! +10 on earnings!");
 	    }
 	}
-		    
+    }		    
     
     public boolean danger(){
 	if (jackpot() && _objects[0].equals("skull")){ return true; }
@@ -72,21 +74,26 @@ public class suddenDeathSlots extends Slots{
     public void go(){
 	super.go();
 	if (danger()){
-	    System.out.println(red + "Danger!" + reset);
+	    System.out.println(red + "Danger! " +
+			       "Earn only half what you bet." + reset);
 	    bet /= 4;
 	}
 	if (attack()){
-	    System.out.println(red + "Attacked by swords!" + red);
+	    System.out.println(red + "Attacked by swords! " +
+			       "Only earn what you bet." + reset);
 	    bet /= 2;
 	}
 	if (spook()){
-	    System.out.println(red + "Ghost Swarm! How spooky~" + reset);
+	    System.out.println(red + "Ghost Swarm! How spooky~ " +
+			       "Lose 1/4 of your earnings." + reset);
 	    bet *= (3/4);
 	}
 	if (die()){
-	    System.out.println(red + "You've been overpowered by zombies!" + reset);
+	    System.out.println(red + "You've been overpowered by zombies! " +
+			       "You lose 2* what you bet." + reset);
 	    bet *= -2;
 	}
+	helper();
     }
 
     public static void main(String[] args){

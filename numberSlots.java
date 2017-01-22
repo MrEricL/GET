@@ -9,7 +9,7 @@ public class numberSlots extends Slots {
 	"ten", "ten", "ten",
 	"fifty", "fifty", "fifty",
 	"hundred", "hundred", "hundred",
-	"thousand", "thousand", "thousand",
+	yellow + "thousand" + reset, yellow + "thousand" + reset, yellow + "thousand" + reset,
     };
 
     public numberSlots(int len, double _money, double _bet){

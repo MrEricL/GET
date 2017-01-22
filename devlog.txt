@@ -13,6 +13,7 @@ OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - Built the first bot for blackjack (and make the bot winnier than people)! 
 - Finished first complete game with all difficulties! 
+- Got looping within game to work!
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -32,6 +33,7 @@ MID-DEVELOPMENT DESIGN CHANGES
 - Made Slots a super class instead of an abstract class or interface.
 - Added class BingoPlayer instead of using one class for bingo
 - Created Two-Up
+- Added color to Slots instead of graphics
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -162,7 +164,9 @@ Gian :: Added many more players for each difficulty in bingo
 2017-01-21
 --------------------------------------------------------------
 Eric :: Fixing the bots
-Truc :: 
+Truc :: Continued adding color to Slots classes.
+	Finished last Slots subclass.
+	Looped Slots.
 Gian :: Added more comments in classes Bingo and BingoPlayer
         bingo game now tells the user how much money has been won or lost at the end
 ==============================================================

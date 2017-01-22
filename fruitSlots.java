@@ -3,7 +3,7 @@ public class fruitSlots extends Slots {
     private static final String[] FRUITS = {
 	// "apple", "apple", "apple",
 	// "apple", "apple", "apple",
-	"apple", "apple", "apple",
+	red + "apple" + reset, red + "apple" + reset, red + "apple" + reset,
 	"grape", "grape", "grape",
 	"grapefruit", "grapefruit", "grapefruit",
 	"watermelon", "watermelon", "watermelon",
