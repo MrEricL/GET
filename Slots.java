@@ -2,18 +2,6 @@ import cs1.Keyboard;
 
 public class Slots implements casinorules{
 
-    protected static final String[] objects = {
-	"seven", "seven", "seven",
-	"cherry", "cherry", "cherry",
-	"crown", "crown", "crown",
-	"drink", "drink", "drink",
-	"bell", "bell", "bell",
-	"candy", "candy", "candy",
-	"diamond", "diamond", "diamond",
-	"$$$", "$$$", "$$$",
-	"dice", "dice", "dice",	
-    };
-
     protected static final String reset = "\u001B[0m";
     protected static final String black = "\u001B[30m";
     protected static final String red = "\u001B[31m";
@@ -22,6 +10,20 @@ public class Slots implements casinorules{
     protected static final String blue = "\u001B[34m";
     protected static final String purple = "\u001B[35m";
     protected static final String cyan = "\u001B[36m";
+
+    protected static final String[] objects = {
+	"seven", "seven", "seven",
+	red + "cherry" + reset, red + "cherry" + reset, red + "cherry" + reset,
+	yellow + "crown" + reset, yellow + "crown" + reset, yellow + "crown" + reset,
+	"drink", "drink", "drink",
+	"bell", "bell", "bell",
+	"candy", "candy", "candy",
+	"diamond", "diamond", "diamond",
+	green + "$$$" + reset, green + "$$$" + reset, green + "$$$" + reset,
+	"dice", "dice", "dice",	
+    };
+
+    
     protected static final String white = "\u001B[37m";
 
     protected String[] _objects;
@@ -53,14 +55,13 @@ public class Slots implements casinorules{
 
     public String toString(){
 	String retStr = "";
-	if (miniWin()){ retStr += green; }
-	if (jackpot()){ retStr += yellow; }
-	//else{ retStr += white; }
+	String color = white;
+	if (miniWin()){ color = green; }
+	if (jackpot()){ color = yellow; }
 	for(int index = 0; index < 3; index += 1){
-	    retStr += _objects[index] + "\t";
-	    //System.out.println(_objects[index]);
+	    retStr += color +  _objects[index] + reset + "\t";
 	}
-	return retStr + reset;
+	return retStr;
     }
 
     private void swap (int one, int two){
@@ -158,6 +159,7 @@ public class Slots implements casinorules{
 	System.out.println("\t1. Regular");
 	System.out.println("\t2. Fruits");
 	System.out.println("\t3. Numbers");
+	System.out.println("\t4. Death");
 	selection = Keyboard.readInt();
     }
 
@@ -187,17 +189,68 @@ public class Slots implements casinorules{
 	if (selection == 2){
 	    fruitSlots player = new fruitSlots(difficulty, money, bet);
 	    player.go();
-	    return player.bet;
+	    bet =  player.bet;
 	}
 	if (selection == 3){
 	    numberSlots player = new numberSlots(difficulty, money, bet);
 	    player.go();
-	    return player.bet;
+	    bet = player.bet;
 	}
-	go();
+	if (selection == 4){
+	    suddenDeathSlots player = new suddenDeathSlots(difficulty, money, bet);
+	    player.go();
+	    bet = player.bet;
+	}
+	else{
+	    go();
+	}
+	System.out.print("Care for another spin? Y or N? ");
+	String ans = Keyboard.readString().toUpperCase();
+	while(!ans.equals("Y") && !ans.equals("N")){
+	    System.out.println("Please type Y or N.");
+	    System.out.print("Care for another spin? Y or N? ");
+	    ans = Keyboard.readWord().toUpperCase();
+	}
+	if (ans.equals("Y")){
+	    money += bet;
+	    System.out.println("You currently have " + cn(money));
+	    if (money > 0){
+		System.out.print("How much will you be betting? ");
+		double newBet = Keyboard.readDouble();
+		while (newBet > money){
+		    System.out.println("You don't have that kind of money!!");
+		    System.out.println("You currently have " + cn(money));
+		    System.out.print("How much will you be betting? ");
+		    newBet = Keyboard.readDouble();
+		}
+		Dice newPlay = new Dice(difficulty, money, bet);
+		bet += newPlay.play();
+	    }
+	}
 	return bet;
     }
 
+    public String cn(double z){
+	String x = "" + z;
+	int indexDec=0;
+	int space;
+
+	for (int i=0; i < x.length()-1 ; i++){
+	    if (x.substring(i,i+1).equals(".")){
+		indexDec=i;
+	    }
+	}
+
+	space=x.length()-indexDec-2;
+	if (space < 2){
+	    x+="0";
+	}
+	else{
+	    x=x.substring(0,indexDec+4);
+
+	}
+	return "$" + x;
+    }
 
     //helper function don't mind
 	public void slp(double x){
