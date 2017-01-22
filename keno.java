@@ -38,7 +38,7 @@ public class keno  {
 	picked();
 	System.out.print("You have selected " + times+" draws ");
 	System.out.println("and have got "+ correct+" correct");
-	System.out.println("You have won $"+win);
+	System.out.println("You have won "+ cn(win));
 	    
 	return win;
 
@@ -282,6 +282,28 @@ public class keno  {
 
     public void sopln (String x){
 	System.out.println(x);
+    }
+
+    public String cn(double z){
+	String x = "" + z;
+	int indexDec=0;
+	int space;
+
+	for (int i=0; i < x.length()-1 ; i++){
+	    if (x.substring(i,i+1).equals(".")){
+		indexDec=i;
+	    }
+	}
+
+	space=x.length()-indexDec-2;
+	if (space < 2){
+	    x+="0";
+	}
+	else{
+	    x=x.substring(0,indexDec+4);
+
+	}
+	return "$" + x;
     }
 
     //helper function don't mind
