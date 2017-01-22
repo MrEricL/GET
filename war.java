@@ -28,7 +28,7 @@ public class war implements casinorules{
 	if (difficulty==1) startez();
 	else starthard();
 	go();
-	System.out.println("Total winnings: $"+ winnings);
+	System.out.println("Total winnings: " + cn( winnings ));
 	System.out.println("\n\n\n");
 	return winnings;	
     }
@@ -164,11 +164,11 @@ public class war implements casinorules{
 	while(turns>0){
 	    val=deal();
 	    if (val ==1){
-		System.out.println ("\nYou won! You have gained your bet of $" + cn(bet));
+		System.out.println ("\nYou won! You have gained your bet of " + cn(bet));
 		winnings+=bet;
 	    }
 	    else if (val == -1){
-		System.out.println ("\nYou lost! You have lost your bet of $" + cn(bet));
+		System.out.println ("\nYou lost! You have lost your bet of " + cn(bet));
 		winnings-=bet;
 	    }
 	    else{
