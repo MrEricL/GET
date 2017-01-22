@@ -226,9 +226,17 @@ public class Slots implements casinorules{
 		}
 		Slots newPlay = new Slots(difficulty, money, bet);
 		bet += newPlay.play();
+		return bet;
+	    }
+	    else{
+		System.out.println("You don't have enough money to play!");
+		return bet;
 	    }
 	}
-	return bet;
+	else{
+	    System.out.println("Thanks for playing!");
+	    return bet;
+	}
     }
 
     public String cn(double z){
