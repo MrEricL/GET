@@ -21,18 +21,54 @@ public class suddenDeathSlots extends Slots{
 	}
     }
 
-    public boolean Death(){
+    public boolean danger(){
 	if (jackpot() && _objects[0].equals("skull")){ return true; }
 	else{ return false; }
     }
 
-    public boolean Die(){
+    public boolean attack(){
+	if (jackpot() && _objects[0].equals("sword")){ return true; }
+	else{ return false; }
+    }
+
+    public boolean die(){
 	if (jackpot() && _objects[0].equals("zombie")){ return true; }
 	else{ return false; }
     }
 
+    public String toString(){
+	String retStr = "";
+	if (miniWin()){ retStr += green; }
+	if (jackpot()){
+	    if (die() || attack() || danger()){
+		retStr += red;
+	    }
+	    else{
+		retStr += yellow;
+	    }
+	}
+	//else{ retStr += white; }
+	for(int index = 0; index < 3; index += 1){
+	    retStr += _objects[index] + "\t";
+	    //System.out.println(_objects[index]);
+	}
+	return retStr + reset;
+
     public void go(){
 	super.go();
-	if (Death()){
+	if (danger()){
+	    System.out.println("Danger!");
+	    bet /= 4;
+	}
+	if (attack()){
+	    System.out.println(red + "Attacked by swords!" + red);
+	    bet /= 2;
+	}
+	if (die()){
+	    System.out.println(red + "You've been overpowered by zombies!" + red);
+	    bet *= -2;
+	}
+	
+	
 	    
 }
