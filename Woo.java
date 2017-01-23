@@ -47,11 +47,11 @@ public class Woo{
 	if (money<=0) {
 	System.out.println("\n\n\n\n\n\n\n\n+++++++END+++++++\n\nYou have lost your life savings. " +
 			   "You can no longer afford treatment.\n" +
-			   "Your game has ended\n\n\n\n\n\n\n\n\n\n\n");
+			   "Your game has ended!\n\n\n\n\n\n\n\n\n\n\n");
 	}
-	else System.out.println("\n\n\n\n\n\n\n\n\t\t\t\t\t\t........END........\n\n\n"+
+	else System.out.println("\n\n\n\n\n\n\n\n........END........\n\n\n"+
 				"You win! You won't go sick! \nOn your way to the hospital you got hit by a car!\n\n\n\n\t\t\t"+
-				"\t\t\t~~~~FIN~~~~\n\n\n\n\n\n\n");
+				"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
  
     public void begin(){
@@ -60,21 +60,21 @@ public class Woo{
 	//	System.out.println ("(Type your first name)\n");
         name = Keyboard.readString();
 	System.out.println ("\n\nNice you meet you " + name);
-	//	slp(1.5);
+        slp(2);
 	System.out.println ("\nYou have unfortunately contracted a deathly illness.");
-	//	slp(3);
+	slp(2);
 	System.out.println ("Your doctor tells you about a rare and expensive treatment.");
-	//	slp(2.7);
+	slp(2.7);
 	System.out.println ("However you cannot afford it. It cost $1 million for one dose.");
-	//	slp(2.7);
+	slp(2.7);
 	System.out.println ("You don't have anything but that stack of bills under your bed.");   
-	//	slp(3.2);
+	slp(3.2);
 	System.out.println ("Due to a multiple incidents involving credit card fraud, the bank and insurance isn't help you.");	
-	//	slp(3.5);
+	slp(3.5);
 	System.out.println ("You're at your wit's end and you decide to go to test your luck at a casino.");
-	//	slp(2);
+	slp(2);
 	System.out.println("You will gamble your entire lifes saving tonight.\n\n\n\n");
-	//	slp(4);
+	slp(4.5);
 	
     }
 
@@ -96,7 +96,7 @@ public class Woo{
 	if (difficulty==1) System.out.println("\nEasy mode? Should I get the baby it's rattle?\n\n");
 	else if (difficulty==2) System.out.println("\nMedium mode? This will emulate real life \nand you will lose\n\n");
 	else System.out.println("\nHard mode? What do you want on your tombstone?\n\n");
-	slp(2.5);
+	slp(2);
     }
 
     public void mon () {
@@ -128,9 +128,9 @@ public class Woo{
     }
 
     public void bet(){
-	System.out.println("\n\n_______Bet_______");
+	System.out.println("\n\n_______Bet_______\n");
 	if (playTotal <1){
-	    System.out.println("\nHow much money would you like to bet?");
+	    System.out.println("How much money would you like to bet?");
 	    System.out.println("(You can bet as much as you have)\n");
 	}
 	else{
