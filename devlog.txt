@@ -163,7 +163,8 @@ Gian :: Added many more players for each difficulty in bingo
 
 2017-01-21
 --------------------------------------------------------------
-Eric :: Fixing the bots
+Eric :: Fixing the bots on blackjack. 
+	 Fixed war.
 Truc :: Continued adding color to Slots classes.
 	Finished last Slots subclass.
 	Looped Slots.
@@ -173,7 +174,7 @@ Gian :: Added more comments in classes Bingo and BingoPlayer
 
 2017-01-22
 --------------------------------------------------------------
-Eric :: 
+Eric :: Finished all the bugs and revamped blackjack..
 Truc :: Fixed the Slots loop.
 	Added some color to dice.
 Gian ::
