@@ -231,7 +231,7 @@ public class blackjack implements casinorules {
 	    deck.remove(x);
 	    cardsize--;
 	}
-	System.out.println("\n\n~~~ YOU ARE NOW PLAYING BLACKJACK ~~~\n");	
+	System.out.println("\n\n\t\t~~~ YOU ARE NOW PLAYING BLACKJACK ~~~\n");	
 
 	
     }
@@ -294,18 +294,31 @@ public class blackjack implements casinorules {
 	String d;
 	String e;
 	String f;
+
+	String p;
+
+	
 	System.out.println ("\n____The Cards____");
 	//a
         a="You have ";
 	for (int i=0; i< player.size(); i++){
-	    a+=player.get(i)+" ";
-
+	    p=player.get(i).substring(0,1);
+	    if (p.equals("#") || p.equals("%")){
+		a+=player.get(i).substring(1);
+	    }
+	    else{
+		a+=player.get(i)+" ";
+	    }
 	}
 
 	//b
         b="Jack has ";
 	for (int i=0; i< jack.size(); i++){
-	  b+=jack.get(i)+" ";
+	    p=jack.get(i).substring(0,1);	    
+	    if (p.equals("#") || p.equals("%")){
+		b+=jack.get(i).substring(1);
+	    }
+	    else b+=jack.get(i)+" ";
 
 	}
 	//	System.out.print (" -> " + check(jack));	
@@ -314,7 +327,12 @@ public class blackjack implements casinorules {
 	//c
         c="Lois has ";
 	for (int i=0; i< lois.size(); i++){
-	    c+=lois.get(i)+" ";
+	    p=lois.get(i).substring(0,1);	    
+	    if (p.equals("#") || p.equals("%")){
+		c+=lois.get(i).substring(1);
+	    }
+	    
+	    else c+=lois.get(i)+" ";
 
 	}
 	//	System.out.print (" -> " + check(lois));	
@@ -323,7 +341,11 @@ public class blackjack implements casinorules {
 	//d
 	d="Will has " ;
 	for (int i=0; i< will.size(); i++){
-	    d+=will.get(i)+" ";
+	    p=will.get(i).substring(0,1);	    
+	    if (p.equals("#") || p.equals("%")){
+		d+=will.get(i).substring(1);
+	    }	    
+	    else d+=will.get(i)+" ";
 
 	}
 	//	System.out.print (" -> " + check(will));	
@@ -333,7 +355,11 @@ public class blackjack implements casinorules {
 
         e="Robin has ";
 	for (int i=0; i< robin.size(); i++){
-	    e+=robin.get(i)+" ";
+	    p=robin.get(i).substring(0,1);	    
+	    if (p.equals("#") || p.equals("%")){
+		e+=robin.get(i).substring(1);
+	    }	    
+	    else e+=robin.get(i)+" ";
 
 	}
 	//	System.out.print (" -> " + check(robin));	
@@ -342,7 +368,11 @@ public class blackjack implements casinorules {
 	//f
        f="Emily has " ;
 	for (int i=0; i< emily.size(); i++){
-	   f+=emily.get(i)+" ";
+	    p=emily.get(i).substring(0,1);	    
+	    if (p.equals("#") || p.equals("%")){
+		f+=emily.get(i).substring(1);
+	    }	    
+	    else f+=emily.get(i)+" ";
 
 	}
 	//	System.out.print (" -> " + check(emily));	
@@ -385,8 +415,9 @@ public class blackjack implements casinorules {
 	String ans;
 	
 	System.out.println ("\n~~~ BEGIN ~~~ ");
-
+		printcards();
 	while (!playerdone || !botdone){
+	    
 	    if (!playerdone){
 		if (check(player) > 21){
 		    System.out.println("Look's like you're busted!!!\n");
@@ -396,7 +427,6 @@ public class blackjack implements casinorules {
 	    if (!playerdone){
 		
 		System.out.println("~~~~~~~~~~~~\n");
-		printcards();
 		System.out.println ("Would you like a hit?");
 		System.out.println("(y/n)\n");
 		//y/n
@@ -408,10 +438,6 @@ public class blackjack implements casinorules {
 			player.add(deck.get(x));
 			System.out.println ("You got a " + deck.get(x));
 			    System.out.println();
-			if (deck.get(x).substring(0,3)=="ACE"){
-			    player.add( aceC(deck.get(x)));
-			}
-			else	player.add(deck.get(x));
 			deck.remove(x);	
 		    }
 		    else {
@@ -438,34 +464,8 @@ public class blackjack implements casinorules {
 	closest(results);	
     }
 
-	//ACE Choose
 
 
-	public String aceC(String y){
-	    System.out.println("You have an ACE! You woud you like the value to be 1 or 11?");
-			    String c = y;
-			    int s;
-			    try{
-				s=Keyboard.readInt();
-				if (s!= 1 && s!=11){
-				    System.out.println("\nYou need to choose 1 or 11!\n");
-				    return aceC(y);
-				}
-				else{
-				    if (s==1){
-					c="#"+c;
-				    }
-				    else{
-					c="%"+c;
-				    }
-				}
-			    }
-			    catch (Exception e){
-				return aceC(y);
-				//	return;
-			    }
-			    return c;
-	}
     //CHECK
     public int check (ArrayList <String> x){
 	int total=0;
