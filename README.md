@@ -77,3 +77,4 @@ However, if you tie you get three options (the tie rate has been modified to 50%
 Bingo
 -----
 Bingo is almost completely simulated. You simply will watch the calls and wait to win. 
+Your difficulty will generate random amounts of player based on the formula 'difficulty X 6 X Math.random()'
