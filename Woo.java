@@ -81,12 +81,12 @@ public class Woo{
 	    difficulty=Keyboard.readInt();
 	}
 	catch (Exception e){
-	    System.out.println("\n Try again\n\n\n");
+	    System.out.println("\nTry again\n\n\n");
 	    diff();
 	    return;
 	}
 	if (difficulty< 1 || difficulty > 3){
-	    System.out.println("\n Try again with a valid number\n\n\n");
+	    System.out.println("\nTry again with a valid number\n\n\n");
 	    diff();
 	    return;
 	}
@@ -104,7 +104,7 @@ public class Woo{
          money=Keyboard.readDouble();
 	}
 	catch(Exception e){
-	    System.out.println("\n Try again with a valid amount\n\n\n");
+	    System.out.println("\nTry again with a valid amount\n\n\n");
 	    mon();
 	    return;
 	}
@@ -113,6 +113,12 @@ public class Woo{
 	    System.out.println("\nYa sure you broke?\n");
 	    mon();
 	    return;
+	}
+	if (!money > 0 && !money < 700000){
+	    System.out.println("\nTry again with a valid amount\n\n\n");
+	    mon();
+	    return;
+
 	}
 	
 	
@@ -357,25 +363,10 @@ public class Woo{
 	int x= (int)(Math.random()*100);
 	String z;
 	if (x >= 50){
-	    System.out.println("..... A suited man is approaching you .....\n\n"
-			       + "Wanna make a bet?\n (y/n)");
-	    try{
-		z= Keyboard.readWord();
-		if (z.equals("y")){
-		    bet();
-		}
-		else{
-		    System.out.println("Hmmm....");
-		    slp(0.3);
-		    System.out.println("Looks like you're not serious...");
-		    return;
-		}
-	    }
-	    catch(Exception e){
-		System.out.println("Hmmm....");
-		slp(0.3);
-		System.out.println("Looks like you're not serious...");
-		return;
+	    System.out.println("\n\nYour illness grows worse...");
+	    slp(2);
+	    System.out.println("Your difficulty level has fluctuated.\n\n\n");
+	    difficulty=3;
 	    }	    
 	}
 	else{
