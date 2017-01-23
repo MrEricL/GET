@@ -16,6 +16,9 @@ public class Woo{
     private int dicePlay = 0;
     private int slotsPlay = 0;
     private int TwoUpPlay = 0;
+    private int kenoPlay=0;
+    private int warPlay=0;
+    private int bingoPlay=0;
 
     public int eventChance=0;
 
@@ -97,7 +100,7 @@ public class Woo{
 
     public void mon () {
 	System.out.println("\n\nHow much money would you like to start with?");	
-	System.out.println("Your game  will end when you hit your $1mil goal or when you've  spent all your money");
+	System.out.println("Your game  will end when you hit your $1mil goal or when you've  spent all your money.");
 	System.out.println("(Hit 0 for default amount of $10k)\n");
 
 	try{
@@ -114,11 +117,10 @@ public class Woo{
 	    mon();
 	    return;
 	}
-	if (!money > 0 && !money < 700000){
+	if (!(money > 0) && !(money < 700000)){
 	    System.out.println("\nTry again with a valid amount\n\n\n");
 	    mon();
 	    return;
-
 	}
 	
 	
@@ -150,8 +152,7 @@ public class Woo{
 	    System.out.println("\n Try again with a valid amount\n\n\n");
 	    bet();
 	    return;		
-	}
-	    
+	}	    
 	    
     }
 
@@ -177,6 +178,7 @@ public class Woo{
 	if (select==1){
 	    if (blackjackPlay<1){
 		System.out.println("\nThe instructions will only appear once so read it carefully");
+		slp(1.5);
 		blackjackInstruct();
 	    }
 	    blackjackPlay+=1;
@@ -187,6 +189,7 @@ public class Woo{
 	else if (select == 2){
 	    if (dicePlay==0){
 		System.out.println("\nThe instructions will only appear once so read it carefully");
+		slp(1.5);
 	        diceInstruct();
 	    }
 	    dicePlay+=1;
@@ -197,6 +200,7 @@ public class Woo{
 	else if (select == 3){
 	    if(slotsPlay == 0){
 		System.out.println("\nThe instructions will only appear once so read it carefully");
+		slp(1.5);
 		slotsInstruct();;
 	    }
 	    slotsPlay = 1;
@@ -206,22 +210,30 @@ public class Woo{
 	}
 	else if (select ==4){
 	    bet();
+	    if (warPlay==0){
+		System.out.println("\nThe instructions will only appear once so read it carefully");
+		slp(1.5);
+	        warInstruct();
+	    }	    
 	    war game4= new war(difficulty, money, bet);
 	    money+=game4.play();
 	}
 	else if (select==5){
 	    money-=1;
+	    if (kenoPlay==0){
+		System.out.println("\nThe instructions will only appear once so read it carefully");
+		slp(1.5);
+	        kenoInstruct();
+	    }	    
 	    keno game5= new keno(difficulty);
 	    money+=game5.play();
 	}
 	else if ( select == 6 ) {
-	    /* Uncomment once bingoInstruct() is written.
-	    if ( bingoPlay == 0 ) {
-		System.out.println( "The instructions will only appear once so read it carefully" );
-		bingoInstruct();
-		bingoPlay += 1;
+	    if (bingoPlay==0){
+		System.out.println("\nThe instructions will only appear once so read it carefully");
+		slp(1.5);
+	        bingoInstruct();
 	    }
-	    */
 	    bet();
 	    Bingo game6 = new Bingo( name, difficulty, bet );
 	    money += game6.play();
@@ -230,6 +242,7 @@ public class Woo{
 	    bet();
 	    if ( TwoUpPlay == 0 ) {
 		System.out.println( "The instructions will only appear once so read it carefully" );
+		slp(1.5);
 		TwoUpInstruct();
 	    }
 	    TwoUpPlay += 1;
@@ -340,7 +353,12 @@ public class Woo{
 	//	slp(6);
     }
 
+    public void warInstruct(){
 
+	System.out.println("\nWhen there is a tie, simply choose one of three options.");
+	System.out.println("The amount of decks will vary, depending on difficulty from 1-6\n\n");
+
+    }
     public void slotsInstruct(){
 	System.out.println("\nSpin the slots to get three values.");
 	System.out.println("Depending on what you spin, you win certain amounts.\n\n");
@@ -352,8 +370,14 @@ public class Woo{
     }
     
     public void TwoUpInstruct(){
-	System.out.println("Two-Up is a coin toss game. Bets are placed on ");
-	System.out.println("each coin toss.");
+	System.out.print("\nTwo-Up is a coin toss game. Bets are placed on ");
+	System.out.println("each coin toss.\n\n");
+    }
+
+    public void bingoInstruct(){
+	System.out.println("\nYou do not have to do anything. Simply wait for someone to get bingo.");
+	System.out.println("The amount of opponents vary, but the higher the difficulty, the greater the number opponents.\n\n")
+	    
     }
 
 
@@ -365,14 +389,13 @@ public class Woo{
 	if (x >= 50){
 	    System.out.println("\n\nYour illness grows worse...");
 	    slp(2);
+	    System.out.println("\nYou are struck by a blinding headache.");	    
 	    System.out.println("Your difficulty level has fluctuated.\n\n\n");
-	    difficulty=3;
-	    }	    
+	    difficulty=3;	    
 	}
 	else{
 	    double y = (Math.random()*money/2);
 	    for (int i = 0; i < 75; i++){
-
 		System.out.println("█████████████████████████████████████████████████████████████████████");
 		slp(0.01);
 	    }
