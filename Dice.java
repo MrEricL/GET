@@ -68,19 +68,14 @@ public class Dice implements casinorules{
     public void go(){
 	System.out.println("Rolling..... ");
 	roll();
-	// System.out.println("Here are your results : ");
-	// System.out.println("\tDice 1 : " + face1);
-	// System.out.println("\tDice 2 : " + face2);
 	System.out.println("You rolled a " + face1 + " and a " + face2 + "!");
 	check();
 	if (win){
 	    System.out.println("Congrats you won!");
-	    //money += bet;
 	    bet *= 2;
 	}
 	else{
 	    System.out.println("Better luck next time buddy");
-	    //money -= bet;
 	    bet = 0 - bet;
 	}
 	System.out.println("bet : " + bet);
@@ -97,7 +92,6 @@ public class Dice implements casinorules{
 	    ans = Keyboard.readWord().toUpperCase();
 	}
 	if (ans.equals("Y")){
-	    //winnings = bet;
 	    money += bet;
 	    System.out.println("You currently have " + cn(money));
 	    if (money > 0){
@@ -111,7 +105,6 @@ public class Dice implements casinorules{
 		}
 		Dice newPlay = new Dice(difficulty, money, bet);
 		bet += newPlay.play();
-		//System.out.println("winnings : " + winnings);
 	    }
 	    else{
 		System.out.println("I don't think you have any money left!");

@@ -52,7 +52,7 @@ public class Woo{
     }
  
     public void begin(){
-	System.out.println("\t\n\n\nDo Ya Feel Lucky? The Terminal Casino Adventure\n");
+	System.out.println("\n\t\tDo Ya Feel Lucky? The Terminal Casino Adventure\n");
 	System.out.println ("\nYou are ?\n");
 	//	System.out.println ("(Type your first name)\n");
         name = Keyboard.readString();
