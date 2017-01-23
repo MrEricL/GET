@@ -16,7 +16,7 @@ Blackjack
 **Introduction**
 
 Blackjack is a classic casino card game with the goal to to get a total of 21. Suits don't matter in this version 
-with all JACK/QUEEN/KING/ACE being worth 10.
+with all JACK/QUEEN/KING worth 10. You decide if you want ACE to be worth 11 or 1.
 
 **Notes**
 
@@ -75,11 +75,13 @@ War
 ---
 Casino war is simple: the player and the house are dealt two cards.
 
-However, if you tie you get three options (the tie rate has been modified to 50% for user engagement).
-1. Bet on win -> Three cards are discarded and you double your bet.
-2. Bet on tie -> Three cards are discarded and you triple your bet.
-3. Surrender -> Only give up half your bet.
-
+However, if you tie you get three options (the tie rate has been modified to 50% for user engagement).      
+1. Bet on win -> Three cards are discarded and you double your bet.    
+2. Bet on tie -> Three cards are discarded and you triple your bet.     
+3. Surrender -> Only give up half your bet.     
+    
 Bingo
 -----
 Bingo is almost completely simulated. You simply will watch the calls and wait to win. 
+Each time your number is called, it will be "zeroed" out to signify a counter.
+Your difficulty will generate random amounts of player based on the formula: `difficulty X 6 X Math.random()`
