@@ -23,7 +23,9 @@ public class suddenDeathSlots extends Slots{
     }
 
     public void helper(){
-	for (String x : _objects){
+	String x;
+	for (int i = 0; i < 3; i ++){
+	    x = _objects[i];
 	    if (x.equals("angel")){
 		bet += 10;
 		System.out.println("You got an angel! +10 on earnings!");
