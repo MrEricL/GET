@@ -16,7 +16,7 @@ Blackjack
 **Introduction**
 
 Blackjack is a classic casino card game with the goal to to get a total of 21. Suits don't matter in this version 
-with all JACK/QUEEN/KING/ACE being worth 10.
+with all JACK/QUEEN/KING worth 10. You decide if you want ACE to be worth 11 or 1.
 
 **Notes**
 
@@ -77,4 +77,5 @@ However, if you tie you get three options (the tie rate has been modified to 50%
 Bingo
 -----
 Bingo is almost completely simulated. You simply will watch the calls and wait to win. 
-Your difficulty will generate random amounts of player based on the formula 'difficulty X 6 X Math.random()'
+Each time your number is called, it will be "zeroed" out to signify a counter.
+Your difficulty will generate random amounts of player based on the formula: `difficulty X 6 X Math.random()`
