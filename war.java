@@ -28,7 +28,9 @@ public class war implements casinorules{
 	if (difficulty==1) startez();
 	else starthard();
 	go();
+	System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n");
 	System.out.println("Total winnings: " + cn( winnings ));
+	slp(2);
 	System.out.println("\n\n\n");
 	return winnings;	
     }
@@ -38,7 +40,8 @@ public class war implements casinorules{
     //start_________________________________________________________
     public void start(){
 	int times=0;
-	System.out.println("\n\n~~~~~~~~~ CASINO WAR ~~~~~~~~~\n");
+	slp(2);
+	System.out.println("\n\n\t\t~~~~~~~~~ CASINO WAR ~~~~~~~~~\n");
 	System.out.println("\nCasino war is very short. How many times would you like to play?\n");
 	try {
 	    times=Keyboard.readInt();
@@ -361,6 +364,7 @@ public class war implements casinorules{
 	    x=(int)(Math.random()*deck.size());
 	    z= deck.get(x);
 	    System.out.println("The dealer has discarded " + z);
+	    slp(0.3);
 	}
 	int val=dealTie2();
 	if (val==0){
@@ -380,7 +384,7 @@ public class war implements casinorules{
     public void prepwar(int increase){
 	int want;
 	System.out.println("The values are equal! What would you like to do?");
-	System.out.println("1.Bet on winning\n2.Bet on tie\n3.Surrender");
+	System.out.println("1.Bet on winning\n2.Bet on tie\n3.Surrender\n");
 	try{
 	    want=Keyboard.readInt();
 	    if (want==3){
@@ -470,7 +474,7 @@ public class war implements casinorules{
 	    x=x.substring(0,indexDec+4);
 
 	}
-	return "$" + x;
+	return x;
     }
 
 	public void slp(double x){
