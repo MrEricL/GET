@@ -376,7 +376,7 @@ public class Woo{
 
     public void bingoInstruct(){
 	System.out.println("\nYou do not have to do anything. Simply wait for someone to get bingo.");
-	System.out.println("The amount of opponents vary, but the higher the difficulty, the greater the number opponents.\n\n")
+	System.out.println("The amount of opponents vary, but the higher the difficulty, the greater the number opponents.\n\n");
 	    
     }
 
