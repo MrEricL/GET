@@ -96,6 +96,7 @@ public class Woo{
 	if (difficulty==1) System.out.println("\nEasy mode? Should I get the baby it's rattle?\n\n");
 	else if (difficulty==2) System.out.println("\nMedium mode? This will emulate real life \nand you will lose\n\n");
 	else System.out.println("\nHard mode? What do you want on your tombstone?\n\n");
+	slp(2.5);
     }
 
     public void mon () {
@@ -317,30 +318,37 @@ public class Woo{
     //INSTRUCTIONS
     public void blackjackInstruct(){
 	    System.out.println ("\n\nYour goal to to get a total of 21.");
+	    slp(2.5);
 	System.out.println ("Suits don't matter and JACK/QUEEN/KING are all worth 10.");
+	slp(3);
 	System.out.println("You decide if an ACE is either worth 1 or 11.");
+	slp(3);
 	    System.out.println ("The game will stop when you don't want to get hit or when your hand is too large.");
+	    slp(2.5);
 
 	    
 	    if (difficulty==1){
 		System.out.println ("\nYou are in easy mode: the game will only use one deck.");
 		System.out.println ("The bots are extremely simple and will mainly guess.\n\n");
+		slp(3);
 
 	    }
 	    if (difficulty==2){
 		System.out.println ("\nYou are in medium mode: the game will use six decks");
-		System.out.println ("The bots will use basic logic and calculations to make their choice.\n\n");		
+		System.out.println ("The bots will use basic logic and calculations to make their choice.\n\n");
+		slp(3);
 	    }
 	    if (difficulty==3){
 		System.out.println ("You are in hard  mode: the game will use six deck.");
-		System.out.println ("The bots are very sophisticated and will almost always win.\n\n");		
+		System.out.println ("The bots are very sophisticated and will almost always win.\n\n");
+		slp(3);
 	    }
-	    //	    slp(10);
+	    slp(2);
     }
 
     public void diceInstruct(){
 	System.out.println("\n\nAttempt to guess what two dices will land one.\n");	
-
+	slp(1.5);
 	if (difficulty==1){
 	    System.out.println("The faces' values range between 1 and 6\n\n");
 	}
@@ -350,33 +358,42 @@ public class Woo{
 	if (difficulty==3){
 	    System.out.println("The faces' values range between 1 and 12\n\n");
 	}
-	//	slp(6);
+	slp(3);
     }
 
     public void warInstruct(){
 
 	System.out.println("\nWhen there is a tie, simply choose one of three options.");
+	slp(2.5);
 	System.out.println("The amount of decks will vary, depending on difficulty from 1-6\n\n");
+	slp(2.5);
 
     }
     public void slotsInstruct(){
 	System.out.println("\nSpin the slots to get three values.");
+	slp(2);
 	System.out.println("Depending on what you spin, you win certain amounts.\n\n");
+	slp(2.5);	
     }
 
     public void kenoInstruct(){
 	System.out.println("\nSelect a certain amount of numbers of picks.");
+	slp(2.5);
 	System.out.println("Depending on how many you pick and if they are correct, you win certain amounts.\n\n");
+	slp(2.5);	
     }
     
     public void TwoUpInstruct(){
 	System.out.print("\nTwo-Up is a coin toss game. Bets are placed on ");
+	slp(2.5);
 	System.out.println("each coin toss.\n\n");
+	slp(2);	
     }
 
     public void bingoInstruct(){
 	System.out.println("\nYou do not have to do anything. Simply wait for someone to get bingo.");
 	System.out.println("The amount of opponents vary, but the higher the difficulty, the greater the number opponents.\n\n");
+	slp(2.5);	
 	    
     }
 

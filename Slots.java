@@ -155,31 +155,31 @@ public class Slots implements casinorules{
     }
 
     public void start(){
-	System.out.println("Which slots would you like to play?");
+	System.out.println("\n\nWhich slots would you like to play?");
 	System.out.println("\t1. Regular");
 	System.out.println("\t2. Fruits");
 	System.out.println("\t3. Numbers");
-	System.out.println("\t4. Death");
+	System.out.println("\t4. Death\n");
 	selection = Keyboard.readInt();
     }
 
     public void go(){
-	System.out.println("Spinning.....");
+	System.out.println("\n\nSpinning.....\n\n");
 	spinPrint();
 	spin();
 	slp(1.5);
 	System.out.println(this);
 	if (miniWin()){
 	    if (jackpot()){
-		System.out.println("\n\nJACKPOT!!!!!!!\n");
+		System.out.println("\n\nJACKPOT!!!!!!!\n\n");
 		bet *= 2;
 	    }
 	    else{
-		System.out.println("\nMini Win!!!!!\n");
+		System.out.println("\nMini Win!!!!!\n\n");
 	    }
 	}
 	else{
-	    System.out.println("No winnings :( ");
+	    System.out.println("No winnings :(\n\n ");
 	    bet = 0 - bet;
 	}
     }
@@ -205,18 +205,18 @@ public class Slots implements casinorules{
 	    go();
 	}
 	
-	System.out.print("Care for another spin? Y or N? ");
+	System.out.print("\nCare for another spin?");
 	String ans = Keyboard.readString().toUpperCase();
 	while(!ans.equals("Y") && !ans.equals("N")){
-	    System.out.println("Please type Y or N.");
-	    System.out.print("Care for another spin? Y or N? ");
+	    System.out.println("(y/n)");
+	    System.out.print("\n\nCare for another spin? Y or N?");
 	    ans = Keyboard.readWord().toUpperCase();
 	}
 	if (ans.equals("Y")){
 	    money += bet;
 	    System.out.println("You currently have " + cn(money));
 	    if (money > 0){
-		System.out.print("How much will you be betting? ");
+		System.out.print("\nHow much will you be betting? ");
 		double newBet = Keyboard.readDouble();
 		while (newBet > money){
 		    System.out.println("You don't have that kind of money!!");
@@ -234,7 +234,7 @@ public class Slots implements casinorules{
 	    }
 	}
 	else{
-	    System.out.println("Thanks for playing!");
+	    System.out.println("Thanks for playing!\n\n\n");
 	    return bet;
 	}
     }

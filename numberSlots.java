@@ -1,14 +1,14 @@
 public class numberSlots extends Slots {
 
     private static final String[] NUMBERS = {
-	"one", "one", "one",
-	"two", "two", "two",
-	"three", "three", "three",
-	"four", "four", "four",
-	"five", "five", "five",
-	"ten", "ten", "ten",
-	"fifty", "fifty", "fifty",
-	"hundred", "hundred", "hundred",
+	"one     ", "one     ", "one     ",
+	"two     ", "two     ", "two     ",
+	"three   ", "three   ", "three   ",
+	"four    ", "four    ", "four    ",
+	"five    ", "five    ", "five    ",
+	"ten     ", "ten     ", "ten     ",
+	"fifty   ", "fifty   ", "fifty   ",
+	"hundred ", "hundred ", "hundred ",
 	yellow + "thousand" + reset, yellow + "thousand" + reset, yellow + "thousand" + reset,
     };
 
