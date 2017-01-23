@@ -8,6 +8,9 @@ public class Dice implements casinorules{
     private int face1, face2, guess1, guess2, difficulty;
     private double money, bet, winnings;
     private boolean win = false;
+    private static final String reset = "\u001B[0m";
+    private static final String red = "\u001B[31m";
+    private static final String green = "\u001B[32m";
 
     public Dice(){
 	money = 0;
@@ -71,11 +74,11 @@ public class Dice implements casinorules{
 	System.out.println("You rolled a " + face1 + " and a " + face2 + "!");
 	check();
 	if (win){
-	    System.out.println("Congrats you won!");
+	    System.out.println(green + "Congrats you won!" + reset);
 	    bet *= 2;
 	}
 	else{
-	    System.out.println("Better luck next time buddy");
+	    System.out.println(red + "Better luck next time buddy" + reset);
 	    bet = 0 - bet;
 	}
 	System.out.println("bet : " + bet);
