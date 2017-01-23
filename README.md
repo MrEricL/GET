@@ -37,7 +37,7 @@ Slots
 Slots employs machines that turn rolls of pictures until it stops. Your goal is to get a set of matching pictures or a set of three completely different pictures to win.
 
 **Notes**
-Slots also divides into different slots machines. All machines allow you to win a miniwin (three different pictures in the slots) or a jackpot (all three are the same). However, the different slots machines have additional features (except the normal slots). In fruit Slots, you can double your earnings if your jackpot is with the apples picture. In number Slots, you add 1000 to your earnings if your jackpot lands on the "thousand" picture.
+Slots also divides into different slots machines. All machines allow you to win a miniwin (three different pictures in the slots) or a jackpot (all three are the same). However, the different slots machines have additional features (except the normal slots). In fruit Slots, you can double your earnings if your jackpot is with the apples picture. In number Slots, you add 1000 to your earnings if your jackpot lands on the "thousand" picture. In Death Slots, you can earn extra by hitting certain pictures, or lose it all!
 
 **Difficulty Levels**
 Easy mode: There are only three different pictures being cycled.
@@ -57,6 +57,12 @@ Easy mode: The dice each have 6 sides.
 Medium mode: The dice each have 9 sides.
 
 Hard mode: The dice each have 12 sides. Good luck guessing that one!
+
+Two-Up
+------
+Two-Up takes two coins and flips them. 
+
+There are four different bets that you can make, each with different payouts. Single Head and Single Tail each payout what you bet, while Spinner's Bet and Five Odds payout even more. Check the instructions for rules.
 
 Keno
 ----
