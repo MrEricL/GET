@@ -3,14 +3,6 @@
 Woo.java is the driver file, ignore everything else
 
 
-Housekeeping Stuff
-
-casinorules.java is the interface to equalize methods across classes     
-The games are kept in the folder UNTIL they are finished and are ready to connect with the driver     
-cs1 is used to take terminal input, DO NOT modify      
-
-
-
 Instructions
 ============
 
@@ -75,7 +67,13 @@ The pay table for keno is provided by the British-Columbia Lottery Corporation: 
 <img src="https://github.com/MrEricL/GET/blob/master/pics/Screen%20Shot%202017-01-17%20at%2010.48.24%20AM.png"><br>
 War
 ---
+Casino war is simple: the player and the house are dealt two cards.
+
+However, if you tie you get three options (the tie rate has been modified to 50% for user engagement).
+1. Bet on win -> Three cards are discarded and you double your bet.
+2. Bet on tie -> Three cards are discarded and you triple your bet.
+3. Surrender -> Only give up half your bet.
 
 Bingo
 -----
-
+Bingo is almost completely simulated. You simply will watch the calls and wait to win. 
