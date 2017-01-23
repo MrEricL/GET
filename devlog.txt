@@ -1,4 +1,3 @@
-ˇ
 Team GET
 Eric L
 Truc D
@@ -41,6 +40,7 @@ LESSONS LEARNED
 - For ArrayList don't create it as just ArrayList name, since it'll think each thing is an object. 
 - You can have a local variable with the same name as your instance variables. Don't do that.
 - Start with MVP and add to it afterward.
+- UMLs and flowcharts really help you understand code.
 ||||||||||||||||||||||||||||||||||||||||||
 
  ______   ______   __   __   __       ______   _______     
@@ -177,5 +177,6 @@ Gian :: Added more comments in classes Bingo and BingoPlayer
 Eric :: Finished all the bugs and revamped blackjack..
 Truc :: Fixed the Slots loop.
 	Added some color to dice.
+	Finished UML and flowchart.
 Gian ::
 ==============================================================
