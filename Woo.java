@@ -159,9 +159,6 @@ public class Woo{
 
     public void selection(){
 	int select=0;
-	int blackjackPlay=0; //adds the instructions
-	int dicePlay=0;
-	int slotsPlay = 0;
 	int diff;
 	System.out.println("\n\n---------Selection---------\n");
 	System.out.println("You have" + cn(money));
@@ -416,7 +413,9 @@ public class Woo{
 		System.out.println("█████████████████████████████████████████████████████████████████████");
 		slp(0.01);
 	    }
-	    System.out.println("You blacked out from your illness. You were pickpocketed. You lost around" + cn(y)+".\n\n\n\n");
+	    System.out.println("You blacked out from your illness. You were pickpocketed. You lost around" + cn(y)+".");
+	    slp(3);
+	    System.out.println("\n\n\n");
 	    money-=y;
 			       
 	}

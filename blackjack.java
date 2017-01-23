@@ -415,9 +415,9 @@ public class blackjack implements casinorules {
 	String ans;
 	
 	System.out.println ("\n~~~ BEGIN ~~~ ");
-		printcards();
+
 	while (!playerdone || !botdone){
-	    
+	    printcards();
 	    if (!playerdone){
 		if (check(player) > 21){
 		    System.out.println("Look's like you're busted!!!\n");
@@ -460,11 +460,32 @@ public class blackjack implements casinorules {
 	    }
 	    slp(0.5);	
 	}
+	chooseAce(player);
 	resultTally();
 	closest(results);	
     }
 
 
+    public void chooseAce (ArrayList <String> x){
+	int choosy;
+	String suit;
+	for (int i=0; i < x.size() ; i++){
+	    suit=x.get(i).substring(3);
+	    if (x.get(i).substring(0,1) == "A"){
+		System.out.println("You have an "+x.get(i)+suit);
+		System.out.println("What would you like the value of it to be?");
+		System.out.println("1. 1\n2. 11");
+		choosy=Keyboard.readInt();
+		if (choosy!= 1 || choosy != 11){
+		    chooseAce(x);
+		    return;
+		}
+		if (choosy==1) x.set(i,"#ACE"+suit);
+		else  x.set(i,"%ACE"+suit);
+	    }
+	}
+	
+    }
 
     //CHECK
     public int check (ArrayList <String> x){
