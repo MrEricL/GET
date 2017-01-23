@@ -46,7 +46,7 @@ public class Dice implements casinorules{
 	    win = true;
 	}
     }
-
+	
     public void start(){
 	System.out.println("Welcome to the Dice game!");
 	System.out.print("Guess what one die will roll: ");
