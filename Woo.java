@@ -403,8 +403,10 @@ public class Woo{
 	if (x >= 50){
 	    System.out.println("\n\nYour illness grows worse...");
 	    slp(2);
-	    System.out.println("\nYou are struck by a blinding headache.");	    
+	    System.out.println("\nYou are struck by a blinding headache.");
+	    slp(2);
 	    System.out.println("Your difficulty level has fluctuated.\n\n\n");
+	    slp(3);
 	    difficulty=3;	    
 	}
 	else{
@@ -414,7 +416,7 @@ public class Woo{
 		slp(0.01);
 	    }
 	    System.out.println("You blacked out from your illness. You were pickpocketed. You lost around" + cn(y)+".");
-	    slp(3);
+	    slp(5);
 	    System.out.println("\n\n\n");
 	    money-=y;
 			       

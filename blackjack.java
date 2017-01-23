@@ -70,6 +70,7 @@ public class blackjack implements casinorules {
 	else{
 	    return bet*-1;
 	}
+	slp(3);
     }
     /*
 		
@@ -239,39 +240,74 @@ public class blackjack implements casinorules {
 
     //prints the values of the bots
     public void printcards(){
-	System.out.print ("You have " );
+	String p;
+	
+	System.out.print ("\n\nYou have " );
 	for (int i=0; i< player.size(); i++){
-	    System.out.print (player.get(i)+" ");
+ 	    p=player.get(i).substring(0,1);
+	    if (p.equals("#") || p.equals("%")){
+		System.out.print(player.get(i).substring(1)+" ");
+	    }	    
+	    else System.out.print (player.get(i)+" ");
 	}
 	System.out.println();	
 
 	System.out.print ("Jack has " );
 	for (int i=0; i< jack.size(); i++){
-	    if (i!=1) System.out.print (jack.get(i)+" ");
-	    else System.out.print ("? ");
+	    
+	    if (i!=1){
+		p=jack.get(i).substring(0,1);
+		if (p.equals("#") || p.equals("%")){
+		    System.out.print(jack.get(i).substring(1)+" ");
+		}
+		else System.out.print (jack.get(i) +" ");
+	    }
+	    else{
+		System.out.print ("? ");
+	    }
 
 	}
 	System.out.println();
 
 	System.out.print ("Lois has " );
 	for (int i=0; i< lois.size(); i++){
-	    if (i!=1) System.out.print (lois.get(i)+" ");
+	    if (i!=1){
+		p=lois.get(i).substring(0,1);
+		if (p.equals("#") || p.equals("%")){
+		    System.out.println(lois.get(i).substring(1)+" ");
+		}
+		else System.out.print (lois.get(i) +" ");
+	    }
 	    else System.out.print ("? ");
 
 	}
 	System.out.println();
 
+	
 	System.out.print ("Will has " );
 	for (int i=0; i< will.size(); i++){
-	    if (i!=1) System.out.print (will.get(i)+" ");
+	    if (i!=1){
+		p=will.get(i).substring(0,1);
+		if (p.equals("#") || p.equals("%")){
+		    System.out.print(will.get(i).substring(1)+" ");
+		}
+		else System.out.print (will.get(i) +" ");
+	    }
 	    else System.out.print ("? ");
 
 	}
 	System.out.println();
 
+	
 	System.out.print ("Robin has " );
 	for (int i=0; i< robin.size(); i++){
-	    if (i!=1) System.out.print (robin.get(i)+" ");
+	    if (i!=1){
+		p=robin.get(i).substring(0,1);
+		if (p.equals("#") || p.equals("%")){
+		    System.out.print(robin.get(i).substring(1)+" ");
+		}
+		else System.out.print (robin.get(i) +" ");
+	    }
 	    else System.out.print ("? ");
 
 	}
@@ -279,11 +315,17 @@ public class blackjack implements casinorules {
 
 	System.out.print ("Emily  has " );
 	for (int i=0; i< emily.size(); i++){
-	    if (i!=1) System.out.print (emily.get(i)+" ");
+	    if (i!=1){
+		p=emily.get(i).substring(0,1);
+		if (p.equals("#") || p.equals("%")){
+		    System.out.print(emily.get(i).substring(1)+" ");
+		}
+		else System.out.print (emily.get(i) +" ");
+	    }
 	    else System.out.print ("? ");
 
 	}
-	System.out.println();	
+	System.out.println("\n");	
 
     }
     //print cards final
@@ -418,11 +460,14 @@ public class blackjack implements casinorules {
 
 	while (!playerdone || !botdone){
 	    printcards();
+	    slp(3);
 	    if (!playerdone){
 		if (check(player) > 21){
 		    System.out.println("Look's like you're busted!!!\n");
+		    slp(2.5);
 		    playerdone=true;
 		}
+		
 	    }
 	    if (!playerdone){
 		
@@ -438,7 +483,8 @@ public class blackjack implements casinorules {
 			player.add(deck.get(x));
 			System.out.println ("You got a " + deck.get(x));
 			    System.out.println();
-			deck.remove(x);	
+			deck.remove(x);
+			
 		    }
 		    else {
 			playerdone=true;
@@ -451,7 +497,8 @@ public class blackjack implements casinorules {
 		    int g = (int)(Math.random()*listOfPeeps.length-1);
 		    int k= (int)(Math.random()*tauntPick.length);
 		    System.out.println("\n\n"+listOfPeeps[g+1]+": "+tauntPick[k]+"\n\n");
-		}		
+		}
+		slp(2);
 	    }
 	    if (!botdone){
 		if (difficulty==1) ezbot();
@@ -470,13 +517,13 @@ public class blackjack implements casinorules {
 	int choosy;
 	String suit;
 	for (int i=0; i < x.size() ; i++){
-	    suit=x.get(i).substring(3);
-	    if (x.get(i).substring(0,1) == "A"){
-		System.out.println("You have an "+x.get(i)+suit);
+	    suit=x.get(i).substring(x.get(i).length()-1);
+	    if (x.get(i).substring(0,1).equals("A")){
+		System.out.println("You have an "+x.get(i));
 		System.out.println("What would you like the value of it to be?");
-		System.out.println("1. 1\n2. 11");
+		System.out.println("1. 1\n2. 11\n");
 		choosy=Keyboard.readInt();
-		if (choosy!= 1 || choosy != 11){
+		if (choosy!= 1 && choosy != 11){
 		    chooseAce(x);
 		    return;
 		}
