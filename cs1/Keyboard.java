@@ -309,7 +309,8 @@ public class Keyboard
       catch (Exception exception) 
       {
          error ("Error reading double data, NaN value returned.");
-         value = Double.NaN;
+         //value = Double.NaN;
+	 value = 0;
       }
       return value;
    }
