@@ -175,5 +175,6 @@ Gian :: Added more comments in classes Bingo and BingoPlayer
 --------------------------------------------------------------
 Eric :: 
 Truc :: Fixed the Slots loop.
+	Added some color to dice.
 Gian ::
 ==============================================================
