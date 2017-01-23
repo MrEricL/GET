@@ -70,10 +70,10 @@ War
 Casino war is simple: the player and the house are dealt two cards.
 
 However, if you tie you get three options (the tie rate has been modified to 50% for user engagement).
-1. Bet on win -> Three cards are discarded and you double your bet.
-2. Bet on tie -> Three cards are discarded and you triple your bet.
-3. Surrender -> Only give up half your bet.
-
+1. Bet on win -> Three cards are discarded and you double your bet.    
+2. Bet on tie -> Three cards are discarded and you triple your bet.     
+3. Surrender -> Only give up half your bet.     
+    
 Bingo
 -----
 Bingo is almost completely simulated. You simply will watch the calls and wait to win. 
