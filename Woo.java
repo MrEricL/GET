@@ -275,15 +275,15 @@ public class Woo{
     }
 	//HELPER FUNCTIONS------------------------------------------------------------------------------
 	//pauses the print statements by seconds
-	public void slp(double x){
-	    x*=1000;
-	    long y= (long)x;
-	    try{
-		Thread.sleep(y);
-	    }
-	    catch(InterruptedException e){
-	    }
+    public void slp(double x){
+	x*=1000;
+	long y= (long)x;
+	try{
+	    Thread.sleep(y);
 	}
+	catch(InterruptedException e){
+	}
+    }
 
     public String slpS(double x){
 	slp(x);
